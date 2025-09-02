@@ -14,9 +14,7 @@ export default function HomeScreen() {
 	const scrollOffsetY = useRef(new Animated.Value(0)).current;
 
 	return (
-		<View
-			className="bg-background h-full"
-		>
+		<View className="bg-background h-full">
 			<HomeHeader value={scrollOffsetY} />
 			<ScrollView
 				scrollEventThrottle={5}

@@ -16,7 +16,7 @@ export function HomeHadith() {
 					end={{ x: 0.5, y: 1 }}
 					style={{
 						padding: 16,
-						gap: 8
+						gap: 8,
 					}}
 				>
 					<CardContent className="p-0">

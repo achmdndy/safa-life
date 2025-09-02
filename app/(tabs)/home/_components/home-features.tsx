@@ -14,35 +14,35 @@ export function HomeFeatures() {
 			</View>
 
 			<View className="flex-row items-center justify-between mt-2">
-				<View 
-					className="w-1/5 items-center bg-card p-2 rounded-lg"
-				>
+				<View className="w-1/5 items-center bg-card p-2 rounded-lg">
 					<Compass width={25} height={25} />
-					<Text className="mt-2 text-muted-foreground font-semibold">Qibla</Text>
+					<Text className="mt-2 text-muted-foreground font-semibold">
+						Qibla
+					</Text>
 				</View>
-				<View 
-					className="w-1/5 items-center bg-card p-2 rounded-lg"
-				>
+				<View className="w-1/5 items-center bg-card p-2 rounded-lg">
 					<Compass width={25} height={25} />
-					<Text className="mt-2 text-muted-foreground font-semibold">Qibla</Text>
+					<Text className="mt-2 text-muted-foreground font-semibold">
+						Qibla
+					</Text>
 				</View>
-				<View 
-					className="w-1/5 items-center bg-card p-2 rounded-lg"
-				>
+				<View className="w-1/5 items-center bg-card p-2 rounded-lg">
 					<Compass width={25} height={25} />
-					<Text className="mt-2 text-muted-foreground font-semibold">Qibla</Text>
+					<Text className="mt-2 text-muted-foreground font-semibold">
+						Qibla
+					</Text>
 				</View>
-				<View 
-					className="w-1/5 items-center bg-card p-2 rounded-lg"
-				>
+				<View className="w-1/5 items-center bg-card p-2 rounded-lg">
 					<Compass width={25} height={25} />
-					<Text className="mt-2 text-muted-foreground font-semibold">Qibla</Text>
+					<Text className="mt-2 text-muted-foreground font-semibold">
+						Qibla
+					</Text>
 				</View>
-				<View 
-					className="w-1/5 items-center bg-card p-2 rounded-lg"
-				>
+				<View className="w-1/5 items-center bg-card p-2 rounded-lg">
 					<Compass width={25} height={25} />
-					<Text className="mt-2 text-muted-foreground font-semibold">Qibla</Text>
+					<Text className="mt-2 text-muted-foreground font-semibold">
+						Qibla
+					</Text>
 				</View>
 			</View>
 		</View>

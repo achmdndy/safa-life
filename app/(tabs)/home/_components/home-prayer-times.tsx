@@ -10,17 +10,22 @@ export function HomePrayerTimes() {
 				Today's Prayer Schedule
 			</Text>
 
-			<Card className="p-4 border-transparent" style={{
-				shadowColor: '#000',
-				shadowOffset: { width: 0, height: 0 },
-				shadowOpacity: 0.1,
-				shadowRadius: 10,
-			}}>
+			<Card
+				className="p-4 border-transparent"
+				style={{
+					shadowColor: "#000",
+					shadowOffset: { width: 0, height: 0 },
+					shadowOpacity: 0.1,
+					shadowRadius: 10,
+				}}
+			>
 				<CardContent className="p-0">
 					<View className="flex-row items-center justify-between">
 						<View>
 							<Text className="text-lg font-semibold">Fajr</Text>
-							<Text className="text-muted-foreground">Upcoming in 23 minutes</Text>
+							<Text className="text-muted-foreground">
+								Upcoming in 23 minutes
+							</Text>
 						</View>
 
 						<Text className="text-2xl font-bold text-destructive">04:35</Text>

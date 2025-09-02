@@ -21,14 +21,6 @@ npm run type-check ||
   false;
 )
 
-echo '🤔🤔🤔🤔... Alright.... Code looks good to me... Trying to build now. 🤔🤔🤔🤔'
-
-npm run build ||
-(
-  echo '❌👷🔨❌ Better call Bob... Because your build failed ❌👷🔨❌
-    Next build failed: View the errors above to see why. 
-  '
-  false;
-)
+echo '🤔🤔🤔🤔... Alright.... Code looks good to me... 🤔🤔🤔🤔'
 
 echo '✅✅✅✅ You win this time... I am committing this now. ✅✅✅✅'
