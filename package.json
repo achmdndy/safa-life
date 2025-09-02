@@ -72,6 +72,7 @@
 		"expo-font": "~13.3.2",
 		"expo-haptics": "~14.1.4",
 		"expo-image": "~2.4.0",
+		"expo-linear-gradient": "~14.1.5",
 		"expo-linking": "~7.1.7",
 		"expo-router": "~5.1.5",
 		"expo-splash-screen": "~0.30.10",
@@ -95,8 +96,7 @@
 		"tailwind-merge": "^3.3.1",
 		"tailwindcss-animate": "^1.0.7",
 		"zod": "^4.1.5",
-		"zustand": "^5.0.8",
-		"expo-linear-gradient": "~14.1.5"
+		"zustand": "^5.0.8"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.25.2",
@@ -104,6 +104,7 @@
 		"@types/react": "~19.0.10",
 		"expo-dev-client": "^5.2.4",
 		"husky": "^9.1.7",
+		"lint-staged": "^16.1.6",
 		"metro-minify-esbuild": "^0.2.0",
 		"patch-package": "^8.0.0",
 		"react-native-dotenv": "^3.4.11",
