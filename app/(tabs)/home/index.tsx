@@ -1,21 +1,38 @@
-import { View } from "react-native";
-import { Button } from "@/components/ui/button";
-import { Card, CardDescription, CardTitle } from "@/components/ui/card";
-import { Text } from "@/components/ui/text";
+import { useRef } from "react";
+import { Animated, ScrollView, View } from "react-native";
+import { HomeArticles } from "./_components/home-articles";
+import { HomeFeatures } from "./_components/home-features";
+import { HomeHadith } from "./_components/home-hadith";
+import { HomeHeader } from "./_components/home-header";
+import { HomePrayerTimes } from "./_components/home-prayer-times";
+
+export const HEADER_MAX_HEIGHT = 195;
+export const HEADER_MIN_HEIGHT = 115;
+export const SCROLL_DISTANCE = HEADER_MAX_HEIGHT - HEADER_MIN_HEIGHT;
 
 export default function HomeScreen() {
+	const scrollOffsetY = useRef(new Animated.Value(0)).current;
+
 	return (
-		<View className="px-4">
-			<Text>HomeScreen</Text>
-			<Button>
-				<Text>Oke</Text>
-			</Button>
-			<Card className="border-none">
-				<CardTitle>Title</CardTitle>
-        <CardDescription>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium nisi facere repudiandae facilis consequatur veniam incidunt amet alias. Voluptatibus saepe, nesciunt distinctio suscipit id explicabo repudiandae pariatur nemo eos, quaerat vel doloremque et consectetur dicta non sequi quam? Magnam commodi aliquid quasi assumenda, dicta ea sit nemo eaque ad delectus et sapiente voluptas sequi placeat distinctio? A aut odio illum fugit cum voluptate distinctio dolorem, repellendus hic porro deserunt numquam, minima iusto. Ipsa ipsum quibusdam, velit architecto nisi accusamus hic facere, debitis, tenetur fugit libero provident optio veritatis dolorem itaque aliquam! Magnam error perferendis explicabo dicta itaque sequi nisi ducimus.
-        </CardDescription>
-			</Card>
+		<View
+			className="bg-background h-full"
+		>
+			<HomeHeader value={scrollOffsetY} />
+			<ScrollView
+				scrollEventThrottle={5}
+				showsVerticalScrollIndicator={false}
+				onScroll={Animated.event(
+					[{ nativeEvent: { contentOffset: { y: scrollOffsetY } } }],
+					{
+						useNativeDriver: false,
+					},
+				)}
+			>
+				<HomeHadith />
+				<HomePrayerTimes />
+				<HomeFeatures />
+				<HomeArticles />
+			</ScrollView>
 		</View>
 	);
 }
