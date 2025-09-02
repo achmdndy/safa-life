@@ -1,0 +1,34 @@
+echo '🏗️👷 Styling, testing and building your project before committing'
+
+npm run format ||
+(
+  echo '🤢🤮🤢🤮 Its FOKING RAW - Your styling looks disgusting. 🤢🤮🤢🤮
+    Formatting Check Failed. Run npm run format, add changes and try commit again.';
+  false;
+)
+
+npm run lint && npm run biome:ci ||
+(
+  echo '😤🏀👋😤 Get that weak shit out of here! 😤🏀👋😤 
+    Linting Check Failed. Make the required changes listed above, add changes and try to commit again.'
+  false; 
+)
+
+npm run type-check ||
+(
+  echo '🤡😂❌🤡 Failed Type check. 🤡😂❌🤡
+    Are you seriously trying to write that? Make the changes required above.'
+  false;
+)
+
+echo '🤔🤔🤔🤔... Alright.... Code looks good to me... Trying to build now. 🤔🤔🤔🤔'
+
+npm run build ||
+(
+  echo '❌👷🔨❌ Better call Bob... Because your build failed ❌👷🔨❌
+    Next build failed: View the errors above to see why. 
+  '
+  false;
+)
+
+echo '✅✅✅✅ You win this time... I am committing this now. ✅✅✅✅'
