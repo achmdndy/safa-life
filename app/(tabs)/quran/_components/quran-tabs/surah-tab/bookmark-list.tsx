@@ -115,12 +115,14 @@ export function BookmarkList() {
       <View
         style={{ 
           height: height - 200,
-          paddingBottom: insets.bottom + 150,
         }}
       >
         <FlashList
           data={bookmarkData}
           className="px-4 pt-2"
+          ListFooterComponent={<View style={{
+            paddingBottom: insets.bottom + 200,
+          }}/>}
           renderItem={({item}) => (
             <Card 
               className="mb-2 border-transparent p-4"

@@ -79,13 +79,15 @@ export function JuzList() {
       <View
         style={{ 
           height: height - 200,
-          paddingBottom: insets.bottom + 150,
         }}
       >
         <FlashList
           data={juzData}
           className="px-4 pt-2"
           scrollEventThrottle={16}
+          ListFooterComponent={<View style={{
+            paddingBottom: insets.bottom + 200,
+          }}/>}
           renderItem={({item}) => (
             <Card 
               className="mb-2 border-transparent p-4"
