@@ -1,5 +1,4 @@
 import { ScrollView, View } from "react-native";
-import { Text } from "@/components/ui/text";
 import { ExploreHeader } from "./_components/explore-header";
 import { ExploreReels } from "./_components/explore-reels";
 import { ExploreHijrahProgram } from "./_components/explore-hijrah-program";
