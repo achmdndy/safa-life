@@ -2,8 +2,12 @@ import { View } from "react-native";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Text } from "@/components/ui/text";
+import { themes, useTheme } from "@/contexts/theme-context";
 
 export function HomePrayerTimes() {
+	const { currentTheme } = useTheme();
+	const selectedTheme = themes[currentTheme];
+
 	return (
 		<View className="px-4 mt-4">
 			<Text className="font-semibold text-lg mb-2">
@@ -13,7 +17,7 @@ export function HomePrayerTimes() {
 			<Card
 				className="p-4 border-transparent"
 				style={{
-					shadowColor: "#000",
+					shadowColor: selectedTheme.primary,
 					shadowOffset: { width: 0, height: 0 },
 					shadowOpacity: 0.1,
 					shadowRadius: 10,

@@ -1,18 +1,23 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Text } from "@/components/ui/text";
-import { View, Dimensions } from "react-native";
+import { View, Dimensions, Platform } from "react-native";
 import { FlashList } from "@shopify/flash-list";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { PieChart } from "react-native-gifted-charts";
-import { THEME } from "@/lib/theme";
+import { themes, useTheme } from "@/contexts/theme-context";
+import { createTheme } from "@/lib/theme";
 
 export function SurahList() {
   const insets = useSafeAreaInsets();
   const { height } = Dimensions.get('window');
+  const { currentTheme, theme } = useTheme();
+  const selectedTheme = themes[currentTheme];
+  const isDarkMode = theme === 'dark';
+  const themeColors = createTheme(selectedTheme.primary, selectedTheme.secondary);
   
   const pieData = [
-    { value: 25, color: THEME.light.primary, text: '25%' },
-    { value: 75, color: THEME.light.secondary, text: '75%' },
+    { value: 25, color: selectedTheme.primary, text: '25%' },
+    { value: 75, color: selectedTheme.secondary, text: '75%' },
   ];
   
   const surahData = [
@@ -44,9 +49,9 @@ export function SurahList() {
   return (
     <View>
       <Card 
-        className="mb-4 p-4 border-transparent mx-4"
+        className="mb-2 p-4 border-transparent mx-4"
         style={{
-          shadowColor: "#000",
+          shadowColor: selectedTheme.primary,
           shadowOffset: { width: 0, height: 0 },
           shadowOpacity: 0.1,
           shadowRadius: 4,
@@ -68,6 +73,7 @@ export function SurahList() {
                 centerLabelComponent={() => {
                   return <Text style={{ fontSize: 14, fontWeight: '600' }}>25%</Text>;
                 }}
+                backgroundColor={isDarkMode ? themeColors.dark.card : themeColors.light.card}
               />
             </View>
           </View>
@@ -76,12 +82,12 @@ export function SurahList() {
 
       <View
         style={{ 
-          height: height - 200,
+          height: Platform.OS === 'ios' ? height - 200 : height - 160,
         }}
       >
         <FlashList
           data={allSurahData}
-          className="px-4 pt-2"
+          className="px-4"
           ListFooterComponent={<View style={{
             paddingBottom: insets.bottom + 200,
           }}/>}
@@ -89,7 +95,7 @@ export function SurahList() {
             <Card 
               className="mb-2 border-transparent p-4"
               style={{
-                shadowColor: "#000",
+                shadowColor: selectedTheme.primary,
                 shadowOffset: { width: 0, height: 0 },
                 shadowOpacity: 0.1,
                 shadowRadius: 4,
@@ -98,8 +104,13 @@ export function SurahList() {
               <CardContent className="p-0">
                 <View className="flex-row justify-between items-center">
                   <View className="flex-row items-center">
-                    <View className="bg-primary w-10 h-10 rounded-full items-center justify-center mr-3">
-                      <Text className="text-primary-foreground font-bold">{item.id}</Text>
+                    <View 
+                      className="w-10 h-10 rounded-full items-center justify-center mr-3"
+                      style={{
+                        backgroundColor: selectedTheme.primary
+                      }}
+                    >
+                      <Text className="text-primary-foreground dark:text-foreground font-bold">{item.id}</Text>
                     </View>
                     <View>
                       <Text className="font-semibold">{item.nameTranslit}</Text>
@@ -107,7 +118,12 @@ export function SurahList() {
                     </View>
                   </View>
                   <View className="items-end">
-                    <Text className="text-primary font-medium">{item.name}</Text>
+                    <Text 
+                      className="font-medium"
+                      style={{
+                        color: selectedTheme.secondary
+                      }}
+                    >{item.name}</Text>
                     <Text className="font-semibold text-base">{item.totalVerses} Ayat</Text>
                   </View>
                 </View>

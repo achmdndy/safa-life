@@ -1,10 +1,12 @@
 import { HeartHandshakeIcon, Search } from "lucide-react-native";
 import type { ComponentProps } from "react";
-import { Animated, View } from "react-native";
+import { Animated, Platform, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Button } from "@/components/ui/button";
 import { Text } from "@/components/ui/text";
+import { useTheme } from "@/contexts/theme-context";
 import { HEADER_MAX_HEIGHT, HEADER_MIN_HEIGHT, SCROLL_DISTANCE } from "..";
+import { Icon } from "@/components/ui/icon";
 
 export type HomeHeaderProps = ComponentProps<typeof View> & {
 	value: Animated.Value;
@@ -12,6 +14,8 @@ export type HomeHeaderProps = ComponentProps<typeof View> & {
 
 export function HomeHeader({ value }: HomeHeaderProps) {
 	const insets = useSafeAreaInsets();
+	const { currentTheme, themes } = useTheme();
+	const selectedTheme = themes[currentTheme];
 
 	const animatedHeaderHight = value.interpolate({
 		inputRange: [0, SCROLL_DISTANCE],
@@ -27,7 +31,7 @@ export function HomeHeader({ value }: HomeHeaderProps) {
 
 	const animatedHeight = value.interpolate({
 		inputRange: [0, SCROLL_DISTANCE],
-		outputRange: [80, 0],
+		outputRange: [80, Platform.OS === 'ios' ? 0 : 20],
 		extrapolate: "clamp",
 	});
 
@@ -39,10 +43,11 @@ export function HomeHeader({ value }: HomeHeaderProps) {
 
 	return (
 		<Animated.View
-			className="bg-primary pb-4 rounded-b-3xl px-4"
+			className="pb-4 rounded-b-3xl px-4"
 			style={{
 				paddingTop: insets.top,
 				height: animatedHeaderHight,
+				backgroundColor: selectedTheme.primary,
 			}}
 		>
 			<Animated.View
@@ -63,8 +68,8 @@ export function HomeHeader({ value }: HomeHeaderProps) {
 				</Button>
 			</Animated.View>
 
-			<Button className="rounded-full bg-white justify-start" variant="ghost">
-				<Search width={20} height={20} />
+			<Button className="rounded-full bg-background justify-start" variant="ghost">
+				<Icon as={Search} size={20} className="text-foreground"/>
 				<Text className="text-muted-foreground">Search for surah, dua...</Text>
 			</Button>
 		</Animated.View>

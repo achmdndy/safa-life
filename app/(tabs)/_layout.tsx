@@ -1,9 +1,15 @@
-import { THEME } from "@/lib/theme";
+import { themes, useTheme } from "@/contexts/theme-context";
+import { createTheme } from "@/lib/theme";
 import { Tabs } from "expo-router";
 import { BookOpen, HandHeart, Home, Play, User,  } from "lucide-react-native";
 import { Platform } from "react-native";
 
 export default function TabLayout() {
+  const { currentTheme, theme } = useTheme();
+  const isDarkMode = theme === 'dark';
+  const selectedTheme = themes[currentTheme];
+  const themeColors = createTheme(selectedTheme.primary, selectedTheme.secondary);
+
 	return (
 		<Tabs
 			initialRouteName="home"
@@ -11,17 +17,18 @@ export default function TabLayout() {
 				headerShown: false,
 				tabBarLabelStyle: {
 					marginTop: 6,
-					fontSize: 12.
+					fontSize: 12,
 				},
-				tabBarActiveTintColor: THEME.light.primary,
-				tabBarInactiveTintColor: THEME.light.mutedForeground,
+				tabBarActiveTintColor: selectedTheme.primary,
+				tabBarInactiveTintColor: "#A1A1A1",
 				tabBarStyle: [Platform.select({
 					ios: {
-						// Use a transparent background on iOS to show the blur effect
 						position: "absolute",
 					},
 					default: {},
 				}), {
+					borderTopWidth: 0,
+					backgroundColor: isDarkMode ? themeColors.dark.card : themeColors.light.card,
 					paddingTop: 4
 				}],
 			}}

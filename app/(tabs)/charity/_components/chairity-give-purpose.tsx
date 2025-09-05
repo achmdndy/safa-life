@@ -1,5 +1,6 @@
 import { Icon } from "@/components/ui/icon";
 import { Text } from "@/components/ui/text";
+import { useTheme } from "@/contexts/theme-context";
 import { CalendarClock, ChevronRight, Heart, HandHeart, Gift, Users } from "lucide-react-native";
 import { Pressable, View } from "react-native";
 
@@ -37,35 +38,38 @@ const purposeItems = [
 ];
 
 export function ChairityGivePurpose() {
+  const { currentTheme, themes } = useTheme();
+	const selectedTheme = themes[currentTheme];
+
   return (
     <View className="px-4 gap-4 mt-4">
       <View className="flex-row justify-between items-center">
         <View className="flex-row items-center">
-          <Icon as={CalendarClock} size={20} className="text-primary mr-2" />
+          <Icon as={CalendarClock} size={20} className="mr-2" stroke={selectedTheme.primary} />
           <Text className="font-bold text-xl">Give with Purpose</Text>
         </View>
         <Pressable className="flex-row items-center">
-          <Text className="text-primary text-sm mr-1">View all</Text>
-          <Icon as={ChevronRight} size={16} className="text-primary" />
+          <Text className="text-sm mr-1">View all</Text>
+          <Icon as={ChevronRight} size={16} />
         </Pressable>
       </View>
 
-      <View className="flex-row flex-wrap justify-between gap-2">
+      <View className="flex-row flex-wrap justify-between gap-3">
         {purposeItems.map((item) => (
           <Pressable 
             key={item.id} 
-            className="w-[31%] items-center p-3 bg-white rounded-xl border border-gray-100"
+            className="w-[31%] items-center p-3 bg-card rounded-xl"
             style={{
-              shadowColor: "#000",
+              shadowColor: selectedTheme.primary,
               shadowOffset: { width: 0, height: 2 },
               shadowOpacity: 0.1,
               shadowRadius: 4,
             }}
           >
-            <View className="w-12 h-12 rounded-full bg-gray-100 items-center justify-center mb-2">
-              <Icon as={item.icon} size={20} className="text-gray-600" />
+            <View className="w-12 h-12 rounded-full in-range:bg-primary items-center justify-center mb-2" style={{backgroundColor: selectedTheme.secondary + '20'}}>
+              <Icon as={item.icon} size={20} stroke={selectedTheme.primary} />
             </View>
-            <Text className="text-sm font-medium text-gray-800 text-center">{item.title}</Text>
+            <Text className="text-sm font-medium text-gray-800 dark:text-foreground text-center">{item.title}</Text>
           </Pressable>
         ))}
       </View>

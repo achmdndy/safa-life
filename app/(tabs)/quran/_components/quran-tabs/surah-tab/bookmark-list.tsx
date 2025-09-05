@@ -1,15 +1,19 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Text } from "@/components/ui/text";
-import { View, Dimensions, Pressable, Alert } from "react-native";
+import { View, Dimensions, Pressable, Alert, Platform } from "react-native";
 import { FlashList } from "@shopify/flash-list";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Icon } from "@/components/ui/icon";
 import { Bookmark, BookmarkX } from "lucide-react-native";
 import { useState } from "react";
+import { themes, useTheme } from "@/contexts/theme-context";
 
 export function BookmarkList() {
   const insets = useSafeAreaInsets();
   const { height } = Dimensions.get('window');
+  const { currentTheme } = useTheme();
+  const selectedTheme = themes[currentTheme];
+
   const [bookmarkData, setBookmarkData] = useState([
     { 
       id: 1, 
@@ -86,7 +90,7 @@ export function BookmarkList() {
   return (
     <View>
       <Card 
-        className="mb-4 p-4 border-transparent mx-4"
+        className="mb-2 p-4 border-transparent mx-4"
         style={{
           shadowColor: "#000",
           shadowOffset: { width: 0, height: 0 },
@@ -97,8 +101,11 @@ export function BookmarkList() {
         <CardContent className="p-0">
           <View className="flex-row justify-between items-center">
             <View className="flex-row items-center">
-              <View className="bg-primary w-10 h-10 rounded-full items-center justify-center mr-3">
-                <Icon as={Bookmark} size={20} className="text-primary-foreground" />
+              <View 
+                className="w-10 h-10 rounded-full items-center justify-center mr-3"
+                style={{ backgroundColor: selectedTheme.primary }}
+              >
+                <Icon as={Bookmark} size={20} className="text-primary-foreground dark:text-foreground" />
               </View>
               <View>
                 <Text className="font-semibold text-lg">My Bookmarks</Text>
@@ -114,12 +121,12 @@ export function BookmarkList() {
 
       <View
         style={{ 
-          height: height - 200,
+          height: Platform.OS === 'ios' ? height - 200 : height - 170,
         }}
       >
         <FlashList
           data={bookmarkData}
-          className="px-4 pt-2"
+          className="px-4"
           ListFooterComponent={<View style={{
             paddingBottom: insets.bottom + 200,
           }}/>}
@@ -127,7 +134,7 @@ export function BookmarkList() {
             <Card 
               className="mb-2 border-transparent p-4"
               style={{
-                shadowColor: "#000",
+                shadowColor: selectedTheme.primary,
                 shadowOffset: { width: 0, height: 0 },
                 shadowOpacity: 0.1,
                 shadowRadius: 4,
@@ -136,12 +143,15 @@ export function BookmarkList() {
               <CardContent className="p-0">
                 <View className="mb-2 flex-row justify-between items-center">
                   <View className="flex-row items-center">
-                    <View className="bg-primary w-10 h-10 rounded-full items-center justify-center mr-3">
+                    <View 
+                      className="w-10 h-10 rounded-full items-center justify-center mr-3"
+                      style={{ backgroundColor: selectedTheme.primary }}
+                    >
                       <Text className="text-primary-foreground font-bold">{item.surahId}</Text>
                     </View>
                     <View>
                       <Text className="font-semibold">{item.surahNameTranslit}</Text>
-                      <Text className="text-primary font-medium">{item.surahName}</Text>
+                      <Text className="font-medium" style={{ color: selectedTheme.secondary }}>{item.surahName}</Text>
                     </View>
                   </View>
                   <View className="flex-row items-center gap-2">
@@ -151,15 +161,16 @@ export function BookmarkList() {
                     </View>
                     <Pressable 
                       onPress={() => removeBookmark(item.id)}
-                      className="p-2 bg-gray-100 rounded-full"
+                      className="p-2 rounded-full"
+                      style={{ backgroundColor: selectedTheme.secondary + '20' }}
                       hitSlop={8}
                     >
-                      <Icon as={BookmarkX} size={18} className="text-gray-500" />
+                      <Icon as={BookmarkX} size={18} stroke={selectedTheme.primary} />
                     </Pressable>
                   </View>
                 </View>
                 
-                <View className="bg-gray-50 p-3 rounded-lg mt-2">
+                <View className="bg-gray-50 dark:bg-background/50 p-3 rounded-lg mt-2">
                   <Text className="text-right text-lg font-arabic" style={{ lineHeight: 32 }}>
                     {item.text}
                   </Text>

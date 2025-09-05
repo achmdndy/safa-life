@@ -2,11 +2,15 @@ import { Button } from "@/components/ui/button";
 import { Text } from "@/components/ui/text";
 import { Icon } from "@/components/ui/icon";
 import { View, Image } from "react-native";
-import { Compass, Route, MoonStar } from "lucide-react-native";
+import { Route, MoonStar } from "lucide-react-native";
+import { useTheme } from "@/contexts/theme-context";
 
 export function ExploreHijrahProgram() {
+  const { currentTheme, themes } = useTheme();
+	const selectedTheme = themes[currentTheme];
+
   return (
-    <View className="mx-4 mt-4 overflow-hidden rounded-xl">
+    <View className="mx-4 mt-8 overflow-hidden rounded-xl">
       <View className="relative">
         <Image 
           source={{ uri: "https://images.unsplash.com/photo-1512970648279-ff3398568f77?q=80&w=2952&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" }}
@@ -29,7 +33,7 @@ export function ExploreHijrahProgram() {
             </View>
           </View>
           
-          <Button className="w-48 self-start">
+          <Button className="w-48 self-start" style={{backgroundColor: selectedTheme.primary}}>
             <Icon as={Route} size={16} className="text-white mr-2" />
             <Text className="text-white font-medium">Start Your Journey</Text>
           </Button>

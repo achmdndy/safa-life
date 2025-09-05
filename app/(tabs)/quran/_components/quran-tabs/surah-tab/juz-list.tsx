@@ -1,18 +1,23 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Text } from "@/components/ui/text";
-import { THEME } from "@/lib/theme";
+import { themes, useTheme } from "@/contexts/theme-context";
+import { createTheme } from "@/lib/theme";
 import { FlashList } from "@shopify/flash-list";
-import { Dimensions, View } from "react-native";
+import { Dimensions, Platform, View } from "react-native";
 import { PieChart } from "react-native-gifted-charts";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export function JuzList() {
   const insets = useSafeAreaInsets();
   const { height } = Dimensions.get('window');
+  const { currentTheme, theme } = useTheme();
+  const selectedTheme = themes[currentTheme];
+  const isDarkMode = theme === 'dark';
+  const themeColors = createTheme(selectedTheme.primary, selectedTheme.secondary);
   
   const pieData = [
-    { value: 10, color: THEME.light.primary, text: '10%' },
-    { value: 90, color: THEME.light.secondary, text: '90%' },
+    { value: 10, color: selectedTheme.primary, text: '10%' },
+    { value: 90, color: selectedTheme.secondary, text: '90%' },
   ];
   
   const juzData = Array.from({length: 30}, (_, index) => {
@@ -46,9 +51,9 @@ export function JuzList() {
   return (
     <View>
       <Card 
-        className="mb-4 p-4 border-transparent mx-4"
+        className="mb-2 p-4 border-transparent mx-4"
         style={{
-          shadowColor: "#000",
+          shadowColor: selectedTheme.primary,
           shadowOffset: { width: 0, height: 0 },
           shadowOpacity: 0.1,
           shadowRadius: 4,
@@ -65,6 +70,7 @@ export function JuzList() {
                 centerLabelComponent={() => {
                   return <Text style={{ fontSize: 14, fontWeight: '600' }}>10%</Text>;
                 }}
+                backgroundColor={isDarkMode ? themeColors.dark.card : themeColors.light.card}
               />
             </View>
             <View>
@@ -78,12 +84,12 @@ export function JuzList() {
 
       <View
         style={{ 
-          height: height - 200,
+          height: Platform.OS === 'ios' ? height - 200 : height - 160,
         }}
       >
         <FlashList
           data={juzData}
-          className="px-4 pt-2"
+          className="px-4"
           scrollEventThrottle={16}
           ListFooterComponent={<View style={{
             paddingBottom: insets.bottom + 200,
@@ -92,7 +98,7 @@ export function JuzList() {
             <Card 
               className="mb-2 border-transparent p-4"
               style={{
-                shadowColor: "#000",
+                shadowColor: selectedTheme.primary,
                 shadowOffset: { width: 0, height: 0 },
                 shadowOpacity: 0.1,
                 shadowRadius: 4,
@@ -101,8 +107,10 @@ export function JuzList() {
               <CardContent className="p-0">
                 <View className="flex-row justify-between items-center">
                   <View className="flex-row items-center">
-                    <View className="bg-primary w-10 h-10 rounded-full items-center justify-center mr-3">
-                      <Text className="text-primary-foreground font-bold">{item.id}</Text>
+                    <View 
+                      style={{ backgroundColor: selectedTheme.primary }}
+                      className="w-10 h-10 rounded-full items-center justify-center mr-3">
+                      <Text className="text-primary-foreground dark:text-foreground font-bold">{item.id}</Text>
                     </View>
                     <View>
                       <Text className="font-semibold">{item.name}</Text>
@@ -117,8 +125,8 @@ export function JuzList() {
                       className="bg-gray-200 w-16 h-1 mt-1 rounded-full overflow-hidden"
                     >
                       <View 
-                        className="bg-primary h-full rounded-full" 
-                        style={{ width: `${item.progress}%` }} 
+                        className="h-full rounded-full" 
+                        style={{ width: `${item.progress}%`, backgroundColor: selectedTheme.primary }} 
                       />
                     </View>
                   </View>
