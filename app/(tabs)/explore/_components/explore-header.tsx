@@ -1,12 +1,16 @@
+import { Search } from "lucide-react-native";
+import type { ComponentProps } from "react";
+import { Animated, type View } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Button } from "@/components/ui/button";
 import { Icon } from "@/components/ui/icon";
 import { Text } from "@/components/ui/text";
 import { useTheme } from "@/contexts/theme-context";
-import { Search } from "lucide-react-native";
-import type { ComponentProps } from "react";
-import { Animated, Platform, View } from "react-native";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { EXPLORE_HEADER_MAX_HEIGHT, EXPLORE_HEADER_MIN_HEIGHT, EXPLORE_SCROLL_DISTANCE } from "..";
+import {
+	EXPLORE_HEADER_MAX_HEIGHT,
+	EXPLORE_HEADER_MIN_HEIGHT,
+	EXPLORE_SCROLL_DISTANCE,
+} from "..";
 
 export type ExploreHeaderProps = ComponentProps<typeof View> & {
 	value: Animated.Value;
@@ -24,13 +28,21 @@ export function ExploreHeader({ value }: ExploreHeaderProps) {
 	});
 
 	const animatedTextOpacity = value.interpolate({
-		inputRange: [0, EXPLORE_SCROLL_DISTANCE * 0.3, EXPLORE_SCROLL_DISTANCE * 0.6],
+		inputRange: [
+			0,
+			EXPLORE_SCROLL_DISTANCE * 0.3,
+			EXPLORE_SCROLL_DISTANCE * 0.6,
+		],
 		outputRange: [1, 0.5, 0],
 		extrapolate: "clamp",
 	});
 
 	const animatedTextWidth = value.interpolate({
-		inputRange: [0, EXPLORE_SCROLL_DISTANCE * 0.4, EXPLORE_SCROLL_DISTANCE * 0.8],
+		inputRange: [
+			0,
+			EXPLORE_SCROLL_DISTANCE * 0.4,
+			EXPLORE_SCROLL_DISTANCE * 0.8,
+		],
 		outputRange: [90, 50, 0],
 		extrapolate: "clamp",
 	});
@@ -54,26 +66,31 @@ export function ExploreHeader({ value }: ExploreHeaderProps) {
 	});
 
 	return (
-		<Animated.View 
-			className="px-4 flex-row items-center pb-4 bg-background" 
+		<Animated.View
+			className="px-4 flex-row items-center pb-4 bg-background"
 			style={{
 				paddingTop: insets.top,
 				height: animatedHeaderHeight,
 			}}
 		>
-			<Animated.View 
-				style={{ 
+			<Animated.View
+				style={{
 					opacity: animatedTextOpacity,
 					width: animatedTextWidth,
-					overflow: 'hidden',
+					overflow: "hidden",
 					transform: [{ scale: animatedTextScale }],
 					marginRight: animatedTextMargin,
 				}}
 			>
-				<Text className="text-2xl font-bold" style={{color: selectedTheme.primary}}>Explore</Text>
+				<Text
+					className="text-2xl font-bold"
+					style={{ color: selectedTheme.primary }}
+				>
+					Explore
+				</Text>
 			</Animated.View>
-			
-			<Animated.View 
+
+			<Animated.View
 				className="flex-1"
 				style={{
 					transform: [{ scale: animatedButtonScale }],
@@ -81,7 +98,9 @@ export function ExploreHeader({ value }: ExploreHeaderProps) {
 			>
 				<Button className="rounded-full justify-start w-full" variant="outline">
 					<Icon as={Search} size={20} stroke={selectedTheme.primary} />
-					<Text className="text-muted-foreground">Search for reels, event...</Text>
+					<Text className="text-muted-foreground">
+						Search for reels, event...
+					</Text>
 				</Button>
 			</Animated.View>
 		</Animated.View>

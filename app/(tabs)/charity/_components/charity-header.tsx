@@ -1,12 +1,16 @@
+import { Bell, Search } from "lucide-react-native";
+import type { ComponentProps } from "react";
+import { Animated, Platform, View } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Button } from "@/components/ui/button";
 import { Icon } from "@/components/ui/icon";
 import { Text } from "@/components/ui/text";
 import { useTheme } from "@/contexts/theme-context";
-import { Search, Bell } from "lucide-react-native";
-import type { ComponentProps } from "react";
-import { Animated, Platform, View } from "react-native";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { CHARITY_HEADER_MAX_HEIGHT, CHARITY_HEADER_MIN_HEIGHT, CHARITY_SCROLL_DISTANCE } from "..";
+import {
+	CHARITY_HEADER_MAX_HEIGHT,
+	CHARITY_HEADER_MIN_HEIGHT,
+	CHARITY_SCROLL_DISTANCE,
+} from "..";
 
 export type ChairityHeaderProps = ComponentProps<typeof View> & {
 	value: Animated.Value;
@@ -34,8 +38,8 @@ export function ChairityHeader({ value }: ChairityHeaderProps) {
 		outputRange: [60, 0],
 		extrapolate: "clamp",
 	});
-	
-  const animatedMarginBottom = value.interpolate({
+
+	const animatedMarginBottom = value.interpolate({
 		inputRange: [0, CHARITY_SCROLL_DISTANCE],
 		outputRange: [16, 0],
 		extrapolate: "clamp",
@@ -48,14 +52,14 @@ export function ChairityHeader({ value }: ChairityHeaderProps) {
 	});
 
 	return (
-		<Animated.View 
-			className="px-4 pb-4 bg-background" 
+		<Animated.View
+			className="px-4 pb-4 bg-background"
 			style={{
-				paddingTop: Platform.OS === 'ios' ? insets.top : insets.top + 20,
+				paddingTop: Platform.OS === "ios" ? insets.top : insets.top + 20,
 				height: animatedHeaderHeight,
 			}}
 		>
-			<Animated.View 
+			<Animated.View
 				className="flex-row items-center justify-between"
 				style={{
 					opacity: animatedOpacity,
@@ -65,26 +69,37 @@ export function ChairityHeader({ value }: ChairityHeaderProps) {
 				}}
 			>
 				<View>
-					<Text className="text-2xl font-bold" style={{color: selectedTheme.primary}}>Charity</Text>
-					<Text className="text-primary/80 text-sm">Make a difference today</Text>
+					<Text
+						className="text-2xl font-bold"
+						style={{ color: selectedTheme.primary }}
+					>
+						Charity
+					</Text>
+					<Text className="text-primary/80 text-sm">
+						Make a difference today
+					</Text>
 				</View>
-				
-				<Button 
-					size="icon" 
-					variant="ghost" 
+
+				<Button
+					size="icon"
+					variant="ghost"
 					className="rounded-full"
-					style={{backgroundColor: selectedTheme.secondary + '20'}}
+					style={{ backgroundColor: `${selectedTheme.secondary}20` }}
 				>
 					<Icon as={Bell} size={20} stroke={selectedTheme.primary} />
 				</Button>
 			</Animated.View>
-			
-			<Button 
-				className="rounded-full justify-start w-full" 
-				variant="outline"
-			>
-				<Icon as={Search} size={20} className="mr-2" stroke={selectedTheme.primary} />
-				<Text className="text-gray-600 flex-1 text-left">Search charities, causes...</Text>
+
+			<Button className="rounded-full justify-start w-full" variant="outline">
+				<Icon
+					as={Search}
+					size={20}
+					className="mr-2"
+					stroke={selectedTheme.primary}
+				/>
+				<Text className="text-gray-600 flex-1 text-left">
+					Search charities, causes...
+				</Text>
 			</Button>
 		</Animated.View>
 	);

@@ -1,6 +1,6 @@
-import { Text, View } from "react-native";
-import { QuranTabs } from "./_components/quran-tabs";
+import { View } from "react-native";
 import { QuranHeader } from "./_components/quran-header";
+import { QuranTabs } from "./_components/quran-tabs";
 
 export default function QuranScreen() {
 	return (

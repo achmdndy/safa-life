@@ -1,0 +1,63 @@
+import { Animated, View } from "react-native";
+import { Text } from "@/components/ui/text";
+import { SplashBackground } from "./_components/splash-background";
+import { useSplash } from "./_hooks/use-splash";
+
+export default function SplashScreen() {
+	const { isRTL, t, fadeAnim, slideAnim } = useSplash();
+
+	return (
+		<View
+			className="flex-1 relative"
+			style={{ direction: isRTL ? "rtl" : "ltr" }}
+		>
+			<SplashBackground />
+
+			<View className="absolute inset-0 bg-white/20 dark:bg-black/40" />
+
+			<View className="absolute inset-0 flex-1 justify-center items-center px-8">
+				<Animated.View
+					style={{
+						opacity: fadeAnim,
+						transform: [{ translateY: slideAnim }],
+					}}
+					className="items-center mb-4"
+				>
+					<Text className="text-5xl font-bold text-foreground text-center mb-2 tracking-wider">
+						{t("appName", { defaultValue: "Safa Life" })}
+					</Text>
+					<View className="w-20 h-1 bg-foreground/80 rounded-full" />
+				</Animated.View>
+
+				<Animated.View
+					style={{
+						opacity: fadeAnim,
+						transform: [{ translateY: slideAnim }],
+					}}
+					className="items-center px-6"
+				>
+					<Text className="text-lg text-foreground/90 text-center font-medium leading-6">
+						{t("tagline", { defaultValue: "Menjalani Hidup dengan Berkah" })}
+					</Text>
+					<Text className="text-base text-foreground/75 text-center mt-2 font-light">
+						{t("subtitle", {
+							defaultValue: "Panduan Spiritual untuk Kehidupan yang Bermakna",
+						})}
+					</Text>
+				</Animated.View>
+
+				<Animated.View
+					style={{
+						opacity: fadeAnim,
+					}}
+					className={`absolute bottom-20 items-center`}
+				>
+					<View className="w-12 h-12 border-2 border-foreground/30 border-t-foreground rounded-full animate-spin" />
+					<Text className="text-foreground/70 text-sm mt-4 font-light text-center">
+						{t("loading", { defaultValue: "Memuat..." }) || ""}
+					</Text>
+				</Animated.View>
+			</View>
+		</View>
+	);
+}

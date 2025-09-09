@@ -1,0 +1,10 @@
+{
+  "title": "Pengaturan Bahasa",
+  "select": "Pilih Bahasa",
+  "indonesian": "Bahasa Indonesia",
+  "english": "English",
+  "arabic": "العربية",
+  "malay": "Bahasa Melayu",
+  "current": "Bahasa Saat Ini",
+  "restart": "Aplikasi akan dimulai ulang untuk menerapkan perubahan bahasa"
+}

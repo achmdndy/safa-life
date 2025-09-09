@@ -1,21 +1,30 @@
+import { useRouter } from "expo-router";
 import { HeartHandshakeIcon, Search } from "lucide-react-native";
 import type { ComponentProps } from "react";
 import { Animated, Platform, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Button } from "@/components/ui/button";
-import { Text } from "@/components/ui/text";
-import { useTheme } from "@/contexts/theme-context";
-import { HEADER_MAX_HEIGHT, HEADER_MIN_HEIGHT, SCROLL_DISTANCE } from "..";
 import { Icon } from "@/components/ui/icon";
+import { Text } from "@/components/ui/text";
+import { themes, useTheme } from "@/contexts/theme-context";
+import { createTheme } from "@/lib/theme";
+import { HEADER_MAX_HEIGHT, HEADER_MIN_HEIGHT, SCROLL_DISTANCE } from "..";
 
 export type HomeHeaderProps = ComponentProps<typeof View> & {
 	value: Animated.Value;
 };
 
 export function HomeHeader({ value }: HomeHeaderProps) {
+	const router = useRouter();
+
 	const insets = useSafeAreaInsets();
-	const { currentTheme, themes } = useTheme();
+	const { currentTheme, theme } = useTheme();
+	const isDarkMode = theme === "dark";
 	const selectedTheme = themes[currentTheme];
+	const themeColors = createTheme(
+		selectedTheme.primary,
+		selectedTheme.secondary,
+	);
 
 	const animatedHeaderHight = value.interpolate({
 		inputRange: [0, SCROLL_DISTANCE],
@@ -31,7 +40,7 @@ export function HomeHeader({ value }: HomeHeaderProps) {
 
 	const animatedHeight = value.interpolate({
 		inputRange: [0, SCROLL_DISTANCE],
-		outputRange: [80, Platform.OS === 'ios' ? 0 : 20],
+		outputRange: [80, Platform.OS === "ios" ? 0 : 20],
 		extrapolate: "clamp",
 	});
 
@@ -47,7 +56,13 @@ export function HomeHeader({ value }: HomeHeaderProps) {
 			style={{
 				paddingTop: insets.top,
 				height: animatedHeaderHight,
-				backgroundColor: selectedTheme.primary,
+				backgroundColor: isDarkMode
+					? themeColors.dark.card
+					: themeColors.light.card,
+				shadowColor: selectedTheme.primary,
+				shadowOffset: { width: 0, height: 4 },
+				shadowOpacity: 0.1,
+				shadowRadius: 8,
 			}}
 		>
 			<Animated.View
@@ -59,17 +74,39 @@ export function HomeHeader({ value }: HomeHeaderProps) {
 				}}
 			>
 				<View>
-					<Text className="text-white">Assalamu'alaikum,</Text>
-					<Text className="font-bold text-lg text-white">Achmad</Text>
+					<Text
+						className="text-white"
+						style={{
+							color: selectedTheme.primary,
+						}}
+					>
+						Assalamu'alaikum,
+					</Text>
+					<Text
+						className="font-bold text-lg"
+						style={{
+							color: selectedTheme.primary,
+						}}
+					>
+						Achmad
+					</Text>
 				</View>
 
 				<Button size="icon" variant="ghost">
-					<HeartHandshakeIcon width={25} height={25} stroke={"white"} />
+					<HeartHandshakeIcon
+						width={25}
+						height={25}
+						stroke={selectedTheme.primary}
+					/>
 				</Button>
 			</Animated.View>
 
-			<Button className="rounded-full bg-background justify-start" variant="ghost">
-				<Icon as={Search} size={20} className="text-foreground"/>
+			<Button
+				className="rounded-full bg-background justify-start"
+				variant="outline"
+				onPress={() => router.navigate("/search/home")}
+			>
+				<Icon as={Search} size={20} className="text-foreground" />
 				<Text className="text-muted-foreground">Search for surah, dua...</Text>
 			</Button>
 		</Animated.View>

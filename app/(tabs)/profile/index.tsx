@@ -1,8 +1,8 @@
 import { useRef } from "react";
 import { Animated, Platform, View } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { ProfileHeader } from "./_components/profile-header";
 import { ProfileMenu } from "./_components/profile-menu";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export const PROFILE_HEADER_MAX_HEIGHT = 270;
 export const PROFILE_HEADER_MIN_HEIGHT = 130;
@@ -18,15 +18,17 @@ export default function ProfileScreen() {
 			<Animated.ScrollView
 				scrollEventThrottle={5}
 				showsVerticalScrollIndicator={false}
-				contentContainerStyle={{ paddingBottom: Platform.OS === 'ios' ? insets.bottom + 40 : 20 }}
+				contentContainerStyle={{
+					paddingBottom: Platform.OS === "ios" ? insets.bottom + 40 : 20,
+				}}
 				style={{
-					zIndex: 0
+					zIndex: 0,
 				}}
 				onScroll={Animated.event(
 					[{ nativeEvent: { contentOffset: { y: scrollOffsetY } } }],
 					{
 						useNativeDriver: false,
-					}
+					},
 				)}
 			>
 				<ProfileMenu />
