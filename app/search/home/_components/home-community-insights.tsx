@@ -1,8 +1,41 @@
-import { MessageCircleQuestion } from "lucide-react-native";
+import {
+	BookOpen,
+	HelpCircle,
+	MessageCircleQuestion,
+	Users,
+	Video,
+} from "lucide-react-native";
 import { Text, View } from "react-native";
 import { Icon } from "@/components/ui/icon";
 import { themes, useTheme } from "@/contexts/theme-context";
 import { HomeFeatureCard } from "./home-feature-card";
+
+export const communityInsight = [
+	{
+		id: "articles",
+		title: "Articles",
+		icon: BookOpen,
+		href: "/articles",
+	},
+	{
+		id: "reels",
+		title: "Reels",
+		icon: Video,
+		href: "/reels",
+	},
+	{
+		id: "community",
+		title: "Community",
+		icon: Users,
+		href: "/(tabs)/explore",
+	},
+	{
+		id: "help",
+		title: "Help & Support",
+		icon: HelpCircle,
+		href: "/settings",
+	},
+];
 
 export function HomeCommunityInsights() {
 	const { currentTheme } = useTheme();
@@ -23,8 +56,13 @@ export function HomeCommunityInsights() {
 			</View>
 
 			<View className="flex-row flex-wrap justify-between gap-3 mx-4 py-2">
-				{Array.from({ length: 8 }).map((_, index) => (
-					<HomeFeatureCard key={index.toString()} />
+				{communityInsight.map((item) => (
+					<HomeFeatureCard
+						key={item.id}
+						href={item.href}
+						title={item.title}
+						icon={item.icon}
+					/>
 				))}
 			</View>
 		</View>

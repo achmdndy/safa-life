@@ -7,8 +7,8 @@ import { HomeHadith } from "./_components/home-hadith";
 import { HomeHeader } from "./_components/home-header";
 import { HomePrayerTimes } from "./_components/home-prayer-times";
 
-export const HEADER_MAX_HEIGHT = Platform.OS === "ios" ? 195 : 160;
-export const HEADER_MIN_HEIGHT = Platform.OS === "ios" ? 115 : 100;
+export const HEADER_MAX_HEIGHT = Platform.OS === "ios" ? 205 : 160;
+export const HEADER_MIN_HEIGHT = Platform.OS === "ios" ? 125 : 100;
 export const SCROLL_DISTANCE = HEADER_MAX_HEIGHT - HEADER_MIN_HEIGHT;
 
 export default function HomeScreen() {

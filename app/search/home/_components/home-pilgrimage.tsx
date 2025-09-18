@@ -1,8 +1,55 @@
-import { PanelTopDashed } from "lucide-react-native";
+import {
+	BookOpen,
+	Calendar,
+	MapPin,
+	Navigation,
+	PanelTopDashed,
+	Plane,
+	Users,
+} from "lucide-react-native";
 import { Text, View } from "react-native";
 import { Icon } from "@/components/ui/icon";
 import { themes, useTheme } from "@/contexts/theme-context";
 import { HomeFeatureCard } from "./home-feature-card";
+
+export const pilgrimage = [
+	{
+		id: "hajj-guide",
+		title: "Hajj Guide",
+		icon: BookOpen,
+		href: "/pilgrimage/hajj",
+	},
+	{
+		id: "umrah-guide",
+		title: "Umrah Guide",
+		icon: MapPin,
+		href: "/pilgrimage/umrah",
+	},
+	{
+		id: "pilgrimage-planner",
+		title: "Pilgrimage Planner",
+		icon: Calendar,
+		href: "/pilgrimage/planner",
+	},
+	{
+		id: "travel-guide",
+		title: "Travel Guide",
+		icon: Plane,
+		href: "/pilgrimage/travel",
+	},
+	{
+		id: "group-pilgrimage",
+		title: "Group Pilgrimage",
+		icon: Users,
+		href: "/pilgrimage/group",
+	},
+	{
+		id: "qibla-finder",
+		title: "Qibla Finder",
+		icon: Navigation,
+		href: "/features/qibla",
+	},
+];
 
 export function HomePilgrimage() {
 	const { currentTheme } = useTheme();
@@ -23,8 +70,13 @@ export function HomePilgrimage() {
 			</View>
 
 			<View className="flex-row flex-wrap justify-between gap-3 mx-4 py-2">
-				{Array.from({ length: 8 }).map((_, index) => (
-					<HomeFeatureCard key={index.toString()} />
+				{pilgrimage.map((item) => (
+					<HomeFeatureCard
+						key={item.id}
+						href={item.href}
+						title={item.title}
+						icon={item.icon}
+					/>
 				))}
 			</View>
 		</View>

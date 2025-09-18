@@ -55,19 +55,20 @@ export function HomeFeatures() {
 				{features.map((feature) => {
 					const IconComponent = feature.icon;
 					return (
-						<Card
+						<Pressable
+							className="flex-1 mx-1"
 							key={feature.id}
-							className="border-transparent flex-1 items-center bg-card p-3 rounded-lg mx-1"
-							style={{
-								shadowColor: selectedTheme.primary,
-								shadowOffset: { width: 0, height: 2 },
-								shadowOpacity: 0.1,
-								shadowRadius: 4,
-							}}
+							onPress={() => router.navigate(feature.href)}
 						>
-							<Pressable
+							<Card
 								key={feature.id}
-								onPress={() => router.navigate(feature.href)}
+								className="border-transparent items-center bg-card rounded-lg p-3"
+								style={{
+									shadowColor: selectedTheme.primary,
+									shadowOffset: { width: 0, height: 2 },
+									shadowOpacity: 0.1,
+									shadowRadius: 4,
+								}}
 							>
 								<CardContent className="p-0 items-center">
 									<View
@@ -93,8 +94,8 @@ export function HomeFeatures() {
 										{feature.description}
 									</Text>
 								</CardContent>
-							</Pressable>
-						</Card>
+							</Card>
+						</Pressable>
 					);
 				})}
 			</View>
