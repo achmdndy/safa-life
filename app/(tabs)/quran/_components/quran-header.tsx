@@ -1,3 +1,4 @@
+import { useRouter } from "expo-router";
 import { Headphones, Search } from "lucide-react-native";
 import { Platform, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
@@ -10,6 +11,7 @@ export function QuranHeader() {
 	const insets = useSafeAreaInsets();
 	const { currentTheme, themes } = useTheme();
 	const selectedTheme = themes[currentTheme];
+	const router = useRouter();
 
 	return (
 		<View
@@ -21,6 +23,7 @@ export function QuranHeader() {
 			<Button
 				className="rounded-full justify-start w-full flex-1"
 				variant="outline"
+				onPress={() => router.push("/search/quran")}
 			>
 				<Icon as={Search} size={20} stroke={selectedTheme.primary} />
 				<Text className="text-muted-foreground">Search for surah, dua...</Text>

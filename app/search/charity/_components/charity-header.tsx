@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Icon } from "@/components/ui/icon";
 import { Input } from "@/components/ui/input";
 
-export function HomeHeader() {
+export function CharityHeader() {
 	const insets = useSafeAreaInsets();
 	const router = useRouter();
 
@@ -19,7 +19,7 @@ export function HomeHeader() {
 				size="icon"
 				variant="outline"
 				className="rounded-full"
-				onPress={() => router.replace("/home")}
+				onPress={() => router.replace("/charity")}
 			>
 				<Icon as={ChevronLeft} size={20} />
 			</Button>

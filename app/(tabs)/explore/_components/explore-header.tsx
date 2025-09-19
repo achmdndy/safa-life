@@ -1,3 +1,4 @@
+import { useRouter } from "expo-router";
 import { Search } from "lucide-react-native";
 import type { ComponentProps } from "react";
 import { Animated, type View } from "react-native";
@@ -17,6 +18,8 @@ export type ExploreHeaderProps = ComponentProps<typeof View> & {
 };
 
 export function ExploreHeader({ value }: ExploreHeaderProps) {
+	const router = useRouter();
+
 	const insets = useSafeAreaInsets();
 	const { currentTheme, themes } = useTheme();
 	const selectedTheme = themes[currentTheme];
@@ -96,7 +99,11 @@ export function ExploreHeader({ value }: ExploreHeaderProps) {
 					transform: [{ scale: animatedButtonScale }],
 				}}
 			>
-				<Button className="rounded-full justify-start w-full" variant="outline">
+				<Button
+					className="rounded-full justify-start w-full"
+					variant="outline"
+					onPress={() => router.push("/search/explore")}
+				>
 					<Icon as={Search} size={20} stroke={selectedTheme.primary} />
 					<Text className="text-muted-foreground">
 						Search for reels, event...

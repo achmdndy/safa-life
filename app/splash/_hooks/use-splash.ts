@@ -29,7 +29,7 @@ export function useSplash() {
 		]).start();
 
 		const timer = setTimeout(() => {
-			router.replace("/search/home");
+			router.replace("/search/charity");
 		}, 100);
 
 		return () => clearTimeout(timer);

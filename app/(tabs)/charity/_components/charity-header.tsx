@@ -1,3 +1,4 @@
+import { useRouter } from "expo-router";
 import { Bell, Search } from "lucide-react-native";
 import type { ComponentProps } from "react";
 import { Animated, Platform, View } from "react-native";
@@ -17,6 +18,8 @@ export type ChairityHeaderProps = ComponentProps<typeof View> & {
 };
 
 export function ChairityHeader({ value }: ChairityHeaderProps) {
+	const router = useRouter();
+
 	const { currentTheme, themes } = useTheme();
 	const selectedTheme = themes[currentTheme];
 	const insets = useSafeAreaInsets();
@@ -90,7 +93,11 @@ export function ChairityHeader({ value }: ChairityHeaderProps) {
 				</Button>
 			</Animated.View>
 
-			<Button className="rounded-full justify-start w-full" variant="outline">
+			<Button
+				className="rounded-full justify-start w-full"
+				variant="outline"
+				onPress={() => router.push("/search/charity")}
+			>
 				<Icon
 					as={Search}
 					size={20}
