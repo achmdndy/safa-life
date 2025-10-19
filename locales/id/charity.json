@@ -1,0 +1,97 @@
+{
+  "accessibility": {
+    "welcomeAnnouncement": "Selamat datang di bagian amal Safa Life"
+  },
+  "header": {
+    "title": "Amal",
+    "subtitle": "Buat perbedaan hari ini",
+    "searchPlaceholder": "Cari amal, tujuan...",
+    "accessibilityLabel": "Header halaman amal",
+    "notificationButtonAccessibilityLabel": "Lihat notifikasi amal",
+    "notificationButtonAccessibilityHint": "Ketuk untuk melihat pembaruan tentang donasi dan aktivitas amal Anda",
+    "searchButtonAccessibilityLabel": "Cari amal dan tujuan",
+    "searchButtonAccessibilityHint": "Ketuk untuk membuka halaman pencarian organisasi amal dan tujuan"
+  },
+  "calculateZakat": {
+    "title": "Hitung Zakat Anda",
+    "description": "Zakat adalah rukun Islam yang wajib. Gunakan kalkulator kami untuk menentukan kewajiban Anda dan menunaikannya dengan mudah.",
+    "buttonText": "Hitung & Bayar Zakat",
+    "quickFacts": "Fakta Singkat",
+    "nisabThreshold": "Batas Nisab",
+    "percentageText": "2,5% dari kekayaan yang memenuhi syarat",
+    "goldEquivalent": "Setara 85g emas",
+    "accessibilityLabel": "Bagian perhitungan zakat",
+    "buttonAccessibilityLabel": "Hitung dan bayar kewajiban zakat Anda",
+    "buttonAccessibilityHint": "Ketuk untuk membuka kalkulator zakat dan opsi pembayaran",
+    "quickFactsAccessibilityLabel": "Fakta singkat tentang zakat: 2,5% dari kekayaan yang memenuhi syarat",
+    "nisabAccessibilityLabel": "Batas nisab: setara 85 gram emas"
+  },
+  "givePurpose": {
+    "title": "Berikan dengan Tujuan",
+    "viewAll": "Lihat semua",
+    "items": {
+      "sadaqah": "Sedekah",
+      "zakat": "Zakat",
+      "infaq": "Infaq",
+      "wakaf": "Wakaf",
+      "fidyah": "Fidyah",
+      "kaffarah": "Kaffarah"
+    },
+    "accessibilityLabel": "Bagian berikan dengan tujuan",
+    "viewAllAccessibilityLabel": "Lihat semua tujuan amal",
+    "viewAllAccessibilityHint": "Ketuk untuk melihat semua kategori amal dan donasi yang tersedia",
+    "itemAccessibilityLabel": "Kategori donasi {{item}}",
+    "itemAccessibilityHint": "Ketuk untuk mempelajari lebih lanjut tentang {{item}} dan berdonasi"
+  },
+  "community": {
+    "title": "Tujuan Komunitas",
+    "viewAll": "Lihat semua",
+    "donateNow": "Donasi Sekarang",
+    "urgent": "MENDESAK",
+    "raisedSoFar": "terkumpul sejauh ini",
+    "of": "dari",
+    "donors": "Donatur",
+    "days": "Hari",
+    "goal": "Target",
+    "accessibilityLabel": "Bagian tujuan komunitas",
+    "viewAllAccessibilityLabel": "Lihat semua tujuan komunitas",
+    "viewAllAccessibilityHint": "Ketuk untuk melihat semua tujuan amal komunitas yang tersedia",
+    "causeAccessibilityHint": "Ketuk untuk melihat detail dan berdonasi untuk tujuan ini",
+    "donateNowAccessibilityLabel": "Donasi sekarang untuk tujuan ini",
+    "donateNowAccessibilityHint": "Ketuk untuk berdonasi untuk tujuan ini",
+    "categories": {
+      "education": "Pendidikan",
+      "healthcare": "Kesehatan",
+      "water": "Air",
+      "food": "Makanan",
+      "orphans": "Anak Yatim",
+      "emergency": "Darurat"
+    },
+    "causes": {
+      "education": {
+        "title": "Bangun Sekolah Islam di Daerah Terpencil",
+        "description": "Bantu kami membangun sekolah Islam baru untuk memberikan pendidikan berkualitas bagi 500+ anak di komunitas yang kurang terlayani."
+      },
+      "healthcare": {
+        "title": "Bantuan Medis untuk Anak-anak Gaza",
+        "description": "Menyediakan perlengkapan medis penting dan perawatan untuk anak-anak yang terkena dampak krisis yang sedang berlangsung."
+      },
+      "water": {
+        "title": "Proyek Sumur Air Bersih",
+        "description": "Memasang sumur air di daerah yang terkena kekeringan untuk menyediakan air minum bersih bagi seluruh desa."
+      },
+      "food": {
+        "title": "Paket Makanan Ramadan",
+        "description": "Mendistribusikan paket makanan bergizi kepada keluarga yang membutuhkan selama bulan suci Ramadan."
+      },
+      "orphans": {
+        "title": "Dukung Anak-anak Yatim",
+        "description": "Memberikan dukungan bulanan, pendidikan, dan perawatan untuk anak-anak yatim yang membutuhkan."
+      },
+      "emergency": {
+        "title": "Dana Bantuan Gempa Bumi",
+        "description": "Bantuan darurat untuk keluarga yang terkena dampak gempa bumi baru-baru ini, menyediakan tempat tinggal dan kebutuhan pokok."
+      }
+    }
+  }
+}

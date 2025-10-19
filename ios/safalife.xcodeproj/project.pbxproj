@@ -8,28 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
-		144D0F371C28420B6E436B8E /* libPods-safalife.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B7E68240863726206199846 /* libPods-safalife.a */; };
 		3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */; };
-		7285BC6E2CAAD34DBAC48305 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4B74C1AA5193A7EF407285 /* ExpoModulesProvider.swift */; };
+		61114445A292A8DE14F3CD99 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D346F2DFD35D4874B9326DD5 /* ExpoModulesProvider.swift */; };
 		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
-		CDBE98DE41ED26A4F7C8619C /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 62A7488B0DF93D37E9A22C0F /* PrivacyInfo.xcprivacy */; };
+		D50CCD6F31148DD18D386160 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 64123CFDD27A1B7A11BB497E /* PrivacyInfo.xcprivacy */; };
 		F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11748412D0307B40044C1D9 /* AppDelegate.swift */; };
+		FDF19F6219E3AA33A6411199 /* libPods-SafaLife.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 525E22E57C32C979D2011F0F /* libPods-SafaLife.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		13B07F961A680F5B00A75B9A /* safalife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = safalife.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = safalife/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = safalife/Info.plist; sourceTree = "<group>"; };
-		5969E9991BBB114068C746A8 /* Pods-safalife.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-safalife.debug.xcconfig"; path = "Target Support Files/Pods-safalife/Pods-safalife.debug.xcconfig"; sourceTree = "<group>"; };
-		62A7488B0DF93D37E9A22C0F /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = safalife/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		9B7E68240863726206199846 /* libPods-safalife.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-safalife.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = safalife/SplashScreen.storyboard; sourceTree = "<group>"; };
-		B69A8651ED97A3E2B2927F81 /* Pods-safalife.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-safalife.release.xcconfig"; path = "Target Support Files/Pods-safalife/Pods-safalife.release.xcconfig"; sourceTree = "<group>"; };
+		01723C79790128324BA4B800 /* Pods-SafaLife.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafaLife.debug.xcconfig"; path = "Target Support Files/Pods-SafaLife/Pods-SafaLife.debug.xcconfig"; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* SafaLife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SafaLife.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = SafaLife/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = SafaLife/Info.plist; sourceTree = "<group>"; };
+		525E22E57C32C979D2011F0F /* libPods-SafaLife.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SafaLife.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		64123CFDD27A1B7A11BB497E /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = SafaLife/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = SafaLife/SplashScreen.storyboard; sourceTree = "<group>"; };
 		BB2F792C24A3F905000567C9 /* Expo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Expo.plist; sourceTree = "<group>"; };
-		DF4B74C1AA5193A7EF407285 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-safalife/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
+		D346F2DFD35D4874B9326DD5 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-SafaLife/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
+		DCDFB4D666B51042D15E2AFE /* Pods-SafaLife.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafaLife.release.xcconfig"; path = "Target Support Files/Pods-SafaLife/Pods-SafaLife.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		F11748412D0307B40044C1D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = safalife/AppDelegate.swift; sourceTree = "<group>"; };
-		F11748442D0722820044C1D9 /* safalife-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "safalife-Bridging-Header.h"; path = "safalife/safalife-Bridging-Header.h"; sourceTree = "<group>"; };
+		F11748412D0307B40044C1D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = SafaLife/AppDelegate.swift; sourceTree = "<group>"; };
+		F11748442D0722820044C1D9 /* SafaLife-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SafaLife-Bridging-Header.h"; path = "SafaLife/SafaLife-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,60 +37,42 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				144D0F371C28420B6E436B8E /* libPods-safalife.a in Frameworks */,
+				FDF19F6219E3AA33A6411199 /* libPods-SafaLife.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		13B07FAE1A68108700A75B9A /* safalife */ = {
+		13B07FAE1A68108700A75B9A /* SafaLife */ = {
 			isa = PBXGroup;
 			children = (
 				F11748412D0307B40044C1D9 /* AppDelegate.swift */,
-				F11748442D0722820044C1D9 /* safalife-Bridging-Header.h */,
+				F11748442D0722820044C1D9 /* SafaLife-Bridging-Header.h */,
 				BB2F792B24A3F905000567C9 /* Supporting */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */,
-				62A7488B0DF93D37E9A22C0F /* PrivacyInfo.xcprivacy */,
+				64123CFDD27A1B7A11BB497E /* PrivacyInfo.xcprivacy */,
 			);
-			name = safalife;
+			name = SafaLife;
 			sourceTree = "<group>";
 		};
-		15601ADDE3B8BD656B83FA8B /* ExpoModulesProviders */ = {
+		2CE2E1563D373280EBA9335B /* SafaLife */ = {
 			isa = PBXGroup;
 			children = (
-				72036807690088018F90DBA5 /* safalife */,
+				D346F2DFD35D4874B9326DD5 /* ExpoModulesProvider.swift */,
 			);
-			name = ExpoModulesProviders;
+			name = SafaLife;
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				9B7E68240863726206199846 /* libPods-safalife.a */,
+				525E22E57C32C979D2011F0F /* libPods-SafaLife.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		72036807690088018F90DBA5 /* safalife */ = {
-			isa = PBXGroup;
-			children = (
-				DF4B74C1AA5193A7EF407285 /* ExpoModulesProvider.swift */,
-			);
-			name = safalife;
-			sourceTree = "<group>";
-		};
-		74B71EBE0577642E615B35D0 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				5969E9991BBB114068C746A8 /* Pods-safalife.debug.xcconfig */,
-				B69A8651ED97A3E2B2927F81 /* Pods-safalife.release.xcconfig */,
-			);
-			name = Pods;
-			path = Pods;
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -103,12 +85,12 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				13B07FAE1A68108700A75B9A /* safalife */,
+				13B07FAE1A68108700A75B9A /* SafaLife */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
-				74B71EBE0577642E615B35D0 /* Pods */,
-				15601ADDE3B8BD656B83FA8B /* ExpoModulesProviders */,
+				E50852934C2DF468A7F708D6 /* Pods */,
+				D289F710A9326C72621BF899 /* ExpoModulesProviders */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -118,7 +100,7 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* safalife.app */,
+				13B07F961A680F5B00A75B9A /* SafaLife.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -129,32 +111,50 @@
 				BB2F792C24A3F905000567C9 /* Expo.plist */,
 			);
 			name = Supporting;
-			path = safalife/Supporting;
+			path = SafaLife/Supporting;
+			sourceTree = "<group>";
+		};
+		D289F710A9326C72621BF899 /* ExpoModulesProviders */ = {
+			isa = PBXGroup;
+			children = (
+				2CE2E1563D373280EBA9335B /* SafaLife */,
+			);
+			name = ExpoModulesProviders;
+			sourceTree = "<group>";
+		};
+		E50852934C2DF468A7F708D6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				01723C79790128324BA4B800 /* Pods-SafaLife.debug.xcconfig */,
+				DCDFB4D666B51042D15E2AFE /* Pods-SafaLife.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		13B07F861A680F5B00A75B9A /* safalife */ = {
+		13B07F861A680F5B00A75B9A /* SafaLife */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "safalife" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "SafaLife" */;
 			buildPhases = (
 				08A4A3CD28434E44B6B9DE2E /* [CP] Check Pods Manifest.lock */,
-				2E171E1E6B2742237A77B129 /* [Expo] Configure project */,
+				9052700383CEF3239D0524D8 /* [Expo] Configure project */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */,
-				6953DCD6A67F1BBE3BDF27A6 /* [CP] Embed Pods Frameworks */,
+				AE5B3DEFD21580F5BAC54E60 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = safalife;
-			productName = safalife;
-			productReference = 13B07F961A680F5B00A75B9A /* safalife.app */;
+			name = SafaLife;
+			productName = SafaLife;
+			productReference = 13B07F961A680F5B00A75B9A /* SafaLife.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -170,7 +170,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "safalife" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "SafaLife" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -183,7 +183,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* safalife */,
+				13B07F861A680F5B00A75B9A /* SafaLife */,
 			);
 		};
 /* End PBXProject section */
@@ -196,7 +196,7 @@
 				BB2F792D24A3F905000567C9 /* Expo.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */,
-				CDBE98DE41ED26A4F7C8619C /* PrivacyInfo.xcprivacy in Resources */,
+				D50CCD6F31148DD18D386160 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,48 +233,11 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-safalife-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-SafaLife-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		2E171E1E6B2742237A77B129 /* [Expo] Configure project */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "[Expo] Configure project";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-safalife/expo-configure-project.sh\"\n";
-		};
-		6953DCD6A67F1BBE3BDF27A6 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-safalife/Pods-safalife-frameworks.sh",
-				"${PODS_XCFRAMEWORKS_BUILD_DIR}/hermes-engine/Pre-built/hermes.framework/hermes",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/hermes.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-safalife/Pods-safalife-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */ = {
@@ -283,7 +246,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-safalife/Pods-safalife-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-SafaLife/Pods-SafaLife-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/EXConstants/EXConstants.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/EXConstants/ExpoConstants_privacy.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/ExpoFileSystem/ExpoFileSystem_privacy.bundle",
@@ -322,7 +285,44 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-safalife/Pods-safalife-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SafaLife/Pods-SafaLife-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9052700383CEF3239D0524D8 /* [Expo] Configure project */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "[Expo] Configure project";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-SafaLife/expo-configure-project.sh\"\n";
+		};
+		AE5B3DEFD21580F5BAC54E60 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SafaLife/Pods-SafaLife-frameworks.sh",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/hermes-engine/Pre-built/hermes.framework/hermes",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/hermes.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SafaLife/Pods-SafaLife-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -333,7 +333,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */,
-				7285BC6E2CAAD34DBAC48305 /* ExpoModulesProvider.swift in Sources */,
+				61114445A292A8DE14F3CD99 /* ExpoModulesProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,18 +342,18 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5969E9991BBB114068C746A8 /* Pods-safalife.debug.xcconfig */;
+			baseConfigurationReference = 01723C79790128324BA4B800 /* Pods-SafaLife.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = safalife/safalife.entitlements;
+				CODE_SIGN_ENTITLEMENTS = SafaLife/SafaLife.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"FB_SONARKIT_ENABLED=1",
 				);
-				INFOPLIST_FILE = safalife/Info.plist;
+				INFOPLIST_FILE = SafaLife/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -367,8 +367,8 @@
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = dev.achmdndy.safalife;
-				PRODUCT_NAME = safalife;
-				SWIFT_OBJC_BRIDGING_HEADER = "safalife/safalife-Bridging-Header.h";
+				PRODUCT_NAME = SafaLife;
+				SWIFT_OBJC_BRIDGING_HEADER = "SafaLife/SafaLife-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -378,13 +378,13 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B69A8651ED97A3E2B2927F81 /* Pods-safalife.release.xcconfig */;
+			baseConfigurationReference = DCDFB4D666B51042D15E2AFE /* Pods-SafaLife.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = safalife/safalife.entitlements;
+				CODE_SIGN_ENTITLEMENTS = SafaLife/SafaLife.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
-				INFOPLIST_FILE = safalife/Info.plist;
+				INFOPLIST_FILE = SafaLife/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -398,8 +398,8 @@
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
 				PRODUCT_BUNDLE_IDENTIFIER = dev.achmdndy.safalife;
-				PRODUCT_NAME = safalife;
-				SWIFT_OBJC_BRIDGING_HEADER = "safalife/safalife-Bridging-Header.h";
+				PRODUCT_NAME = SafaLife;
+				SWIFT_OBJC_BRIDGING_HEADER = "SafaLife/SafaLife-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -533,7 +533,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "safalife" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "SafaLife" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -542,7 +542,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "safalife" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "SafaLife" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,

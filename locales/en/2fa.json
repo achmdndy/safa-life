@@ -1,0 +1,21 @@
+{
+  "title": "Two-Factor Authentication",
+  "subtitle": "Enter the 6-digit code from your authenticator app.",
+  "verifyButton": "Verify Code",
+  "codeRequired": "Verification code is required",
+  "havingTrouble": "Still having trouble?",
+  "backToLogin": "Back to Login",
+  "accessibility": {
+    "screen": "Two-Factor Authentication screen",
+    "backButton": "Go back to login screen",
+    "backButtonHint": "Navigate back to the login page",
+    "title": "Two-Factor Authentication",
+    "subtitle": "Enter the 6-digit code from your authenticator app.",
+    "otpInput": "6-digit verification code input",
+    "otpInputHint": "Enter the code from your authenticator app, one digit per box",
+    "verifyButton": "Verify the authentication code",
+    "verifyButtonHint": "Press to submit the code for verification",
+    "contactSupport": "Contact support button",
+    "contactSupportHint": "Press if you are having trouble with two-factor authentication"
+  }
+}

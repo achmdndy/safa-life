@@ -1,0 +1,76 @@
+{
+  "accessibility": {
+    "welcomeAnnouncement": "Selamat datang di onboarding Safa Life"
+  },
+  "header": {
+    "title": "Jelajahi",
+    "searchPlaceholder": "Cari reels, acara...",
+    "accessibilityLabel": "Header halaman jelajahi",
+    "searchButtonAccessibilityLabel": "Cari konten Islam, reels, dan acara",
+    "searchButtonAccessibilityHint": "Ketuk untuk membuka halaman pencarian konten Islam"
+  },
+  "discoverMore": {
+    "title": "Temukan Lebih Banyak",
+    "viewAll": "Lihat semua",
+    "items": {
+      "hadith": {
+        "title": "Hadits & Sunnah",
+        "description": "Hikmah harian"
+      },
+      "articles": {
+        "title": "Artikel",
+        "description": "Pengetahuan Islam"
+      },
+      "qa": {
+        "title": "Tanya Jawab",
+        "description": "Dapatkan jawaban"
+      },
+      "halalFinder": {
+        "title": "Pencari Halal",
+        "description": "Temukan tempat halal"
+      }
+    },
+    "accessibilityLabel": "Bagian temukan lebih banyak konten Islam",
+    "viewAllAccessibilityLabel": "Lihat semua opsi penemuan",
+    "viewAllAccessibilityHint": "Ketuk untuk melihat semua kategori konten Islam yang tersedia",
+    "itemAccessibilityLabel": "{{title}} - {{description}}",
+    "itemAccessibilityHint": "Ketuk untuk menjelajahi konten {{title}}"
+  },
+  "reels": {
+    "title": "Reels Islam",
+    "viewAll": "Lihat semua",
+    "duration": "{{minutes}}:{{seconds}}",
+    "accessibilityLabel": "Bagian reels Islam",
+    "listAccessibilityLabel": "Daftar video reels Islam",
+    "listAccessibilityHint": "Geser horizontal untuk menjelajahi konten video Islam",
+    "viewAllAccessibilityLabel": "Lihat semua reels Islam",
+    "viewAllAccessibilityHint": "Ketuk untuk melihat semua video reels Islam yang tersedia",
+    "reelAccessibilityLabel": "Reel {{title}}, durasi {{duration}}",
+    "reelAccessibilityHint": "Ketuk untuk memutar video reel {{title}}",
+    "playButtonAccessibilityLabel": "Putar video",
+    "playButtonAccessibilityHint": "Ketuk untuk mulai memutar video reel Islam ini"
+  },
+  "events": {
+    "title": "Acara Islam",
+    "viewAll": "Lihat semua",
+    "accessibilityLabel": "Bagian acara Islam",
+    "listAccessibilityLabel": "Daftar acara Islam mendatang",
+    "viewAllAccessibilityLabel": "Lihat semua acara Islam",
+    "viewAllAccessibilityHint": "Ketuk untuk melihat semua acara Islam mendatang",
+    "eventAccessibilityLabel": "{{title}} pada {{date}} di {{location}}",
+    "eventAccessibilityHint": "Ketuk untuk melihat detail dan mendaftar {{title}}",
+    "eventImageAccessibilityLabel": "Gambar acara untuk {{title}}",
+    "eventButtonAccessibilityLabel": "Lihat detail acara",
+    "eventButtonAccessibilityHint": "Ketuk untuk melihat informasi lebih lanjut tentang acara Islam ini"
+  },
+  "hijrahProgram": {
+    "featured": "Unggulan",
+    "title": "Program Hijrah",
+    "description": "Mulailah perjalanan transformatif iman. Bergabunglah dengan program terpandu kami untuk memperkuat hubungan Anda dengan Allah.",
+    "startJourney": "Mulai Perjalanan Anda",
+    "accessibilityLabel": "Program Hijrah unggulan",
+    "imageAccessibilityLabel": "Gambar latar Program Hijrah menampilkan arsitektur Islam",
+    "buttonAccessibilityLabel": "Mulai perjalanan Hijrah Anda",
+    "buttonAccessibilityHint": "Ketuk untuk memulai program perjalanan spiritual Islam terpandu"
+  }
+}

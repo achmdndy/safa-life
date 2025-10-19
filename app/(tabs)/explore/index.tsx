@@ -1,5 +1,12 @@
-import { useRef } from "react";
-import { Animated, Platform, ScrollView, View } from "react-native";
+import { useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
+import {
+	AccessibilityInfo,
+	Animated,
+	Platform,
+	ScrollView,
+	View,
+} from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { ExploreDiscoverMore } from "./_components/explore-discover-more";
 import { ExploreEvent } from "./_components/explore-event";
@@ -13,8 +20,15 @@ export const EXPLORE_SCROLL_DISTANCE =
 	EXPLORE_HEADER_MAX_HEIGHT - EXPLORE_HEADER_MIN_HEIGHT;
 
 export default function ExploreScreen() {
+	const { t } = useTranslation("home");
 	const scrollOffsetY = useRef(new Animated.Value(0)).current;
 	const insets = useSafeAreaInsets();
+
+	useEffect(() => {
+		AccessibilityInfo.announceForAccessibility(
+			t("accessibility.welcomeAnnouncement"),
+		);
+	}, [t]);
 
 	return (
 		<View className="flex-1 bg-background h-full">

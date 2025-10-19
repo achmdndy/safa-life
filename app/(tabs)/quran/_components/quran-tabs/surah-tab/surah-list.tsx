@@ -1,5 +1,7 @@
 import { FlashList } from "@shopify/flash-list";
-import { Dimensions, Platform, View } from "react-native";
+import { useRouter } from "expo-router";
+import { useTranslation } from "react-i18next";
+import { Dimensions, Platform, Pressable, View } from "react-native";
 import { PieChart } from "react-native-gifted-charts";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Card, CardContent } from "@/components/ui/card";
@@ -9,6 +11,7 @@ import { createTheme } from "@/lib/theme";
 
 export function SurahList() {
 	const insets = useSafeAreaInsets();
+	const router = useRouter();
 	const { height } = Dimensions.get("window");
 	const { currentTheme, theme } = useTheme();
 	const selectedTheme = themes[currentTheme];
@@ -17,6 +20,7 @@ export function SurahList() {
 		selectedTheme.primary,
 		selectedTheme.secondary,
 	);
+	const { t } = useTranslation("quran");
 
 	const pieData = [
 		{ value: 25, color: selectedTheme.primary, text: "25%" },
@@ -110,7 +114,10 @@ export function SurahList() {
 	});
 
 	return (
-		<View>
+		<View
+			accessible={true}
+			accessibilityLabel={t("surahList.accessibility.section")}
+		>
 			<Card
 				className="mb-2 p-4 border-transparent mx-4"
 				style={{
@@ -119,15 +126,28 @@ export function SurahList() {
 					shadowOpacity: 0.1,
 					shadowRadius: 4,
 				}}
+				accessible={true}
+				accessibilityRole="summary"
+				accessibilityLabel={t("surahList.accessibility.lastReadingCard")}
 			>
 				<CardContent className="p-0">
 					<View className="flex-row justify-between items-center">
 						<View>
-							<Text className="font-semibold text-lg">Last Reading</Text>
+							<Text className="font-semibold text-lg">
+								{t("surahList.lastReading")}
+							</Text>
 							<Text className="text-muted-foreground mt-1">Al-Baqarah</Text>
-							<Text className="text-muted-foreground">Ayat 255 dari 286</Text>
+							<Text className="text-muted-foreground">
+								{t("surahList.ayat")} 255 {t("surahList.from")} 286
+							</Text>
 						</View>
-						<View style={{ width: 80, height: 80 }}>
+						<View
+							style={{ width: 80, height: 80 }}
+							accessible={true}
+							accessibilityLabel={t("surahList.accessibility.progressChart", {
+								percentage: "25%",
+							})}
+						>
 							<PieChart
 								data={pieData}
 								donut
@@ -155,6 +175,8 @@ export function SurahList() {
 				<FlashList
 					data={allSurahData}
 					className="px-4"
+					accessible={true}
+					accessibilityRole="list"
 					ListFooterComponent={
 						<View
 							style={{
@@ -163,51 +185,88 @@ export function SurahList() {
 						/>
 					}
 					renderItem={({ item }) => (
-						<Card
-							className="mb-2 border-transparent p-4"
-							style={{
-								shadowColor: selectedTheme.primary,
-								shadowOffset: { width: 0, height: 0 },
-								shadowOpacity: 0.1,
-								shadowRadius: 4,
-							}}
+						<Pressable
+							onPress={() =>
+								router.push({
+									pathname: `/quran/${item.id}`,
+								})
+							}
 						>
-							<CardContent className="p-0">
-								<View className="flex-row justify-between items-center">
-									<View className="flex-row items-center">
-										<View
-											className="w-10 h-10 rounded-full items-center justify-center mr-3"
-											style={{
-												backgroundColor: selectedTheme.primary,
-											}}
-										>
-											<Text className="text-primary-foreground dark:text-foreground font-bold">
-												{item.id}
-											</Text>
+							<Card
+								className="mb-2 border-transparent p-4"
+								style={{
+									shadowColor: selectedTheme.primary,
+									shadowOffset: { width: 0, height: 0 },
+									shadowOpacity: 0.1,
+									shadowRadius: 4,
+								}}
+								accessible={true}
+								accessibilityRole="button"
+								accessibilityLabel={t("surahList.accessibility.surahItem", {
+									number: item.id,
+									name: item.nameTranslit,
+									meaning: item.meaning,
+									verses: item.totalVerses,
+								})}
+							>
+								<CardContent className="p-0">
+									<View className="flex-row justify-between items-center">
+										<View className="flex-row items-center">
+											<View
+												className="w-10 h-10 rounded-full items-center justify-center mr-3"
+												style={{
+													backgroundColor: selectedTheme.primary,
+												}}
+												accessible={true}
+												accessibilityLabel={t(
+													"surahList.accessibility.surahNumber",
+													{ number: item.id },
+												)}
+											>
+												<Text className="text-primary-foreground dark:text-foreground font-bold">
+													{item.id}
+												</Text>
+											</View>
+											<View>
+												<Text
+													className="font-semibold"
+													accessible={true}
+													accessibilityLabel={t(
+														"surahList.accessibility.surahName",
+														{ name: item.nameTranslit, meaning: item.meaning },
+													)}
+												>
+													{item.nameTranslit}
+												</Text>
+												<Text className="text-muted-foreground text-sm">
+													{item.meaning}
+												</Text>
+											</View>
 										</View>
-										<View>
-											<Text className="font-semibold">{item.nameTranslit}</Text>
-											<Text className="text-muted-foreground text-sm">
-												{item.meaning}
+										<View className="items-end">
+											<Text
+												className="font-medium"
+												style={{
+													color: selectedTheme.secondary,
+												}}
+											>
+												{item.name}
+											</Text>
+											<Text
+												className="font-semibold text-base"
+												accessible={true}
+												accessibilityLabel={t(
+													"surahList.accessibility.verseCount",
+													{ count: item.totalVerses },
+												)}
+											>
+												{item.totalVerses} {t("surahList.ayat")}
 											</Text>
 										</View>
 									</View>
-									<View className="items-end">
-										<Text
-											className="font-medium"
-											style={{
-												color: selectedTheme.secondary,
-											}}
-										>
-											{item.name}
-										</Text>
-										<Text className="font-semibold text-base">
-											{item.totalVerses} Ayat
-										</Text>
-									</View>
-								</View>
-							</CardContent>
-						</Card>
+								</CardContent>
+							</Card>
+						</Pressable>
 					)}
 					showsVerticalScrollIndicator={false}
 				/>

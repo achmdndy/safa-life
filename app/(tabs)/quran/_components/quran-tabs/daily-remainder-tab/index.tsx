@@ -1,5 +1,6 @@
 import { FlashList } from "@shopify/flash-list";
 import { Bell, Bookmark, Forward, Heart } from "lucide-react-native";
+import { useTranslation } from "react-i18next";
 import { Dimensions, Image, Platform, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
@@ -9,6 +10,7 @@ import { Text } from "@/components/ui/text";
 import { useTheme } from "@/contexts/theme-context";
 
 export function DailyRemainderTab() {
+	const { t } = useTranslation("quran");
 	const insets = useSafeAreaInsets();
 	const { height } = Dimensions.get("window");
 	const { currentTheme, themes } = useTheme();
@@ -138,7 +140,11 @@ export function DailyRemainderTab() {
 	});
 
 	return (
-		<View className="gap-2 mt-4">
+		<View
+			className="gap-2 mt-4"
+			accessible={true}
+			accessibilityLabel={t("dailyReminder.accessibility.section")}
+		>
 			<View className="mx-4 flex-row items-center">
 				<Icon
 					as={Bell}
@@ -146,7 +152,13 @@ export function DailyRemainderTab() {
 					className="mr-2"
 					stroke={selectedTheme.primary}
 				/>
-				<Text className="font-bold text-xl">Daily Reminder</Text>
+				<Text
+					className="font-bold text-xl"
+					accessible={true}
+					accessibilityLabel={t("dailyReminder.title")}
+				>
+					{t("dailyReminder.title")}
+				</Text>
 			</View>
 
 			<View

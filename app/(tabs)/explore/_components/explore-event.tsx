@@ -1,4 +1,5 @@
 import { CalendarClock, ChevronRight } from "lucide-react-native";
+import { useTranslation } from "react-i18next";
 import { Image, Pressable, View } from "react-native";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Button } from "@/components/ui/button";
@@ -8,6 +9,7 @@ import { Text } from "@/components/ui/text";
 import { useTheme } from "@/contexts/theme-context";
 
 export function ExploreEvent() {
+	const { t } = useTranslation("explore");
 	const { currentTheme, themes } = useTheme();
 	const selectedTheme = themes[currentTheme];
 
@@ -47,7 +49,11 @@ export function ExploreEvent() {
 	];
 
 	return (
-		<View className="px-4 gap-4 mt-8">
+		<View
+			className="px-4 gap-4 mt-8"
+			accessible={true}
+			accessibilityLabel={t("events.accessibilityLabel")}
+		>
 			<View className="flex-row justify-between items-center">
 				<View className="flex-row items-center">
 					<Icon
@@ -56,15 +62,27 @@ export function ExploreEvent() {
 						className="mr-2"
 						stroke={selectedTheme.primary}
 					/>
-					<Text className="font-bold text-xl">Islamic Events</Text>
+					<Text className="font-bold text-xl">{t("events.title")}</Text>
 				</View>
-				<Pressable className="flex-row items-center">
-					<Text className="text-primary text-sm mr-1">View all</Text>
+				<Pressable
+					className="flex-row items-center"
+					accessible={true}
+					accessibilityRole="button"
+					accessibilityLabel={t("events.viewAllAccessibilityLabel")}
+					accessibilityHint={t("events.viewAllAccessibilityHint")}
+				>
+					<Text className="text-primary text-sm mr-1">
+						{t("events.viewAll")}
+					</Text>
 					<Icon as={ChevronRight} size={16} className="text-primary" />
 				</Pressable>
 			</View>
 
-			<View className="gap-2">
+			<View
+				className="gap-2"
+				accessible={true}
+				accessibilityLabel={t("events.listAccessibilityLabel")}
+			>
 				{eventsData.map((event) => (
 					<Card
 						key={event.id}
@@ -75,6 +93,16 @@ export function ExploreEvent() {
 							shadowOpacity: 0.1,
 							shadowRadius: 4,
 						}}
+						accessible={true}
+						accessibilityRole="button"
+						accessibilityLabel={t("events.eventAccessibilityLabel", {
+							title: event.title,
+							date: event.date,
+							location: event.location,
+						})}
+						accessibilityHint={t("events.eventAccessibilityHint", {
+							title: event.title,
+						})}
 					>
 						<CardContent className="p-0 flex-row items-center justify-between">
 							<View className="flex-row gap-4 items-center">
@@ -84,6 +112,11 @@ export function ExploreEvent() {
 											source={{ uri: event.image }}
 											style={{ width: "100%", height: "100%", borderRadius: 8 }}
 											resizeMode="cover"
+											accessible={true}
+											accessibilityLabel={t(
+												"events.eventImageAccessibilityLabel",
+												{ title: event.title },
+											)}
 										/>
 									</AspectRatio>
 								</View>
@@ -97,7 +130,15 @@ export function ExploreEvent() {
 									</Text>
 								</View>
 							</View>
-							<Button size="icon" variant="outline" className="rounded-full">
+							<Button
+								size="icon"
+								variant="outline"
+								className="rounded-full"
+								accessible={true}
+								accessibilityRole="button"
+								accessibilityLabel={t("events.eventButtonAccessibilityLabel")}
+								accessibilityHint={t("events.eventButtonAccessibilityHint")}
+							>
 								<Icon as={ChevronRight} size={16} />
 							</Button>
 						</CardContent>

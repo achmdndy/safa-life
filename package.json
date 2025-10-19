@@ -36,8 +36,12 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@expo/react-native-action-sheet": "^4.1.1",
     "@expo/vector-icons": "^14.1.0",
+    "@gorhom/bottom-sheet": "^5.2.6",
+    "@hookform/resolvers": "^5.2.2",
     "@react-native-async-storage/async-storage": "^2.2.0",
+    "@react-native-community/slider": "4.5.6",
     "@react-navigation/bottom-tabs": "^7.3.10",
     "@react-navigation/elements": "^2.3.8",
     "@react-navigation/native": "^7.1.6",
@@ -91,6 +95,7 @@
     "nativewind": "^4.1.23",
     "react": "19.0.0",
     "react-dom": "19.0.0",
+    "react-hook-form": "^7.65.0",
     "react-i18next": "^15.7.3",
     "react-native": "0.79.6",
     "react-native-gesture-handler": "~2.24.0",
@@ -112,6 +117,7 @@
     "@babel/core": "^7.25.2",
     "@biomejs/biome": "2.2.2",
     "@types/react": "~19.0.10",
+    "esbuild": "^0.25.10",
     "expo-dev-client": "^5.2.4",
     "husky": "^9.1.7",
     "lint-staged": "^16.1.6",

@@ -1,6 +1,7 @@
 import { FlashList } from "@shopify/flash-list";
 import { Bookmark, BookmarkX } from "lucide-react-native";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Alert, Dimensions, Platform, Pressable, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Card, CardContent } from "@/components/ui/card";
@@ -9,6 +10,7 @@ import { Text } from "@/components/ui/text";
 import { themes, useTheme } from "@/contexts/theme-context";
 
 export function BookmarkList() {
+	const { t } = useTranslation("quran");
 	const insets = useSafeAreaInsets();
 	const { height } = Dimensions.get("window");
 	const { currentTheme } = useTheme();
@@ -69,15 +71,15 @@ export function BookmarkList() {
 
 	const removeBookmark = (id: number) => {
 		Alert.alert(
-			"Remove Bookmark",
-			"Are you sure you want to remove this bookmark?",
+			t("bookmarkList.removeBookmark"),
+			t("bookmarkList.removeConfirmation"),
 			[
 				{
-					text: "Cancel",
+					text: t("bookmarkList.cancel"),
 					style: "cancel",
 				},
 				{
-					text: "Remove",
+					text: t("bookmarkList.remove"),
 					onPress: () => {
 						setBookmarkData(bookmarkData.filter((item) => item.id !== id));
 					},
@@ -88,7 +90,10 @@ export function BookmarkList() {
 	};
 
 	return (
-		<View>
+		<View
+			accessible={true}
+			accessibilityLabel={t("bookmarkList.accessibility.section")}
+		>
 			<Card
 				className="mb-2 p-4 border-transparent mx-4"
 				style={{
@@ -97,6 +102,10 @@ export function BookmarkList() {
 					shadowOpacity: 0.1,
 					shadowRadius: 4,
 				}}
+				accessible={true}
+				accessibilityLabel={t("bookmarkList.accessibility.summaryCard", {
+					count: bookmarkData.length,
+				})}
 			>
 				<CardContent className="p-0">
 					<View className="flex-row justify-between items-center">
@@ -104,6 +113,8 @@ export function BookmarkList() {
 							<View
 								className="w-10 h-10 rounded-full items-center justify-center mr-3"
 								style={{ backgroundColor: selectedTheme.primary }}
+								accessible={true}
+								accessibilityLabel={t("bookmarkList.accessibility.icon")}
 							>
 								<Icon
 									as={Bookmark}
@@ -112,14 +123,39 @@ export function BookmarkList() {
 								/>
 							</View>
 							<View>
-								<Text className="font-semibold text-lg">My Bookmarks</Text>
-								<Text className="text-muted-foreground mt-1">
-									Total: {bookmarkData.length} bookmarks
+								<Text
+									className="font-semibold text-lg"
+									accessible={true}
+									accessibilityLabel={t("bookmarkList.title")}
+								>
+									{t("bookmarkList.title")}
+								</Text>
+								<Text
+									className="text-muted-foreground mt-1"
+									accessible={true}
+									accessibilityLabel={t(
+										"bookmarkList.accessibility.summaryText",
+										{ count: bookmarkData.length },
+									)}
+								>
+									{t("bookmarkList.summary", { count: bookmarkData.length })}
 								</Text>
 								{bookmarkData.length > 0 && (
-									<Text className="text-muted-foreground">
-										Last: {bookmarkData[0].surahNameTranslit} verse{" "}
-										{bookmarkData[0].ayatNumber}
+									<Text
+										className="text-muted-foreground"
+										accessible={true}
+										accessibilityLabel={t(
+											"bookmarkList.accessibility.lastBookmark",
+											{
+												surah: bookmarkData[0].surahNameTranslit,
+												verse: bookmarkData[0].ayatNumber,
+											},
+										)}
+									>
+										{t("bookmarkList.lastBookmark", {
+											surah: bookmarkData[0].surahNameTranslit,
+											verse: bookmarkData[0].ayatNumber,
+										})}
 									</Text>
 								)}
 							</View>
@@ -136,6 +172,9 @@ export function BookmarkList() {
 				<FlashList
 					data={bookmarkData}
 					className="px-4"
+					accessible={true}
+					accessibilityLabel={t("bookmarkList.accessibility.list")}
+					accessibilityHint={t("bookmarkList.accessibility.listHint")}
 					ListFooterComponent={
 						<View
 							style={{
@@ -152,6 +191,12 @@ export function BookmarkList() {
 								shadowOpacity: 0.1,
 								shadowRadius: 4,
 							}}
+							accessible={true}
+							accessibilityLabel={t("bookmarkList.accessibility.item", {
+								surah: item.surahNameTranslit,
+								verse: item.ayatNumber,
+								lastRead: item.lastRead,
+							})}
 						>
 							<CardContent className="p-0">
 								<View className="mb-2 flex-row justify-between items-center">
@@ -159,18 +204,35 @@ export function BookmarkList() {
 										<View
 											className="w-10 h-10 rounded-full items-center justify-center mr-3"
 											style={{ backgroundColor: selectedTheme.primary }}
+											accessible={true}
+											accessibilityLabel={t(
+												"bookmarkList.accessibility.surahNumber",
+												{ number: item.surahId },
+											)}
 										>
 											<Text className="text-primary-foreground font-bold">
 												{item.surahId}
 											</Text>
 										</View>
 										<View>
-											<Text className="font-semibold">
+											<Text
+												className="font-semibold"
+												accessible={true}
+												accessibilityLabel={t(
+													"bookmarkList.accessibility.surahName",
+													{ name: item.surahNameTranslit },
+												)}
+											>
 												{item.surahNameTranslit}
 											</Text>
 											<Text
 												className="font-medium"
 												style={{ color: selectedTheme.secondary }}
+												accessible={true}
+												accessibilityLabel={t(
+													"bookmarkList.accessibility.surahArabic",
+													{ name: item.surahName },
+												)}
 											>
 												{item.surahName}
 											</Text>
@@ -178,10 +240,24 @@ export function BookmarkList() {
 									</View>
 									<View className="flex-row items-center gap-2">
 										<View className="items-end mr-2">
-											<Text className="font-semibold text-base">
-												Verse {item.ayatNumber}
+											<Text
+												className="font-semibold text-base"
+												accessible={true}
+												accessibilityLabel={t(
+													"bookmarkList.accessibility.verse",
+													{ number: item.ayatNumber },
+												)}
+											>
+												{t("bookmarkList.verse", { number: item.ayatNumber })}
 											</Text>
-											<Text className="text-muted-foreground text-xs">
+											<Text
+												className="text-muted-foreground text-xs"
+												accessible={true}
+												accessibilityLabel={t(
+													"bookmarkList.accessibility.lastRead",
+													{ time: item.lastRead },
+												)}
+											>
 												{item.lastRead}
 											</Text>
 										</View>
@@ -192,6 +268,15 @@ export function BookmarkList() {
 												backgroundColor: `${selectedTheme.secondary}20`,
 											}}
 											hitSlop={8}
+											accessible={true}
+											accessibilityRole="button"
+											accessibilityLabel={t(
+												"bookmarkList.accessibility.removeButton",
+												{ surah: item.surahNameTranslit },
+											)}
+											accessibilityHint={t(
+												"bookmarkList.accessibility.removeButtonHint",
+											)}
 										>
 											<Icon
 												as={BookmarkX}
@@ -202,10 +287,19 @@ export function BookmarkList() {
 									</View>
 								</View>
 
-								<View className="bg-gray-50 dark:bg-background/50 p-3 rounded-lg mt-2">
+								<View
+									className="bg-gray-50 dark:bg-background/50 p-3 rounded-lg mt-2"
+									accessible={true}
+									accessibilityLabel={t("bookmarkList.accessibility.verseText")}
+								>
 									<Text
 										className="text-right text-lg font-arabic"
 										style={{ lineHeight: 32 }}
+										accessible={true}
+										accessibilityLabel={t(
+											"bookmarkList.accessibility.arabicText",
+											{ text: item.text },
+										)}
 									>
 										{item.text}
 									</Text>
@@ -215,13 +309,25 @@ export function BookmarkList() {
 					)}
 					showsVerticalScrollIndicator={false}
 					ListEmptyComponent={
-						<View className="items-center justify-center p-8">
+						<View
+							className="items-center justify-center p-8"
+							accessible={true}
+							accessibilityLabel={t("bookmarkList.accessibility.emptyState")}
+						>
 							<Icon as={Bookmark} size={40} className="text-gray-300 mb-4" />
-							<Text className="text-muted-foreground text-center">
-								No bookmarks yet
+							<Text
+								className="text-muted-foreground text-center"
+								accessible={true}
+								accessibilityLabel={t("bookmarkList.emptyState.title")}
+							>
+								{t("bookmarkList.emptyState.title")}
 							</Text>
-							<Text className="text-muted-foreground text-center text-sm">
-								Bookmarked verses will appear here
+							<Text
+								className="text-muted-foreground text-center text-sm"
+								accessible={true}
+								accessibilityLabel={t("bookmarkList.emptyState.message")}
+							>
+								{t("bookmarkList.emptyState.message")}
 							</Text>
 						</View>
 					}

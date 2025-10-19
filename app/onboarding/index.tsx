@@ -1,4 +1,6 @@
-import { StatusBar, View } from "react-native";
+import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
+import { AccessibilityInfo, StatusBar, View } from "react-native";
 import Animated from "react-native-reanimated";
 import { OnboardingConnected } from "./_components/onboarding-connected";
 import { OnboardingFinal } from "./_components/onboarding-final";
@@ -10,14 +12,21 @@ import { OnboardingWelcome } from "./_components/onboarding-welcome";
 import { useOnboarding } from "./_hooks/use-onboarding";
 
 export default function OnboardingScreen() {
+	const { t } = useTranslation("onboarding");
 	const {
 		currentPage,
 		animationProgress,
 		relaxTranslateYStyle,
-		onNextClick,
 		onBackClick,
+		onNextClick,
 		onSkipClick,
 	} = useOnboarding();
+
+	useEffect(() => {
+		AccessibilityInfo.announceForAccessibility(
+			t("accessibility.welcomeAnnouncement"),
+		);
+	}, [t]);
 
 	return (
 		<View className="flex-1 bg-background">

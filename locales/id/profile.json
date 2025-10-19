@@ -1,0 +1,41 @@
+{
+  "accessibility": {
+    "welcomeAnnouncement": "Selamat datang di profil Anda",
+    "profileHeader": "Bagian header profil",
+    "editProfileButton": "Edit foto profil",
+    "menuSection": "Bagian menu profil",
+    "menuItem": "Item menu",
+    "navigateToSettings": "Navigasi ke pengaturan"
+  },
+  "header": {
+    "editProfile": "Edit profil"
+  },
+  "menu": {
+    "sections": {
+      "accountSettings": "Pengaturan Akun",
+      "personalInformation": "Informasi Pribadi", 
+      "notificationPreferences": "Preferensi Notifikasi",
+      "appSettings": "Pengaturan Aplikasi"
+    },
+    "items": {
+      "changePassword": "Ubah Kata Sandi",
+      "privacySecurity": "Privasi & Keamanan",
+      "deleteAccount": "Hapus Akun",
+      "editProfile": "Edit Detail Profil",
+      "manageNotifications": "Kelola Notifikasi",
+      "language": "Bahasa",
+      "theme": "Tema",
+      "helpSupport": "Bantuan & Dukungan"
+    },
+    "accessibility": {
+      "changePassword": "Ubah kata sandi akun Anda",
+      "privacySecurity": "Kelola pengaturan privasi dan keamanan",
+      "deleteAccount": "Hapus akun Anda secara permanen",
+      "editProfile": "Edit informasi profil Anda",
+      "manageNotifications": "Konfigurasi preferensi notifikasi",
+      "language": "Ubah bahasa aplikasi",
+      "theme": "Ubah tema aplikasi",
+      "helpSupport": "Dapatkan bantuan dan dukungan"
+    }
+  }
+}

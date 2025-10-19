@@ -1,0 +1,143 @@
+{
+  "header": {
+    "greeting": "Assalamu'alaikum,",
+    "userName": "Achmad",
+    "searchPlaceholder": "Search for surah, dua...",
+    "accessibility": {
+      "headerLabel": "Home page header with greeting and search",
+      "greetingLabel": "Islamic greeting message",
+      "donationButtonLabel": "Charity and donation button",
+      "donationButtonHint": "Navigate to charity and donation features",
+      "searchButtonLabel": "Search button for Quran and duas",
+      "searchButtonHint": "Search for surahs, duas, and Islamic content"
+    }
+  },
+  "hadith": {
+    "title": "Hadith of the Day",
+    "content": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda, tempora.",
+    "source": "- Lorem, ipsum.",
+    "accessibility": {
+      "sectionLabel": "Daily hadith section with inspirational Islamic quote",
+      "titleLabel": "Hadith of the day section title",
+      "cardLabel": "Hadith of the day card",
+      "contentLabel": "Hadith text content",
+      "sourceLabel": "Hadith source attribution"
+    }
+  },
+  "prayerTimes": {
+    "title": "Today's Prayer Schedule",
+    "location": "Jakarta, Indonesia",
+    "prayers": {
+      "fajr": {
+        "name": "Fajr",
+        "time": "04:30"
+      },
+      "dhuhr": {
+        "name": "Dhuhr",
+        "time": "12:15"
+      },
+      "asr": {
+        "name": "Asr",
+        "time": "15:45"
+      },
+      "maghrib": {
+        "name": "Maghrib",
+        "time": "18:30"
+      },
+      "isha": {
+        "name": "Isha",
+        "time": "20:00"
+      }
+    },
+    "nextPrayer": {
+      "name": "Maghrib",
+      "status": "Next prayer",
+      "time": "18:30"
+    },
+    "accessibility": {
+      "sectionLabel": "Prayer times schedule section",
+      "titleLabel": "Today's prayer schedule section title",
+      "cardLabel": "Prayer times schedule card",
+      "locationLabel": "Location for prayer times: {{location}}",
+      "nextPrayerLabel": "Next prayer information: {{nextPrayer}}",
+      "prayerTimeLabel": "{{prayer}} time: {{time}}",
+      "prayerListLabel": "All prayer times for today"
+    }
+  },
+  "features": {
+    "title": "Features",
+    "viewMore": "View More",
+    "items": {
+      "qibla": {
+        "title": "Qibla",
+        "subtitle": "Find direction"
+      },
+      "tasbih": {
+        "title": "Tasbih",
+        "subtitle": "Digital counter"
+      },
+      "prayer": {
+        "title": "Prayer Guide",
+        "subtitle": "Learn the way"
+      },
+      "quran": {
+        "title": "Quran",
+        "subtitle": "Read and listen"
+      }
+    },
+    "accessibility": {
+      "sectionLabel": "App features section",
+      "headerLabel": "Features section header",
+      "titleLabel": "Features section title",
+      "viewMoreButtonLabel": "View all features button",
+      "viewMoreButtonHint": "Navigate to see all available app features",
+      "featuresListLabel": "List of app features",
+      "featureButtonLabel": "{{title}} feature - {{subtitle}}",
+      "featureButtonHint": "Open {{title}} feature"
+    }
+  },
+  "articles": {
+    "title": "Latest Articles",
+    "viewMore": "View More",
+    "items": {
+      "prayer": {
+        "title": "The Importance of Daily Prayer in Islam",
+        "subtitle": "Understanding the spiritual significance of Salah",
+        "date": "2 days ago"
+      },
+      "ramadan": {
+        "title": "Ramadan: A Month of Reflection and Growth", 
+        "subtitle": "Preparing your heart and mind for the holy month",
+        "date": "5 days ago"
+      },
+      "quran": {
+        "title": "Understanding the Quran: A Beginner's Guide",
+        "subtitle": "How to approach reading and understanding the Holy Book",
+        "date": "1 week ago"
+      },
+      "architecture": {
+        "title": "The Beauty of Islamic Architecture",
+        "subtitle": "Exploring the spiritual symbolism in mosque design", 
+        "date": "2 weeks ago"
+      }
+    },
+    "accessibility": {
+      "section": "Latest Islamic articles section",
+      "header": "Articles section header",
+      "title": "Latest articles section title",
+      "viewMore": "View all articles button",
+      "list": "List of latest articles",
+      "articleItem": "Article: {{title}} - {{subtitle}} - {{date}}",
+      "articleImage": "Article image for {{title}}",
+      "articleContent": "Article content",
+      "articleTitle": "Article title: {{title}}",
+      "articleSubtitle": "Article summary: {{subtitle}}",
+      "articleDate": "Published {{date}}"
+    }
+  },
+  "accessibility": {
+    "welcomeAnnouncement": "Welcome to Safa Life home page",
+    "homeScreen": "Safa Life home screen with Islamic content and features",
+    "scrollView": "Scrollable home page content"
+  }
+}

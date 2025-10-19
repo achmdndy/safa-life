@@ -1,4 +1,6 @@
+import { Link } from "expo-router";
 import { type ComponentProps, useEffect, useMemo, useState } from "react";
+import { useTranslation } from "react-i18next";
 import Animated, {
 	Easing,
 	interpolate,
@@ -39,7 +41,7 @@ export function DotIndicator({ index, selectedIndex }: DotIndicatorProps) {
 		const backgroundColor = interpolateColor(
 			activeIndex.value,
 			[0, 1],
-			["#e3e4e4", selectedTheme.secondary], // smooth color transition
+			["#e3e4e4", selectedTheme.secondary],
 		);
 
 		return {
@@ -66,6 +68,7 @@ export function OnboardingNextButton({
 	onNextClick,
 	animationProgress,
 }: OnboardingNextButtonProps) {
+	const { t } = useTranslation("onboarding");
 	const opacity = useSharedValue(0);
 	const [selectedIndex, setSelectedIndex] = useState(0);
 
@@ -127,8 +130,17 @@ export function OnboardingNextButton({
 		<Animated.View
 			className="items-center absolute bottom-0 left-0 right-0"
 			style={[{ paddingBottom }, containerAnimatedStyle]}
+			// accessible={true}
+			// accessibilityRole="none"
+			// accessibilityLabel={t("navigation.accessibility.container")}
 		>
-			<Animated.View className="flex-row mb-4" style={dotsAnimatedStyle}>
+			<Animated.View
+				className="flex-row mb-4"
+				style={dotsAnimatedStyle}
+				accessible={true}
+				accessibilityRole="none"
+				accessibilityLabel={t("navigation.accessibility.dots")}
+			>
 				{dots.map((item) => (
 					<DotIndicator key={item} index={item} selectedIndex={selectedIndex} />
 				))}
@@ -139,9 +151,30 @@ export function OnboardingNextButton({
 				onBtnPress={onNextClick}
 			/>
 
-			<Animated.View className="flex-row mt-2" style={footerTextAnimatedStyle}>
-				<Text className="text-gray-500">Already have an account? </Text>
-				<Text className="text-[#132137] text-base font-bold">Login</Text>
+			<Animated.View
+				className="flex-row mt-2"
+				style={footerTextAnimatedStyle}
+				accessible={true}
+				accessibilityRole="none"
+				accessibilityLabel={t("navigation.accessibility.footer")}
+			>
+				<Text
+					className="text-gray-500"
+					accessible={true}
+					accessibilityRole="text"
+					accessibilityLabel={t("navigation.accessibility.accountQuestion")}
+				>
+					{t("navigation.accountQuestion")}
+				</Text>
+				<Link
+					href={"/login"}
+					className="text-[#132137] text-base font-bold"
+					accessible={true}
+					accessibilityRole="button"
+					accessibilityLabel={t("navigation.accessibility.loginButton")}
+				>
+					<Text>{t("navigation.loginButton")}</Text>
+				</Link>
 			</Animated.View>
 		</Animated.View>
 	);

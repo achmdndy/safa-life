@@ -1,5 +1,6 @@
 import { useRouter } from "expo-router";
 import { Compass, Heart, PenTool, Utensils } from "lucide-react-native";
+import { useTranslation } from "react-i18next";
 import { Pressable, View } from "react-native";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -10,48 +11,78 @@ export function HomeFeatures() {
 	const router = useRouter();
 	const { currentTheme, themes } = useTheme();
 	const selectedTheme = themes[currentTheme];
+	const { t } = useTranslation("home");
 
 	const features = [
 		{
 			id: 1,
-			name: "Qibla",
+			name: t("features.items.qibla.title"),
 			icon: Compass,
-			description: "Find direction",
+			description: t("features.items.qibla.subtitle"),
 			href: "/features/qibla",
 		},
 		{
 			id: 2,
-			name: "Tasbih",
+			name: t("features.items.tasbih.title"),
 			icon: Heart,
-			description: "Digital counter",
+			description: t("features.items.tasbih.subtitle"),
 			href: "/features/tasbih",
 		},
 		{
 			id: 3,
-			name: "Journal",
+			name: t("features.items.prayer.title"),
 			icon: PenTool,
-			description: "Daily notes",
-			href: "/features/journal",
+			description: t("features.items.prayer.subtitle"),
+			href: "/features/prayer",
 		},
 		{
 			id: 4,
-			name: "Halal",
+			name: t("features.items.quran.title"),
 			icon: Utensils,
-			description: "Food guide",
-			href: "/features/halal",
+			description: t("features.items.quran.subtitle"),
+			href: "/features/quran",
 		},
 	];
 
 	return (
-		<View className="px-4 mt-4">
-			<View className="flex-row items-center justify-between">
-				<Text className="font-semibold text-lg mb-2">Features</Text>
-				<Button variant="ghost" size="sm">
-					<Text>View More</Text>
+		<View
+			className="px-4 mt-4"
+			accessible={true}
+			accessibilityRole="text"
+			accessibilityLabel={t("features.accessibility.sectionLabel")}
+		>
+			<View
+				className="flex-row items-center justify-between"
+				accessible={true}
+				accessibilityRole="text"
+				accessibilityLabel={t("features.accessibility.headerLabel")}
+			>
+				<Text
+					className="font-semibold text-lg mb-2"
+					accessible={true}
+					accessibilityRole="header"
+					accessibilityLabel={t("features.accessibility.titleLabel")}
+				>
+					{t("features.title")}
+				</Text>
+				<Button
+					variant="ghost"
+					size="sm"
+					accessible={true}
+					accessibilityRole="button"
+					accessibilityLabel={t("features.accessibility.viewMoreButtonLabel")}
+					accessibilityHint={t("features.accessibility.viewMoreButtonHint")}
+				>
+					<Text>{t("features.viewMore")}</Text>
 				</Button>
 			</View>
 
-			<View className="flex-row items-center justify-between mt-2">
+			<View
+				className="flex-row items-center justify-between mt-2"
+				accessible={true}
+				accessibilityRole="text"
+				accessibilityLabel={t("features.accessibility.featuresListLabel")}
+			>
 				{features.map((feature) => {
 					const IconComponent = feature.icon;
 					return (
@@ -59,6 +90,18 @@ export function HomeFeatures() {
 							className="flex-1 mx-1"
 							key={feature.id}
 							onPress={() => router.navigate(feature.href)}
+							accessible={true}
+							accessibilityRole="button"
+							accessibilityLabel={t(
+								"features.accessibility.featureButtonLabel",
+								{
+									title: feature.name,
+									subtitle: feature.description,
+								},
+							)}
+							accessibilityHint={t("features.accessibility.featureButtonHint", {
+								title: feature.name,
+							})}
 						>
 							<Card
 								key={feature.id}

@@ -1,0 +1,122 @@
+{
+  "header": {
+    "searchPlaceholder": "Cari surah, doa...",
+    "accessibility": {
+      "searchButton": "Cari konten Al-Quran, surah, dan doa",
+      "audioButton": "Pengaturan audio dan pilihan bacaan"
+    }
+  },
+  "tabs": {
+    "surah": "Surah",
+    "topics": "Topik",
+    "daily": "Harian",
+    "accessibility": {
+      "mainTabs": "Tab navigasi utama Al-Quran",
+      "surahTab": "Jelajahi Al-Quran berdasarkan Surah",
+      "topicsTab": "Jelajahi Al-Quran berdasarkan topik tematik",
+      "dailyTab": "Pengingat bacaan Al-Quran harian"
+    }
+  },
+  "surahTab": {
+    "surah": "Surah",
+    "juz": "Juz",
+    "bookmark": "Bookmark",
+    "accessibility": {
+      "subTabs": "Tab organisasi konten Al-Quran",
+      "surahSubTab": "Jelajahi semua 114 Surah",
+      "juzSubTab": "Jelajahi 30 bagian Juz",
+      "bookmarkSubTab": "Lihat ayat yang di-bookmark"
+    }
+  },
+  "surahList": {
+    "lastReading": "Bacaan Terakhir",
+    "ayat": "Ayat",
+    "from": "dari",
+    "accessibility": {
+      "section": "Bagian daftar Surah",
+      "lastReadingCard": "Progres bacaan terakhir Anda",
+      "progressChart": "Grafik progres bacaan menunjukkan {{percentage}} penyelesaian",
+      "surahItem": "Surah {{number}}: {{name}} ({{meaning}}) - {{verses}} ayat",
+      "surahNumber": "Surah nomor {{number}}",
+      "surahName": "{{name}} - {{meaning}}",
+      "verseCount": "{{count}} ayat"
+    }
+  },
+  "juzList": {
+    "progressKhatam": "Progres Khatam",
+    "of": "dari",
+    "juz": "Juz",
+    "last": "Terakhir",
+    "accessibility": {
+      "section": "Bagian daftar Juz",
+      "progressCard": "Pelacakan progres Khatam Al-Quran",
+      "progressChart": "Progres penyelesaian Juz keseluruhan menunjukkan {{completed}} dari {{total}} Juz",
+      "juzItem": "{{name}} dari {{startSurah}} hingga {{endSurah}} - {{progress}}% selesai",
+      "juzNumber": "Juz nomor {{number}}",
+      "juzRange": "Dari {{startSurah}} hingga {{endSurah}}",
+      "juzProgress": "{{progress}} persen selesai"
+    }
+  },
+  "bookmarkList": {
+    "title": "Bookmark Saya",
+    "summary": "{{count}} bookmark",
+    "lastBookmark": "Terakhir: {{surah}} ayat {{verse}}",
+    "verse": "Ayat {{number}}",
+    "removeBookmark": "Hapus Bookmark",
+    "removeConfirmation": "Apakah Anda yakin ingin menghapus bookmark ini?",
+    "cancel": "Batal",
+    "remove": "Hapus",
+    "emptyState": {
+      "title": "Belum ada bookmark",
+      "message": "Ayat yang di-bookmark akan muncul di sini"
+    },
+    "accessibility": {
+      "section": "Bagian ayat yang di-bookmark",
+      "icon": "Ikon bookmark",
+      "summaryCard": "Ringkasan bookmark dengan {{count}} total bookmark",
+      "summaryText": "{{count}} bookmark tersimpan",
+      "lastBookmark": "Bookmark terakhir: {{surah}} ayat {{verse}}",
+      "list": "Daftar ayat yang di-bookmark",
+      "listHint": "Geser untuk menjelajahi bookmark Anda",
+      "item": "Bookmark: {{surah}} ayat {{verse}} - terakhir dibaca {{lastRead}}",
+      "surahNumber": "Surah nomor {{number}}",
+      "surahName": "{{name}}",
+      "surahArabic": "{{name}} dalam bahasa Arab",
+      "verse": "Ayat {{number}}",
+      "lastRead": "Terakhir dibaca {{time}}",
+      "removeButton": "Hapus bookmark untuk {{surah}}",
+      "removeButtonHint": "Ketuk dua kali untuk menghapus bookmark ini",
+      "verseText": "Kontainer teks ayat",
+      "arabicText": "Teks Arab: {{text}}",
+      "emptyState": "Belum ada bookmark yang disimpan"
+    }
+  },
+  "dailyReminder": {
+    "title": "Pengingat Harian",
+    "accessibility": {
+      "section": "Bagian pengingat Al-Quran harian"
+    }
+  },
+  "thematicLearning": {
+    "stories": {
+      "title": "Kisah",
+      "viewAll": "Lihat Semua",
+      "viewAllButton": "Lihat semua kisah"
+    },
+    "topics": {
+      "title": "Topik",
+      "viewAll": "Lihat Semua",
+      "viewAllButton": "Lihat semua topik",
+      "storiesCount": "{{count}} kisah"
+    },
+    "accessibility": {
+      "section": "Bagian pembelajaran tematik"
+    }
+  },
+  "accessibility": {
+    "welcomeAnnouncement": "Selamat datang di bagian Al-Quran. Jelajahi Surah, Juz, dan bookmark Anda.",
+    "screenLabel": "Layar bacaan dan navigasi Al-Quran",
+    "mainContent": "Area konten Al-Quran",
+    "scrollHint": "Geser ke atas dan bawah untuk menjelajahi konten"
+  }
+}

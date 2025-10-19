@@ -1,0 +1,17 @@
+{
+  "title": "Periksa Kotak Masuk Anda",
+  "subtitle": "Kami telah mengirimkan tautan verifikasi ke alamat email Anda. Silakan klik tautan tersebut untuk menyelesaikan pendaftaran Anda.",
+  "resendButton": "Kirim Ulang Email",
+  "skipButton": "Lewati untuk sekarang",
+  "didNotReceive": "Tidak menerima email? ",
+  "accessibility": {
+    "screen": "Layar verifikasi email",
+    "icon": "Ikon email yang sedang dikirim",
+    "title": "Periksa Kotak Masuk Anda",
+    "subtitle": "Kami telah mengirimkan tautan verifikasi ke alamat email Anda. Silakan klik tautan tersebut untuk menyelesaikan pendaftaran Anda.",
+    "resendButton": "Kirim ulang email verifikasi",
+    "resendButtonHint": "Tekan untuk mengirim ulang email verifikasi",
+    "skipButton": "Lewati verifikasi email untuk saat ini",
+    "skipButtonHint": "Tekan untuk melanjutkan ke layar utama tanpa memverifikasi email Anda"
+  }
+}

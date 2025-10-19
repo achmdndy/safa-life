@@ -1,4 +1,5 @@
 import { ChevronRight, Clock, Heart, Target, Users } from "lucide-react-native";
+import { useTranslation } from "react-i18next";
 import { Image, Pressable, View } from "react-native";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Badge } from "@/components/ui/badge";
@@ -12,6 +13,7 @@ import { useTheme } from "@/contexts/theme-context";
 const communityData = [
 	{
 		id: 1,
+		key: "education",
 		category: "Education",
 		title: "Build Islamic School in Rural Area",
 		description:
@@ -27,6 +29,7 @@ const communityData = [
 	},
 	{
 		id: 2,
+		key: "healthcare",
 		category: "Healthcare",
 		title: "Medical Aid for Gaza Children",
 		description:
@@ -42,6 +45,7 @@ const communityData = [
 	},
 	{
 		id: 3,
+		key: "water",
 		category: "Water",
 		title: "Clean Water Wells Project",
 		description:
@@ -57,6 +61,7 @@ const communityData = [
 	},
 	{
 		id: 4,
+		key: "food",
 		category: "Food",
 		title: "Ramadan Food Packages",
 		description:
@@ -72,6 +77,7 @@ const communityData = [
 	},
 	{
 		id: 5,
+		key: "orphans",
 		category: "Orphans",
 		title: "Support Orphan Children",
 		description:
@@ -87,6 +93,7 @@ const communityData = [
 	},
 	{
 		id: 6,
+		key: "emergency",
 		category: "Emergency",
 		title: "Earthquake Relief Fund",
 		description:
@@ -103,6 +110,7 @@ const communityData = [
 ];
 
 export function ChairityCommunity() {
+	const { t } = useTranslation("charity");
 	const { currentTheme, themes, theme } = useTheme();
 	const selectedTheme = themes[currentTheme];
 	const isDarkMode = theme === "dark";
@@ -117,7 +125,11 @@ export function ChairityCommunity() {
 	};
 
 	return (
-		<View className="px-4 gap-4 mt-8">
+		<View
+			className="px-4 gap-4 mt-8"
+			accessible={true}
+			accessibilityLabel={t("community.accessibilityLabel")}
+		>
 			<View className="flex-row justify-between items-center">
 				<View className="flex-row items-center">
 					<Icon
@@ -126,11 +138,22 @@ export function ChairityCommunity() {
 						className="mr-2"
 						stroke={selectedTheme.primary}
 					/>
-					<Text className="font-bold text-xl">Community Causes</Text>
+					<Text className="font-bold text-xl">{t("community.title")}</Text>
 				</View>
-				<Pressable className="flex-row items-center">
-					<Text className="text-sm mr-1">View all</Text>
-					<Icon as={ChevronRight} size={16} />
+				<Pressable
+					className="flex-row items-center"
+					accessible={true}
+					accessibilityRole="button"
+					accessibilityLabel={t("community.viewAllAccessibilityLabel")}
+					accessibilityHint={t("community.viewAllAccessibilityHint")}
+				>
+					<Text
+						className="text-sm mr-1"
+						style={{ color: selectedTheme.primary }}
+					>
+						{t("community.viewAll")}
+					</Text>
+					<Icon as={ChevronRight} size={16} stroke={selectedTheme.primary} />
 				</Pressable>
 			</View>
 
@@ -139,202 +162,227 @@ export function ChairityCommunity() {
 					const progressPercentage = (cause.raised / cause.target) * 100;
 
 					return (
-						<Card
+						<Pressable
 							key={cause.id}
-							className="border-transparent p-4 gap-1"
-							style={{
-								shadowColor: selectedTheme.primary,
-								shadowOffset: { width: 0, height: 4 },
-								shadowOpacity: 0.1,
-								shadowRadius: 8,
-							}}
+							accessible={true}
+							accessibilityRole="button"
+							accessibilityLabel={`${t(`community.causes.${cause.key}.title`)} - ${t(`community.causes.${cause.key}.description`)}`}
+							accessibilityHint={t("community.causeAccessibilityHint")}
 						>
-							<CardContent className="p-0">
-								<AspectRatio ratio={16 / 9}>
-									<View className="relative rounded-lg overflow-hidden">
-										<Image
-											source={{ uri: cause.image }}
-											style={{ width: "100%", height: "100%" }}
-											resizeMode="cover"
-										/>
-										{cause.urgent && (
-											<View className="absolute top-3 left-3">
-												<Badge className="bg-red-500 text-white px-2 py-1">
-													<Text className="text-xs font-medium">URGENT</Text>
+							<Card
+								className="border-transparent p-4 gap-1"
+								style={{
+									shadowColor: selectedTheme.primary,
+									shadowOffset: { width: 0, height: 4 },
+									shadowOpacity: 0.1,
+									shadowRadius: 8,
+								}}
+							>
+								<CardContent className="p-0">
+									<AspectRatio ratio={16 / 9}>
+										<View className="relative rounded-lg overflow-hidden">
+											<Image
+												source={{ uri: cause.image }}
+												style={{ width: "100%", height: "100%" }}
+												resizeMode="cover"
+											/>
+											{cause.urgent && (
+												<View className="absolute top-3 left-3">
+													<Badge className="bg-red-500 text-white px-2 py-1">
+														<Text className="text-xs font-medium">
+															{t("community.urgent")}
+														</Text>
+													</Badge>
+												</View>
+											)}
+											<View className="absolute top-3 right-3">
+												<Badge className="bg-black/70 text-white px-2 py-1">
+													<Text className="text-xs">
+														{t(`community.categories.${cause.key}`)}
+													</Text>
 												</Badge>
 											</View>
-										)}
-										<View className="absolute top-3 right-3">
-											<Badge className="bg-black/70 text-white px-2 py-1">
-												<Text className="text-xs">{cause.category}</Text>
-											</Badge>
 										</View>
-									</View>
-								</AspectRatio>
+									</AspectRatio>
 
-								<View className="pt-4">
-									<Text className="text-lg font-bold text-gray-900 dark:text-foreground mb-2 leading-6">
-										{cause.title}
-									</Text>
-									<Text className="text-sm text-gray-600 dark:text-foreground/90 mb-4 leading-5">
-										{cause.description}
-									</Text>
+									<View className="pt-4">
+										<Text className="text-lg font-bold text-gray-900 dark:text-foreground mb-2 leading-6">
+											{t(`community.causes.${cause.key}.title`)}
+										</Text>
+										<Text className="text-sm text-gray-600 dark:text-foreground/90 mb-4 leading-5">
+											{t(`community.causes.${cause.key}.description`)}
+										</Text>
 
-									<View className="mb-4">
-										<View className="flex-row justify-between items-center mb-3">
-											<View className="flex-1">
-												<Text
-													className="text-lg font-bold"
-													style={{ color: selectedTheme.secondary }}
-												>
-													{formatCurrency(cause.raised)}
-												</Text>
-												<Text className="text-xs text-gray-500">
-													raised so far
-												</Text>
-											</View>
-											<View className="items-end">
-												<Text className="text-sm font-semibold text-gray-700 dark:text-foreground">
-													{Math.round(progressPercentage)}%
-												</Text>
-												<Text className="text-xs text-gray-500 dark:text-foreground/90">
-													of {formatCurrency(cause.target)}
-												</Text>
-											</View>
-										</View>
-										<Progress
-											value={progressPercentage}
-											className="h-3 rounded-full"
-											style={{
-												backgroundColor: `${selectedTheme.secondary}20`,
-											}}
-											indicatorStyle={{
-												backgroundColor: selectedTheme.primary,
-											}}
-										/>
-									</View>
-
-									<View className="flex-row justify-between mb-3">
-										<View
-											className="flex-1 rounded-lg p-2 mr-1"
-											style={{ backgroundColor: `${selectedTheme.primary}10` }}
-										>
-											<View className="flex-row items-center mb-1">
-												<View
-													className="w-6 h-6 rounded-full items-center justify-center mr-1"
-													style={{
-														backgroundColor: `${selectedTheme.secondary}20`,
-													}}
-												>
-													<Icon
-														as={Users}
-														size={12}
-														stroke={selectedTheme.primary}
-													/>
+										<View className="mb-4">
+											<View className="flex-row justify-between items-center mb-3">
+												<View className="flex-1">
+													<Text
+														className="text-lg font-bold"
+														style={{ color: selectedTheme.secondary }}
+													>
+														{formatCurrency(cause.raised)}
+													</Text>
+													<Text className="text-xs text-gray-500">
+														{t("community.raisedSoFar")}
+													</Text>
 												</View>
-												<Text
-													className="text-xs text-gray-500 dark:text-foreground/80 flex-1"
-													numberOfLines={1}
-												>
-													Donors
-												</Text>
-											</View>
-											<Text
-												className="text-sm font-bold"
-												style={{ color: selectedTheme.secondary }}
-												numberOfLines={1}
-											>
-												{cause.donors}
-											</Text>
-										</View>
-
-										<View
-											className="flex-1 rounded-lg p-2 mx-0.5"
-											style={{
-												backgroundColor: isDarkMode
-													? `${selectedTheme.primary}10`
-													: cause.daysLeft <= 7
-														? "#FEF3C7"
-														: "#F3F4F6",
-											}}
-										>
-											<View className="flex-row items-center mb-1">
-												<View
-													className="w-6 h-6 rounded-full items-center justify-center mr-1"
-													style={{
-														backgroundColor:
-															cause.daysLeft <= 7 ? "#F59E0B20" : "#6B728020",
-													}}
-												>
-													<Icon
-														as={Clock}
-														size={12}
-														stroke={cause.daysLeft <= 7 ? "#F59E0B" : "#6B7280"}
-													/>
+												<View className="items-end">
+													<Text className="text-sm font-semibold text-gray-700 dark:text-foreground">
+														{Math.round(progressPercentage)}%
+													</Text>
+													<Text className="text-xs text-gray-500 dark:text-foreground/90">
+														{t("community.of")} {formatCurrency(cause.target)}
+													</Text>
 												</View>
-												<Text
-													className="text-xs text-gray-500 dark:text-foreground/80 flex-1"
-													numberOfLines={1}
-												>
-													Days
-												</Text>
 											</View>
-											<Text
-												className="text-sm font-bold"
+											<Progress
+												value={progressPercentage}
+												className="h-3 rounded-full"
 												style={{
-													color: cause.daysLeft <= 7 ? "#F59E0B" : "#6B7280",
+													backgroundColor: `${selectedTheme.secondary}20`,
 												}}
-												numberOfLines={1}
-											>
-												{cause.daysLeft}
-											</Text>
+												indicatorStyle={{
+													backgroundColor: selectedTheme.primary,
+												}}
+											/>
 										</View>
 
-										<View
-											className="flex-1 rounded-lg p-2 ml-1"
-											style={{
-												backgroundColor: isDarkMode
-													? `${selectedTheme.primary}10`
-													: "#ECFDF5",
-											}}
-										>
-											<View className="flex-row items-center mb-1">
-												<View
-													className="w-6 h-6 rounded-full items-center justify-center mr-1"
-													style={{ backgroundColor: "#10B98120" }}
-												>
-													<Icon as={Target} size={12} stroke={"#10B981"} />
+										<View className="flex-row justify-between mb-3">
+											<View
+												className="flex-1 rounded-lg p-2 mr-1"
+												style={{
+													backgroundColor: `${selectedTheme.primary}10`,
+												}}
+											>
+												<View className="flex-row items-center mb-1">
+													<View
+														className="w-6 h-6 rounded-full items-center justify-center mr-1"
+														style={{
+															backgroundColor: `${selectedTheme.secondary}20`,
+														}}
+													>
+														<Icon
+															as={Users}
+															size={12}
+															stroke={selectedTheme.primary}
+														/>
+													</View>
+													<Text
+														className="text-xs text-gray-500 dark:text-foreground/80 flex-1"
+														numberOfLines={1}
+													>
+														{t("community.donors")}
+													</Text>
 												</View>
 												<Text
-													className="text-xs text-gray-500 dark:text-foreground/80 flex-1"
+													className="text-sm font-bold"
+													style={{ color: selectedTheme.secondary }}
 													numberOfLines={1}
 												>
-													Goal
+													{cause.donors}
 												</Text>
 											</View>
-											<Text
-												className="text-xs font-bold text-green-600"
-												numberOfLines={1}
+
+											<View
+												className="flex-1 rounded-lg p-2 mx-0.5"
+												style={{
+													backgroundColor: isDarkMode
+														? `${selectedTheme.primary}10`
+														: cause.daysLeft <= 7
+															? "#FEF3C7"
+															: "#F3F4F6",
+												}}
 											>
-												{formatCurrency(cause.target / 1000)}K
-											</Text>
+												<View className="flex-row items-center mb-1">
+													<View
+														className="w-6 h-6 rounded-full items-center justify-center mr-1"
+														style={{
+															backgroundColor:
+																cause.daysLeft <= 7 ? "#F59E0B20" : "#6B728020",
+														}}
+													>
+														<Icon
+															as={Clock}
+															size={12}
+															stroke={
+																cause.daysLeft <= 7 ? "#F59E0B" : "#6B7280"
+															}
+														/>
+													</View>
+													<Text
+														className="text-xs text-gray-500 dark:text-foreground/80 flex-1"
+														numberOfLines={1}
+													>
+														{t("community.days")}
+													</Text>
+												</View>
+												<Text
+													className="text-sm font-bold"
+													style={{
+														color: cause.daysLeft <= 7 ? "#F59E0B" : "#6B7280",
+													}}
+													numberOfLines={1}
+												>
+													{cause.daysLeft}
+												</Text>
+											</View>
+
+											<View
+												className="flex-1 rounded-lg p-2 ml-1"
+												style={{
+													backgroundColor: isDarkMode
+														? `${selectedTheme.primary}10`
+														: "#ECFDF5",
+												}}
+											>
+												<View className="flex-row items-center mb-1">
+													<View
+														className="w-6 h-6 rounded-full items-center justify-center mr-1"
+														style={{ backgroundColor: "#10B98120" }}
+													>
+														<Icon as={Target} size={12} stroke={"#10B981"} />
+													</View>
+													<Text
+														className="text-xs text-gray-500 dark:text-foreground/80 flex-1"
+														numberOfLines={1}
+													>
+														{t("community.goal")}
+													</Text>
+												</View>
+												<Text
+													className="text-xs font-bold text-green-600"
+													numberOfLines={1}
+												>
+													{formatCurrency(cause.target / 1000)}K
+												</Text>
+											</View>
 										</View>
 									</View>
-								</View>
-							</CardContent>
+								</CardContent>
 
-							<CardFooter className="p-0">
-								<Button
-									className="w-full rounded-lg py-3"
-									size="lg"
-									style={{
-										backgroundColor: selectedTheme.primary,
-									}}
-								>
-									<Text className="text-white font-semibold">Donate Now</Text>
-								</Button>
-							</CardFooter>
-						</Card>
+								<CardFooter className="p-0">
+									<Button
+										className="w-full rounded-lg py-3"
+										size="lg"
+										style={{
+											backgroundColor: selectedTheme.primary,
+										}}
+										accessible={true}
+										accessibilityRole="button"
+										accessibilityLabel={t(
+											"community.donateNowAccessibilityLabel",
+										)}
+										accessibilityHint={t(
+											"community.donateNowAccessibilityHint",
+										)}
+									>
+										<Text className="text-white font-semibold">
+											{t("community.donateNow")}
+										</Text>
+									</Button>
+								</CardFooter>
+							</Card>
+						</Pressable>
 					);
 				})}
 			</View>

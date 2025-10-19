@@ -11,6 +11,7 @@ import {
 	Trash2,
 	User,
 } from "lucide-react-native";
+import { useTranslation } from "react-i18next";
 import { Pressable, View } from "react-native";
 import { Icon } from "@/components/ui/icon";
 import { Text } from "@/components/ui/text";
@@ -30,84 +31,85 @@ interface MenuSection {
 	items: MenuItem[];
 }
 
-const menuSections: MenuSection[] = [
-	{
-		title: "Account Settings",
-		items: [
-			{
-				id: "change-password",
-				title: "Change Password",
-				icon: Lock,
-				hasChevron: true,
-			},
-			{
-				id: "privacy-security",
-				title: "Privacy & Security",
-				icon: Shield,
-				hasChevron: true,
-			},
-			{
-				id: "delete-account",
-				title: "Delete Account",
-				icon: Trash2,
-				isDestructive: true,
-				hasChevron: false,
-			},
-		],
-	},
-	{
-		title: "Personal Information",
-		items: [
-			{
-				id: "edit-profile",
-				title: "Edit Profile Details",
-				icon: User,
-				hasChevron: true,
-			},
-		],
-	},
-	{
-		title: "Notification Preferences",
-		items: [
-			{
-				id: "manage-notifications",
-				title: "Manage Notifications",
-				icon: Bell,
-				hasChevron: true,
-			},
-		],
-	},
-	{
-		title: "App Settings",
-		items: [
-			{
-				id: "language",
-				title: "Language",
-				icon: Globe,
-				hasChevron: true,
-				href: "/settings/language",
-			},
-			{
-				id: "theme",
-				title: "Theme",
-				icon: Moon,
-				hasChevron: true,
-				href: "/settings/theme",
-			},
-			{
-				id: "help-support",
-				title: "Help & Support",
-				icon: HelpCircle,
-				hasChevron: true,
-			},
-		],
-	},
-];
-
 export function ProfileMenu() {
+	const { t } = useTranslation("profile");
 	const { currentTheme, themes } = useTheme();
 	const selectedTheme = themes[currentTheme];
 	const router = useRouter();
+
+	const menuSections: MenuSection[] = [
+		{
+			title: t("menu.sections.accountSettings"),
+			items: [
+				{
+					id: "change-password",
+					title: t("menu.items.changePassword"),
+					icon: Lock,
+					hasChevron: true,
+				},
+				{
+					id: "privacy-security",
+					title: t("menu.items.privacySecurity"),
+					icon: Shield,
+					hasChevron: true,
+				},
+				{
+					id: "delete-account",
+					title: t("menu.items.deleteAccount"),
+					icon: Trash2,
+					isDestructive: true,
+					hasChevron: false,
+				},
+			],
+		},
+		{
+			title: t("menu.sections.personalInformation"),
+			items: [
+				{
+					id: "edit-profile",
+					title: t("menu.items.editProfile"),
+					icon: User,
+					hasChevron: true,
+				},
+			],
+		},
+		{
+			title: t("menu.sections.notificationPreferences"),
+			items: [
+				{
+					id: "manage-notifications",
+					title: t("menu.items.manageNotifications"),
+					icon: Bell,
+					hasChevron: true,
+				},
+			],
+		},
+		{
+			title: t("menu.sections.appSettings"),
+			items: [
+				{
+					id: "language",
+					title: t("menu.items.language"),
+					icon: Globe,
+					hasChevron: true,
+					href: "/settings/language",
+				},
+				{
+					id: "theme",
+					title: t("menu.items.theme"),
+					icon: Moon,
+					hasChevron: true,
+					href: "/settings/theme",
+				},
+				{
+					id: "help-support",
+					title: t("menu.items.helpSupport"),
+					icon: HelpCircle,
+					hasChevron: true,
+				},
+			],
+		},
+	];
 
 	const handleClick = (item: MenuItem) => {
 		if (!item.href) return;
@@ -120,6 +122,10 @@ export function ProfileMenu() {
 			className="flex-row items-center py-3 px-4 bg-card active:bg-card"
 			android_ripple={{ color: "#f3f4f6" }}
 			onPress={() => handleClick(item)}
+			accessible={true}
+			accessibilityRole="button"
+			accessibilityLabel={t(`menu.accessibility.${item.id.replace("-", "")}`)}
+			accessibilityHint={t("accessibility.navigateToSettings")}
 		>
 			<View
 				className="w-8 h-8 rounded-lg items-center justify-center mr-3"
@@ -141,7 +147,11 @@ export function ProfileMenu() {
 	);
 
 	return (
-		<View className="px-4 pb-8">
+		<View
+			className="px-4 pb-8"
+			accessible={true}
+			accessibilityLabel={t("accessibility.menuSection")}
+		>
 			{menuSections.map((section, sectionIndex) => (
 				<View
 					key={section.title}

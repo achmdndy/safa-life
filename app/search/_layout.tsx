@@ -6,7 +6,6 @@ export default function SearchLayout() {
 			<Stack.Screen name="charity" />
 			<Stack.Screen name="explore" />
 			<Stack.Screen name="home" />
-			<Stack.Screen name="profile" />
 			<Stack.Screen name="quran" />
 		</Stack>
 	);

@@ -1,8 +1,10 @@
 import { useRouter } from "expo-router";
 import { Bell, Search } from "lucide-react-native";
 import type { ComponentProps } from "react";
+import { useTranslation } from "react-i18next";
 import { Animated, Platform, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+
 import { Button } from "@/components/ui/button";
 import { Icon } from "@/components/ui/icon";
 import { Text } from "@/components/ui/text";
@@ -19,6 +21,7 @@ export type ChairityHeaderProps = ComponentProps<typeof View> & {
 
 export function ChairityHeader({ value }: ChairityHeaderProps) {
 	const router = useRouter();
+	const { t } = useTranslation("charity");
 
 	const { currentTheme, themes } = useTheme();
 	const selectedTheme = themes[currentTheme];
@@ -57,6 +60,8 @@ export function ChairityHeader({ value }: ChairityHeaderProps) {
 	return (
 		<Animated.View
 			className="px-4 pb-4 bg-background"
+			accessible={true}
+			accessibilityLabel={t("header.accessibilityLabel")}
 			style={{
 				paddingTop: Platform.OS === "ios" ? insets.top : insets.top + 20,
 				height: animatedHeaderHeight,
@@ -76,10 +81,10 @@ export function ChairityHeader({ value }: ChairityHeaderProps) {
 						className="text-2xl font-bold"
 						style={{ color: selectedTheme.primary }}
 					>
-						Charity
+						{t("header.title")}
 					</Text>
 					<Text className="text-primary/80 text-sm">
-						Make a difference today
+						{t("header.subtitle")}
 					</Text>
 				</View>
 
@@ -87,6 +92,10 @@ export function ChairityHeader({ value }: ChairityHeaderProps) {
 					size="icon"
 					variant="ghost"
 					className="rounded-full"
+					accessible={true}
+					accessibilityRole="button"
+					accessibilityLabel={t("header.notificationButtonAccessibilityLabel")}
+					accessibilityHint={t("header.notificationButtonAccessibilityHint")}
 					style={{ backgroundColor: `${selectedTheme.secondary}20` }}
 				>
 					<Icon as={Bell} size={20} stroke={selectedTheme.primary} />
@@ -96,6 +105,10 @@ export function ChairityHeader({ value }: ChairityHeaderProps) {
 			<Button
 				className="rounded-full justify-start w-full"
 				variant="outline"
+				accessible={true}
+				accessibilityRole="button"
+				accessibilityLabel={t("header.searchButtonAccessibilityLabel")}
+				accessibilityHint={t("header.searchButtonAccessibilityHint")}
 				onPress={() => router.push("/search/charity")}
 			>
 				<Icon
@@ -105,7 +118,7 @@ export function ChairityHeader({ value }: ChairityHeaderProps) {
 					stroke={selectedTheme.primary}
 				/>
 				<Text className="text-gray-600 flex-1 text-left">
-					Search charities, causes...
+					{t("header.searchPlaceholder")}
 				</Text>
 			</Button>
 		</Animated.View>

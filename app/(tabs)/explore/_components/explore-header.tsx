@@ -1,6 +1,7 @@
 import { useRouter } from "expo-router";
 import { Search } from "lucide-react-native";
 import type { ComponentProps } from "react";
+import { useTranslation } from "react-i18next";
 import { Animated, type View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Button } from "@/components/ui/button";
@@ -19,6 +20,7 @@ export type ExploreHeaderProps = ComponentProps<typeof View> & {
 
 export function ExploreHeader({ value }: ExploreHeaderProps) {
 	const router = useRouter();
+	const { t } = useTranslation("explore");
 
 	const insets = useSafeAreaInsets();
 	const { currentTheme, themes } = useTheme();
@@ -75,6 +77,9 @@ export function ExploreHeader({ value }: ExploreHeaderProps) {
 				paddingTop: insets.top,
 				height: animatedHeaderHeight,
 			}}
+			accessible={true}
+			accessibilityRole="header"
+			accessibilityLabel={t("header.accessibilityLabel")}
 		>
 			<Animated.View
 				style={{
@@ -89,7 +94,7 @@ export function ExploreHeader({ value }: ExploreHeaderProps) {
 					className="text-2xl font-bold"
 					style={{ color: selectedTheme.primary }}
 				>
-					Explore
+					{t("header.title")}
 				</Text>
 			</Animated.View>
 
@@ -103,10 +108,14 @@ export function ExploreHeader({ value }: ExploreHeaderProps) {
 					className="rounded-full justify-start w-full"
 					variant="outline"
 					onPress={() => router.push("/search/explore")}
+					accessible={true}
+					accessibilityRole="button"
+					accessibilityLabel={t("header.searchButtonAccessibilityLabel")}
+					accessibilityHint={t("header.searchButtonAccessibilityHint")}
 				>
 					<Icon as={Search} size={20} stroke={selectedTheme.primary} />
 					<Text className="text-muted-foreground">
-						Search for reels, event...
+						{t("header.searchPlaceholder")}
 					</Text>
 				</Button>
 			</Animated.View>

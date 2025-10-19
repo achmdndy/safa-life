@@ -1,4 +1,5 @@
 import { ArrowRight, Calculator } from "lucide-react-native";
+import { useTranslation } from "react-i18next";
 import { View } from "react-native";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -7,11 +8,16 @@ import { Text } from "@/components/ui/text";
 import { useTheme } from "@/contexts/theme-context";
 
 export function ChairityCalculateZakat() {
+	const { t } = useTranslation("charity");
 	const { currentTheme, themes } = useTheme();
 	const selectedTheme = themes[currentTheme];
 
 	return (
-		<View className="px-4 gap-4 mt-8">
+		<View
+			className="px-4 gap-4 mt-8"
+			accessible={true}
+			accessibilityLabel={t("calculateZakat.accessibilityLabel")}
+		>
 			<Card
 				className="border-transparent p-0"
 				style={{
@@ -26,17 +32,22 @@ export function ChairityCalculateZakat() {
 						<View className="flex-row items-center gap-2 mb-2">
 							<Icon as={Calculator} size={24} stroke={selectedTheme.primary} />
 							<Text className="text-xl font-bold text-gray-900 dark:text-foreground">
-								Calculate Your Zakat
+								{t("calculateZakat.title")}
 							</Text>
 						</View>
 						<Text className="text-gray-600 dark:text-foreground/90 text-sm leading-5 mb-4">
-							Zakat is a mandatory pillar of Islam. Use our calculator to
-							determine your obligation and fulfill it with ease.
+							{t("calculateZakat.description")}
 						</Text>
 
-						<Button style={{ backgroundColor: selectedTheme.primary }}>
+						<Button
+							accessible={true}
+							accessibilityRole="button"
+							accessibilityLabel={t("calculateZakat.buttonAccessibilityLabel")}
+							accessibilityHint={t("calculateZakat.buttonAccessibilityHint")}
+							style={{ backgroundColor: selectedTheme.primary }}
+						>
 							<Text className="text-white font-medium mr-2">
-								Calculate & Pay Zakat
+								{t("calculateZakat.buttonText")}
 							</Text>
 							<Icon as={ArrowRight} size={16} className="text-white" />
 						</Button>
@@ -44,20 +55,30 @@ export function ChairityCalculateZakat() {
 
 					<View className="mt-4 pt-4 border-t border-gray-200">
 						<View className="flex-row justify-between items-center">
-							<View className="flex-1">
+							<View
+								className="flex-1"
+								accessible={true}
+								accessibilityLabel={t(
+									"calculateZakat.quickFactsAccessibilityLabel",
+								)}
+							>
 								<Text className="text-xs text-gray-500 dark:text-foreground/50 uppercase tracking-wide">
-									Quick Facts
+									{t("calculateZakat.quickFacts")}
 								</Text>
 								<Text className="text-xs text-gray-700 dark:text-foreground/70 mt-1">
-									2.5% of eligible wealth
+									{t("calculateZakat.percentageText")}
 								</Text>
 							</View>
-							<View className="flex-1">
+							<View
+								className="flex-1"
+								accessible={true}
+								accessibilityLabel={t("calculateZakat.nisabAccessibilityLabel")}
+							>
 								<Text className="text-xs text-gray-500 dark:text-foreground/50 uppercase tracking-wide">
-									Nisab Threshold
+									{t("calculateZakat.nisabThreshold")}
 								</Text>
 								<Text className="text-xs text-gray-700 dark:text-foreground/70 mt-1">
-									85g gold equivalent
+									{t("calculateZakat.goldEquivalent")}
 								</Text>
 							</View>
 						</View>

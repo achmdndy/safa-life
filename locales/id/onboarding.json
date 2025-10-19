@@ -1,10 +1,89 @@
 {
-  "title": "Pengaturan Bahasa",
-  "select": "Pilih Bahasa",
-  "indonesian": "Bahasa Indonesia",
-  "english": "English",
-  "arabic": "العربية",
-  "malay": "Bahasa Melayu",
-  "current": "Bahasa Saat Ini",
-  "restart": "Aplikasi akan dimulai ulang untuk menerapkan perubahan bahasa"
+  "welcome": {
+    "title": "Safa Life",
+    "subtitle": "Teman gaya hidup Islami modern Anda yang dipandu Al-Qur'an dan Sunnah. Raih kehidupan yang suci dan damai.",
+    "button": "Mari Mulai",
+    "selectLanguage": "Pilih bahasa Anda",
+    "language": "Bahasa",
+    "chooseLanguage": "Pilih bahasa pilihan Anda",
+    "accessibility": {
+      "title": "Selamat datang di Safa Life",
+      "subtitle": "Teman gaya hidup Islami modern Anda",
+      "button": "Tombol untuk memulai onboarding",
+      "image": "Gambar logo aplikasi Safa Life",
+      "selectLanguage": "Dropdown pemilihan bahasa",
+      "selectTrigger": "Ketuk untuk memilih bahasa pilihan Anda",
+      "selectContent": "Opsi bahasa yang tersedia",
+      "selectItem": "Opsi bahasa",
+      "bottomSheetTitle": "Bottom sheet pemilihan bahasa",
+      "languageButton": "Pilih bahasa ini"
+    }
+  },
+  "spirituality": {
+    "title": "Al-Qur'an Digital",
+    "subtitle": "Baca dan dengarkan Al-Qur'an suci dengan tafsir. Akses hadits autentik dan tuntunan Nabi untuk perjalanan spiritual harian Anda.",
+    "accessibility": {
+      "title": "Halaman fitur Al-Qur'an Digital",
+      "subtitle": "Deskripsi tentang fitur membaca Al-Qur'an dan hadits",
+      "image": "Ilustrasi fitur Al-Qur'an Digital"
+    }
+  },
+  "connected": {
+    "title": "Sholat & Komunitas",
+    "subtitle": "Dapatkan jadwal sholat akurat dan pengingat. Tetap terhubung dengan acara Islami, kajian, dan komunitas Muslim lokal Anda.",
+    "accessibility": {
+      "title": "Halaman fitur waktu sholat dan komunitas",
+      "subtitle": "Deskripsi tentang fitur waktu sholat dan komunitas",
+      "image": "Ilustrasi fitur sholat dan komunitas"
+    }
+  },
+  "inspiration": {
+    "title": "Inspirasi & Pertumbuhan",
+    "subtitle": "Tonton konten dan reels Muslim yang menginspirasi. Bergabung dengan program Hijrah untuk pertumbuhan spiritual dengan bimbingan dan dukungan komunitas.",
+    "accessibility": {
+      "title": "Halaman inspirasi dan pertumbuhan spiritual",
+      "subtitle": "Deskripsi tentang konten inspiratif dan fitur pertumbuhan spiritual",
+      "image": "Ilustrasi fitur inspirasi dan pertumbuhan"
+    }
+  },
+  "final": {
+    "title": "Selamat Datang di Safa Life",
+    "subtitle": "Semua yang Anda butuhkan untuk kehidupan harian yang seimbang secara spiritual, dalam satu aplikasi indah. Mulai perjalanan Anda hari ini!",
+    "accessibility": {
+      "title": "Halaman selamat datang akhir",
+      "subtitle": "Pesan selamat datang dan ringkasan manfaat aplikasi",
+      "image": "Ilustrasi selamat datang di Safa Life"
+    }
+  },
+  "navigation": {
+    "next": "Lanjut",
+    "back": "Kembali",
+    "skipButton": "Lewati",
+    "getStarted": "Mulai",
+    "loginButton": "Masuk",
+    "accountQuestion": "Sudah punya akun? ",
+    "accessibility": {
+      "next": "Tombol untuk melanjutkan ke halaman berikutnya",
+      "back": "Tombol untuk kembali ke halaman sebelumnya",
+      "skip": "Tombol untuk melewati onboarding",
+      "getStarted": "Tombol untuk memulai menggunakan aplikasi",
+      "login": "Tombol untuk masuk ke akun yang sudah ada",
+      "pageIndicator": "Indikator halaman, halaman {{current}} dari {{total}}",
+      "progressDots": "Titik-titik indikator kemajuan onboarding",
+      "header": "Header navigasi dengan tombol kembali dan lewati",
+      "container": "Kontainer navigasi dengan indikator kemajuan dan tombol aksi",
+      "dots": "Titik indikator kemajuan yang menunjukkan langkah onboarding saat ini",
+      "backButton": "Kembali ke langkah sebelumnya",
+      "backButtonHint": "Navigasi ke layar onboarding sebelumnya",
+      "skipContainer": "Kontainer tombol lewati",
+      "skipButton": "Lewati onboarding",
+      "skipButtonHint": "Lewati proses onboarding dan langsung ke aplikasi",
+      "skipText": "Teks tombol lewati",
+      "accountQuestion": "Teks yang menanyakan apakah pengguna sudah memiliki akun",
+      "loginButton": "Masuk ke akun yang sudah ada"
+    }
+  },
+  "accessibility": {
+    "welcomeAnnouncement": "Selamat datang di onboarding Safa Life"
+  }
 }

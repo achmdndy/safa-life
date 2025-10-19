@@ -1,4 +1,5 @@
 import { FlashList } from "@shopify/flash-list";
+import { useTranslation } from "react-i18next";
 import { Dimensions, Platform, View } from "react-native";
 import { PieChart } from "react-native-gifted-charts";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
@@ -17,6 +18,7 @@ export function JuzList() {
 		selectedTheme.primary,
 		selectedTheme.secondary,
 	);
+	const { t } = useTranslation("quran");
 
 	const pieData = [
 		{ value: 10, color: selectedTheme.primary, text: "10%" },
@@ -67,7 +69,7 @@ export function JuzList() {
 
 		return {
 			id: juzNumber,
-			name: `Juz ${juzNumber}`,
+			name: `${t("juzList.juz")} ${juzNumber}`,
 			startSurah: info.startSurah,
 			endSurah: info.endSurah,
 			startAyat: info.startAyat,
@@ -77,7 +79,10 @@ export function JuzList() {
 	});
 
 	return (
-		<View>
+		<View
+			accessible={true}
+			accessibilityLabel={t("juzList.accessibility.section")}
+		>
 			<Card
 				className="mb-2 p-4 border-transparent mx-4"
 				style={{
@@ -86,10 +91,20 @@ export function JuzList() {
 					shadowOpacity: 0.1,
 					shadowRadius: 4,
 				}}
+				accessible={true}
+				accessibilityRole="summary"
+				accessibilityLabel={t("juzList.accessibility.progressCard")}
 			>
 				<CardContent className="p-0">
 					<View className="flex-row items-center gap-4">
-						<View style={{ width: 80, height: 80 }}>
+						<View
+							style={{ width: 80, height: 80 }}
+							accessible={true}
+							accessibilityLabel={t("juzList.accessibility.progressChart", {
+								completed: 3,
+								total: 30,
+							})}
+						>
 							<PieChart
 								data={pieData}
 								donut
@@ -106,10 +121,14 @@ export function JuzList() {
 							/>
 						</View>
 						<View>
-							<Text className="font-semibold text-lg">Progress Khatam</Text>
-							<Text className="text-muted-foreground mt-1">3 of 30 Juz</Text>
+							<Text className="font-semibold text-lg">
+								{t("juzList.progressKhatam")}
+							</Text>
+							<Text className="text-muted-foreground mt-1">
+								3 {t("juzList.of")} 30 {t("juzList.juz")}
+							</Text>
 							<Text className="text-muted-foreground">
-								Last: Juz 3 (Ali 'Imran)
+								{t("juzList.last")}: {t("juzList.juz")} 3 (Ali 'Imran)
 							</Text>
 						</View>
 					</View>
@@ -125,6 +144,8 @@ export function JuzList() {
 					data={juzData}
 					className="px-4"
 					scrollEventThrottle={16}
+					accessible={true}
+					accessibilityRole="list"
 					ListFooterComponent={
 						<View
 							style={{
@@ -141,6 +162,14 @@ export function JuzList() {
 								shadowOpacity: 0.1,
 								shadowRadius: 4,
 							}}
+							accessible={true}
+							accessibilityRole="button"
+							accessibilityLabel={t("juzList.accessibility.juzItem", {
+								name: item.name,
+								startSurah: item.startSurah,
+								endSurah: item.endSurah,
+								progress: item.progress,
+							})}
 						>
 							<CardContent className="p-0">
 								<View className="flex-row justify-between items-center">
@@ -148,6 +177,10 @@ export function JuzList() {
 										<View
 											style={{ backgroundColor: selectedTheme.primary }}
 											className="w-10 h-10 rounded-full items-center justify-center mr-3"
+											accessible={true}
+											accessibilityLabel={t("juzList.accessibility.juzNumber", {
+												number: item.id,
+											})}
 										>
 											<Text className="text-primary-foreground dark:text-foreground font-bold">
 												{item.id}
@@ -155,7 +188,17 @@ export function JuzList() {
 										</View>
 										<View>
 											<Text className="font-semibold">{item.name}</Text>
-											<Text className="text-muted-foreground text-sm">
+											<Text
+												className="text-muted-foreground text-sm"
+												accessible={true}
+												accessibilityLabel={t(
+													"juzList.accessibility.juzRange",
+													{
+														startSurah: item.startSurah,
+														endSurah: item.endSurah,
+													},
+												)}
+											>
 												{item.startSurah}
 												{item.startSurah !== item.endSurah
 													? ` - ${item.endSurah}`
@@ -164,7 +207,14 @@ export function JuzList() {
 										</View>
 									</View>
 									<View className="items-end">
-										<Text className="text-muted-foreground">
+										<Text
+											className="text-muted-foreground"
+											accessible={true}
+											accessibilityLabel={t(
+												"juzList.accessibility.juzProgress",
+												{ progress: item.progress },
+											)}
+										>
 											{item.progress}%
 										</Text>
 										<View className="bg-gray-200 w-16 h-1 mt-1 rounded-full overflow-hidden">

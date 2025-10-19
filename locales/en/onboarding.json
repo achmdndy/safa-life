@@ -1,0 +1,89 @@
+{
+  "welcome": {
+    "title": "Safa Life",
+    "subtitle": "Your modern Islamic lifestyle companion guided by the Qur'an and Sunnah. Embrace a pure and peaceful life.",
+    "button": "Let's begin",
+    "selectLanguage": "Select your language",
+    "language": "Language",
+    "chooseLanguage": "Choose your preferred language",
+    "accessibility": {
+      "title": "Welcome to Safa Life",
+      "subtitle": "Your modern Islamic lifestyle companion",
+      "button": "Button to start onboarding",
+      "image": "Safa Life app logo image",
+      "selectLanguage": "Language selection dropdown",
+      "selectTrigger": "Tap to select your preferred language",
+      "selectContent": "Available language options",
+      "selectItem": "Language option",
+      "bottomSheetTitle": "Language selection bottom sheet",
+      "languageButton": "Select this language"
+    }
+  },
+  "spirituality": {
+    "title": "Digital Qur'an",
+    "subtitle": "Read and listen to the Holy Qur'an with tafsir. Access authentic hadiths and prophetic guidance for your daily spiritual journey.",
+    "accessibility": {
+      "title": "Digital Qur'an features page",
+      "subtitle": "Description about Qur'an reading and hadith features",
+      "image": "Digital Qur'an feature illustration"
+    }
+  },
+  "connected": {
+    "title": "Prayer & Community",
+    "subtitle": "Get accurate prayer times and reminders. Stay connected with Islamic events, lectures, and your local Muslim community.",
+    "accessibility": {
+      "title": "Prayer times and community features page",
+      "subtitle": "Description about prayer times and community features",
+      "image": "Prayer and community feature illustration"
+    }
+  },
+  "inspiration": {
+    "title": "Inspiration & Growth",
+    "subtitle": "Watch inspiring Muslim reels and content. Join the Hijrah program for spiritual growth with guidance and community support.",
+    "accessibility": {
+      "title": "Inspiration and spiritual growth page",
+      "subtitle": "Description about inspirational content and spiritual growth features",
+      "image": "Inspiration and growth feature illustration"
+    }
+  },
+  "final": {
+    "title": "Welcome to Safa Life",
+    "subtitle": "Everything you need for a spiritually balanced daily life, all in one beautiful app. Start your journey today!",
+    "accessibility": {
+      "title": "Final welcome page",
+      "subtitle": "Welcome message and app benefits summary",
+      "image": "Welcome to Safa Life illustration"
+    }
+  },
+  "navigation": {
+    "next": "Next",
+    "back": "Back",
+    "skipButton": "Skip",
+    "getStarted": "Get Started",
+    "loginButton": "Login",
+    "accountQuestion": "Already have an account? ",
+    "accessibility": {
+      "next": "Button to continue to next page",
+      "back": "Button to go back to previous page",
+      "skip": "Button to skip onboarding",
+      "getStarted": "Button to start using the app",
+      "login": "Button to login to existing account",
+      "pageIndicator": "Page indicator, page {{current}} of {{total}}",
+      "progressDots": "Onboarding progress indicator dots",
+      "header": "Navigation header with back and skip buttons",
+      "container": "Navigation container with progress indicators and action buttons",
+      "dots": "Progress indicator dots showing current onboarding step",
+      "backButton": "Go back to previous step",
+      "backButtonHint": "Navigate to the previous onboarding screen",
+      "skipContainer": "Skip button container",
+      "skipButton": "Skip onboarding",
+      "skipButtonHint": "Skip the onboarding process and go directly to the app",
+      "skipText": "Skip button text",
+      "accountQuestion": "Text asking if user already has an account",
+      "loginButton": "Login to existing account"
+    }
+  },
+  "accessibility": {
+    "welcomeAnnouncement": "Welcome to Safa Life onboarding"
+  }
+}

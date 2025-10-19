@@ -1,0 +1,21 @@
+{
+  "title": "Autentikasi Dua Faktor",
+  "subtitle": "Masukkan 6 digit kode dari aplikasi autentikator Anda.",
+  "verifyButton": "Verifikasi Kode",
+  "codeRequired": "Kode verifikasi harus diisi",
+  "havingTrouble": "Masih mengalami kendala?",
+  "backToLogin": "Kembali ke Halaman Masuk",
+  "accessibility": {
+    "screen": "Layar Autentikasi Dua Faktor",
+    "backButton": "Kembali ke layar masuk",
+    "backButtonHint": "Kembali ke halaman masuk",
+    "title": "Autentikasi Dua Faktor",
+    "subtitle": "Masukkan 6 digit kode dari aplikasi autentikator Anda.",
+    "otpInput": "Input kode verifikasi 6 digit",
+    "otpInputHint": "Masukkan kode dari aplikasi autentikator Anda, satu digit per kotak",
+    "verifyButton": "Verifikasi kode autentikasi",
+    "verifyButtonHint": "Tekan untuk mengirimkan kode untuk verifikasi",
+    "contactSupport": "Tombol hubungi dukungan",
+    "contactSupportHint": "Tekan jika Anda masih mengalami kendala dengan autentikasi dua faktor"
+  }
+}

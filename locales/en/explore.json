@@ -1,0 +1,76 @@
+{
+  "accessibility": {
+    "welcomeAnnouncement": "Welcome to Safa Life onboarding"
+  },
+  "header": {
+    "title": "Explore",
+    "searchPlaceholder": "Search for reels, event...",
+    "accessibilityLabel": "Explore page header",
+    "searchButtonAccessibilityLabel": "Search for Islamic content, reels, and events",
+    "searchButtonAccessibilityHint": "Tap to open search page for exploring Islamic content"
+  },
+  "discoverMore": {
+    "title": "Discover More",
+    "viewAll": "View all",
+    "items": {
+      "hadith": {
+        "title": "Hadith & Sunnah",
+        "description": "Daily wisdom"
+      },
+      "articles": {
+        "title": "Articles",
+        "description": "Islamic knowledge"
+      },
+      "qa": {
+        "title": "Q&A",
+        "description": "Get answers"
+      },
+      "halalFinder": {
+        "title": "Halal Finder",
+        "description": "Find halal places"
+      }
+    },
+    "accessibilityLabel": "Discover more Islamic content section",
+    "viewAllAccessibilityLabel": "View all discovery options",
+    "viewAllAccessibilityHint": "Tap to see all available Islamic content categories",
+    "itemAccessibilityLabel": "{{title}} - {{description}}",
+    "itemAccessibilityHint": "Tap to explore {{title}} content"
+  },
+  "reels": {
+    "title": "Islamic Reels",
+    "viewAll": "View all",
+    "duration": "{{minutes}}:{{seconds}}",
+    "accessibilityLabel": "Islamic reels section",
+    "listAccessibilityLabel": "List of Islamic video reels",
+    "listAccessibilityHint": "Swipe horizontally to browse through Islamic video content",
+    "viewAllAccessibilityLabel": "View all Islamic reels",
+    "viewAllAccessibilityHint": "Tap to see all available Islamic video reels",
+    "reelAccessibilityLabel": "{{title}} reel, duration {{duration}}",
+    "reelAccessibilityHint": "Tap to play {{title}} video reel",
+    "playButtonAccessibilityLabel": "Play video",
+    "playButtonAccessibilityHint": "Tap to start playing this Islamic video reel"
+  },
+  "events": {
+    "title": "Islamic Events",
+    "viewAll": "View all",
+    "accessibilityLabel": "Islamic events section",
+    "listAccessibilityLabel": "List of upcoming Islamic events",
+    "viewAllAccessibilityLabel": "View all Islamic events",
+    "viewAllAccessibilityHint": "Tap to see all upcoming Islamic events",
+    "eventAccessibilityLabel": "{{title}} on {{date}} at {{location}}",
+    "eventAccessibilityHint": "Tap to view details and register for {{title}}",
+    "eventImageAccessibilityLabel": "Event image for {{title}}",
+    "eventButtonAccessibilityLabel": "View event details",
+    "eventButtonAccessibilityHint": "Tap to see more information about this Islamic event"
+  },
+  "hijrahProgram": {
+    "featured": "Featured",
+    "title": "The Hijrah Program",
+    "description": "Embark on a transformative journey of faith. Join our guided program to strengthen your connection with Allah.",
+    "startJourney": "Start Your Journey",
+    "accessibilityLabel": "Featured Hijrah Program",
+    "imageAccessibilityLabel": "Hijrah Program background image showing Islamic architecture",
+    "buttonAccessibilityLabel": "Start your Hijrah journey",
+    "buttonAccessibilityHint": "Tap to begin the guided Islamic spiritual journey program"
+  }
+}

@@ -5,6 +5,7 @@ import {
 	BookText,
 	ChevronRight,
 } from "lucide-react-native";
+import { useTranslation } from "react-i18next";
 import { Image, Platform, Pressable, ScrollView, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
@@ -14,6 +15,7 @@ import { Text } from "@/components/ui/text";
 import { useTheme } from "@/contexts/theme-context";
 
 export function ThematicLearningTab() {
+	const { t } = useTranslation("quran");
 	const insets = useSafeAreaInsets();
 	const { currentTheme, themes } = useTheme();
 	const selectedTheme = themes[currentTheme];
@@ -166,6 +168,8 @@ export function ThematicLearningTab() {
 				paddingBottom:
 					Platform.OS === "ios" ? insets.bottom + 110 : insets.bottom + 30,
 			}}
+			accessible={true}
+			accessibilityLabel={t("thematicLearning.accessibility.section")}
 		>
 			<View className="gap-2">
 				<View className="flex-row justify-between items-center mx-4">
@@ -176,10 +180,23 @@ export function ThematicLearningTab() {
 							color={selectedTheme.primary}
 							className="mr-2"
 						/>
-						<Text className="font-bold text-xl">Stories</Text>
+						<Text
+							className="font-bold text-xl"
+							accessible={true}
+							accessibilityLabel={t("thematicLearning.stories.title")}
+						>
+							{t("thematicLearning.stories.title")}
+						</Text>
 					</View>
-					<Pressable className="flex-row items-center">
-						<Text className="text-sm mr-1">View all</Text>
+					<Pressable
+						className="flex-row items-center"
+						accessible={true}
+						accessibilityRole="button"
+						accessibilityLabel={t("thematicLearning.stories.viewAllButton")}
+					>
+						<Text className="text-sm mr-1">
+							{t("thematicLearning.stories.viewAll")}
+						</Text>
 						<Icon as={ChevronRight} size={16} />
 					</Pressable>
 				</View>
@@ -245,10 +262,23 @@ export function ThematicLearningTab() {
 							color={selectedTheme.primary}
 							className="mr-2"
 						/>
-						<Text className="font-bold text-xl">Topics</Text>
+						<Text
+							className="font-bold text-xl"
+							accessible={true}
+							accessibilityLabel={t("thematicLearning.topics.title")}
+						>
+							{t("thematicLearning.topics.title")}
+						</Text>
 					</View>
-					<Pressable className="flex-row items-center">
-						<Text className="text-sm mr-1">View all</Text>
+					<Pressable
+						className="flex-row items-center"
+						accessible={true}
+						accessibilityRole="button"
+						accessibilityLabel={t("thematicLearning.topics.viewAllButton")}
+					>
+						<Text className="text-sm mr-1">
+							{t("thematicLearning.topics.viewAll")}
+						</Text>
 						<Icon as={ChevronRight} size={16} />
 					</Pressable>
 				</View>
@@ -291,8 +321,15 @@ export function ThematicLearningTab() {
 												<Text
 													className="text-xs"
 													style={{ color: selectedTheme.primary }}
+													accessible={true}
+													accessibilityLabel={t(
+														"thematicLearning.topics.storiesCount",
+														{ count: item.count },
+													)}
 												>
-													{item.count} stories
+													{t("thematicLearning.topics.storiesCount", {
+														count: item.count,
+													})}
 												</Text>
 											</View>
 										</View>

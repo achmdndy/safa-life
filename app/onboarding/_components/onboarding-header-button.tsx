@@ -1,5 +1,6 @@
 import { ChevronLeft } from "lucide-react-native";
 import type { ComponentProps } from "react";
+import { useTranslation } from "react-i18next";
 import { Platform, StatusBar } from "react-native";
 import Animated, {
 	interpolate,
@@ -23,6 +24,7 @@ export function OnboardingHeaderButton({
 	onSkipClick,
 	animationProgress,
 }: OnboardingHeaderButtonProps) {
+	const { t } = useTranslation("onboarding");
 	const { currentTheme } = useTheme();
 	const selectedTheme = themes[currentTheme];
 
@@ -63,6 +65,9 @@ export function OnboardingHeaderButton({
 				},
 				containerAnimatedStyle,
 			]}
+			// accessible={true}
+			// accessibilityRole="none"
+			// accessibilityLabel={t("navigation.accessibility.header")}
 		>
 			<Button
 				variant="ghost"
@@ -70,17 +75,37 @@ export function OnboardingHeaderButton({
 				className="w-14 h-14 rounded-full"
 				style={{ pointerEvents: "auto" }}
 				onPress={() => onBackClick()}
+				accessible={true}
+				accessibilityRole="button"
+				accessibilityLabel={t("navigation.accessibility.backButton")}
+				accessibilityHint={t("navigation.accessibility.backButtonHint")}
 			>
 				<Icon as={ChevronLeft} size={24} stroke={selectedTheme.primary} />
 			</Button>
 
-			<Animated.View style={[skipAnimatedStyle, { pointerEvents: "auto" }]}>
+			<Animated.View
+				style={[skipAnimatedStyle, { pointerEvents: "auto" }]}
+				accessible={true}
+				accessibilityRole="none"
+				accessibilityLabel={t("navigation.accessibility.skipContainer")}
+			>
 				<Button
 					variant="ghost"
 					style={{ pointerEvents: "auto" }}
 					onPress={() => onSkipClick()}
+					accessible={true}
+					accessibilityRole="button"
+					accessibilityLabel={t("navigation.accessibility.skipButton")}
+					accessibilityHint={t("navigation.accessibility.skipButtonHint")}
 				>
-					<Text style={{ color: selectedTheme.primary }}>Skip</Text>
+					<Text
+						style={{ color: selectedTheme.primary }}
+						accessible={true}
+						accessibilityRole="text"
+						accessibilityLabel={t("navigation.accessibility.skipText")}
+					>
+						{t("navigation.skipButton")}
+					</Text>
 				</Button>
 			</Animated.View>
 		</Animated.View>

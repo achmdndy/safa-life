@@ -1,0 +1,143 @@
+{
+  "header": {
+    "greeting": "Assalamu'alaikum,",
+    "userName": "Achmad",
+    "searchPlaceholder": "Cari surah, doa...",
+    "accessibility": {
+      "headerLabel": "Header halaman utama dengan salam dan pencarian",
+      "greetingLabel": "Pesan salam Islami",
+      "donationButtonLabel": "Tombol amal dan donasi",
+      "donationButtonHint": "Navigasi ke fitur amal dan donasi",
+      "searchButtonLabel": "Tombol pencarian untuk Al-Qur'an dan doa",
+      "searchButtonHint": "Cari surah, doa, dan konten Islami"
+    }
+  },
+  "hadith": {
+    "title": "Hadits Hari Ini",
+    "content": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda, tempora.",
+    "source": "- Lorem, ipsum.",
+    "accessibility": {
+      "sectionLabel": "Bagian hadits harian dengan kutipan Islami yang menginspirasi",
+      "titleLabel": "Judul bagian hadits hari ini",
+      "cardLabel": "Kartu hadits hari ini",
+      "contentLabel": "Isi teks hadits",
+      "sourceLabel": "Sumber hadits"
+    }
+  },
+  "prayerTimes": {
+    "title": "Waktu Sholat",
+    "location": "Jakarta, Indonesia",
+    "prayers": {
+      "fajr": {
+        "name": "Subuh",
+        "time": "04:30"
+      },
+      "dhuhr": {
+        "name": "Dzuhur",
+        "time": "12:15"
+      },
+      "asr": {
+        "name": "Ashar",
+        "time": "15:30"
+      },
+      "maghrib": {
+        "name": "Maghrib",
+        "time": "18:45"
+      },
+      "isha": {
+        "name": "Isya",
+        "time": "20:00"
+      }
+    },
+    "nextPrayer": {
+      "name": "Maghrib",
+      "status": "Shalat berikutnya",
+      "time": "18:30"
+    },
+    "accessibility": {
+      "sectionLabel": "Bagian waktu sholat dengan jadwal harian",
+      "titleLabel": "Judul bagian waktu sholat",
+      "cardLabel": "Kartu waktu sholat hari ini",
+      "locationLabel": "Lokasi untuk waktu sholat: {{location}}",
+      "nextPrayerLabel": "Informasi waktu sholat berikutnya: {{nextPrayer}}",
+      "prayerTimeLabel": "Waktu {{prayer}}: {{time}}",
+      "prayerListLabel": "Daftar waktu sholat hari ini"
+    }
+  },
+  "features": {
+    "title": "Fitur Utama",
+    "viewMore": "Lihat Semua",
+    "items": {
+      "qibla": {
+        "title": "Arah Kiblat",
+        "subtitle": "Temukan arah yang tepat"
+      },
+      "tasbih": {
+        "title": "Tasbih Digital",
+        "subtitle": "Hitung dzikir Anda"
+      },
+      "prayer": {
+        "title": "Panduan Sholat",
+        "subtitle": "Pelajari tata cara"
+      },
+      "quran": {
+        "title": "Al-Qur'an",
+        "subtitle": "Baca dan dengarkan"
+      }
+    },
+    "accessibility": {
+      "sectionLabel": "Bagian fitur utama aplikasi",
+      "headerLabel": "Header bagian fitur",
+      "titleLabel": "Judul bagian fitur utama",
+      "viewMoreButtonLabel": "Tombol lihat semua fitur",
+      "viewMoreButtonHint": "Navigasi ke halaman semua fitur",
+      "featuresListLabel": "Daftar fitur utama aplikasi",
+      "featureButtonLabel": "Fitur {{title}}: {{subtitle}}",
+      "featureButtonHint": "Buka fitur {{title}}"
+    }
+  },
+  "articles": {
+    "title": "Artikel Terbaru",
+    "viewMore": "Lihat Semua",
+    "items": {
+      "prayer": {
+        "title": "Pentingnya Sholat Harian dalam Islam",
+        "subtitle": "Memahami makna spiritual dari Sholat",
+        "date": "2 hari lalu"
+      },
+      "ramadan": {
+        "title": "Ramadan: Bulan Refleksi dan Pertumbuhan",
+        "subtitle": "Mempersiapkan hati dan pikiran untuk bulan suci",
+        "date": "5 hari lalu"
+      },
+      "quran": {
+        "title": "Memahami Al-Qur'an: Panduan untuk Pemula",
+        "subtitle": "Cara mendekati membaca dan memahami Kitab Suci",
+        "date": "1 minggu lalu"
+      },
+      "architecture": {
+        "title": "Keindahan Arsitektur Islam",
+        "subtitle": "Menjelajahi simbolisme spiritual dalam desain masjid",
+        "date": "2 minggu lalu"
+      }
+    },
+    "accessibility": {
+      "section": "Bagian artikel Islam terbaru",
+      "header": "Header bagian artikel",
+      "title": "Judul bagian artikel terbaru",
+      "viewMore": "Tombol lihat semua artikel",
+      "list": "Daftar artikel terbaru",
+      "articleItem": "Artikel: {{title}} - {{subtitle}} - {{date}}",
+      "articleImage": "Gambar artikel untuk {{title}}",
+      "articleContent": "Konten artikel",
+      "articleTitle": "Judul artikel: {{title}}",
+      "articleSubtitle": "Ringkasan artikel: {{subtitle}}",
+      "articleDate": "Dipublikasikan {{date}}"
+    }
+  },
+  "accessibility": {
+    "welcomeAnnouncement": "Selamat datang di halaman utama Safa Life",
+    "homeScreen": "Layar utama Safa Life dengan konten dan fitur Islami",
+    "scrollView": "Konten halaman utama yang dapat digulir"
+  }
+}

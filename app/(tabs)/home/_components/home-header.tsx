@@ -1,6 +1,7 @@
 import { useRouter } from "expo-router";
 import { HeartHandshakeIcon, Search } from "lucide-react-native";
 import type { ComponentProps } from "react";
+import { useTranslation } from "react-i18next";
 import { Animated, Platform, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Button } from "@/components/ui/button";
@@ -16,6 +17,7 @@ export type HomeHeaderProps = ComponentProps<typeof View> & {
 
 export function HomeHeader({ value }: HomeHeaderProps) {
 	const router = useRouter();
+	const { t } = useTranslation("home");
 
 	const insets = useSafeAreaInsets();
 	const { currentTheme, theme } = useTheme();
@@ -64,6 +66,9 @@ export function HomeHeader({ value }: HomeHeaderProps) {
 				shadowOpacity: 0.1,
 				shadowRadius: 8,
 			}}
+			accessible={true}
+			accessibilityRole="header"
+			accessibilityLabel={t("header.accessibility.headerLabel")}
 		>
 			<Animated.View
 				className="flex-row items-center justify-between"
@@ -72,15 +77,22 @@ export function HomeHeader({ value }: HomeHeaderProps) {
 					height: animatedHeight,
 					transform: [{ translateY: animatedTranslateY }],
 				}}
+				accessible={true}
+				accessibilityRole="text"
+				accessibilityLabel={t("header.accessibility.greetingLabel")}
 			>
-				<View>
+				<View
+					accessible={true}
+					accessibilityRole="text"
+					accessibilityLabel={`${t("header.greeting")} ${t("header.userName")}`}
+				>
 					<Text
 						className="text-white"
 						style={{
 							color: selectedTheme.primary,
 						}}
 					>
-						Assalamu'alaikum,
+						{t("header.greeting")}
 					</Text>
 					<Text
 						className="font-bold text-lg"
@@ -88,11 +100,18 @@ export function HomeHeader({ value }: HomeHeaderProps) {
 							color: selectedTheme.primary,
 						}}
 					>
-						Achmad
+						{t("header.userName")}
 					</Text>
 				</View>
 
-				<Button size="icon" variant="ghost">
+				<Button
+					size="icon"
+					variant="ghost"
+					accessible={true}
+					accessibilityRole="button"
+					accessibilityLabel={t("header.accessibility.donationButtonLabel")}
+					accessibilityHint={t("header.accessibility.donationButtonHint")}
+				>
 					<HeartHandshakeIcon
 						width={25}
 						height={25}
@@ -105,9 +124,15 @@ export function HomeHeader({ value }: HomeHeaderProps) {
 				className="rounded-full bg-background justify-start"
 				variant="outline"
 				onPress={() => router.navigate("/search/home")}
+				accessible={true}
+				accessibilityRole="button"
+				accessibilityLabel={t("header.accessibility.searchButtonLabel")}
+				accessibilityHint={t("header.accessibility.searchButtonHint")}
 			>
 				<Icon as={Search} size={20} className="text-foreground" />
-				<Text className="text-muted-foreground">Search for surah, dua...</Text>
+				<Text className="text-muted-foreground">
+					{t("header.searchPlaceholder")}
+				</Text>
 			</Button>
 		</Animated.View>
 	);

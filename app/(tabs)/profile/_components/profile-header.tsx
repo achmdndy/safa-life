@@ -1,6 +1,7 @@
 import { Pen } from "lucide-react-native";
 import type { ComponentProps } from "react";
-import { Animated, View } from "react-native";
+import { useTranslation } from "react-i18next";
+import { Animated, Pressable, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Icon } from "@/components/ui/icon";
@@ -17,6 +18,7 @@ export type ProfileHeaderProps = ComponentProps<typeof View> & {
 };
 
 export function ProfileHeader({ value }: ProfileHeaderProps) {
+	const { t } = useTranslation("profile");
 	const { currentTheme, themes } = useTheme();
 	const selectedTheme = themes[currentTheme];
 	const insets = useSafeAreaInsets();
@@ -54,6 +56,8 @@ export function ProfileHeader({ value }: ProfileHeaderProps) {
 	return (
 		<Animated.View
 			className="px-4 pb-6 bg-card rounded-b-3xl items-center justify-center"
+			accessible={true}
+			accessibilityLabel={t("accessibility.profileHeader")}
 			style={{
 				paddingTop: insets.top + 20,
 				height: animatedHeaderHeight,
@@ -85,9 +89,15 @@ export function ProfileHeader({ value }: ProfileHeaderProps) {
 						<Text className="text-gray-600 text-2xl font-bold">AD</Text>
 					</AvatarFallback>
 				</Avatar>
-				<View className="absolute bottom-0 right-0 bg-background rounded-full p-2 border-2 border-gray-100">
+				<Pressable
+					className="absolute bottom-0 right-0 bg-background rounded-full p-2 border-2 border-gray-100"
+					accessible={true}
+					accessibilityRole="button"
+					accessibilityLabel={t("accessibility.editProfileButton")}
+					accessibilityHint={t("header.editProfile")}
+				>
 					<Icon as={Pen} size={14} className="text-primary" />
-				</View>
+				</Pressable>
 			</Animated.View>
 
 			<View className="items-center space-y-1">

@@ -1,0 +1,122 @@
+{
+  "header": {
+    "searchPlaceholder": "Search for surah, dua...",
+    "accessibility": {
+      "searchButton": "Search for Quran content, surahs, and duas",
+      "audioButton": "Audio settings and recitation options"
+    }
+  },
+  "tabs": {
+    "surah": "Surah",
+    "topics": "Topics",
+    "daily": "Daily",
+    "accessibility": {
+      "mainTabs": "Main Quran navigation tabs",
+      "surahTab": "Browse Quran by Surah",
+      "topicsTab": "Browse Quran by thematic topics",
+      "dailyTab": "Daily Quran reading reminders"
+    }
+  },
+  "surahTab": {
+    "surah": "Surah",
+    "juz": "Juz",
+    "bookmark": "Bookmark",
+    "accessibility": {
+      "subTabs": "Quran content organization tabs",
+      "surahSubTab": "Browse all 114 Surahs",
+      "juzSubTab": "Browse 30 Juz sections",
+      "bookmarkSubTab": "View your bookmarked verses"
+    }
+  },
+  "surahList": {
+    "lastReading": "Last Reading",
+    "ayat": "Ayat",
+    "from": "from",
+    "accessibility": {
+      "section": "Surah list section",
+      "lastReadingCard": "Your last reading progress",
+      "progressChart": "Reading progress chart showing {{percentage}} completion",
+      "surahItem": "Surah {{number}}: {{name}} ({{meaning}}) - {{verses}} verses",
+      "surahNumber": "Surah number {{number}}",
+      "surahName": "{{name}} - {{meaning}}",
+      "verseCount": "{{count}} verses"
+    }
+  },
+  "juzList": {
+    "progressKhatam": "Progress Khatam",
+    "of": "of",
+    "juz": "Juz",
+    "last": "Last",
+    "accessibility": {
+      "section": "Juz list section",
+      "progressCard": "Khatam Al-Quran progress tracking",
+      "progressChart": "Overall Juz completion progress showing {{completed}} of {{total}} Juz",
+      "juzItem": "{{name}} from {{startSurah}} to {{endSurah}} - {{progress}}% complete",
+      "juzNumber": "Juz number {{number}}",
+      "juzRange": "From {{startSurah}} to {{endSurah}}",
+      "juzProgress": "{{progress}} percent completed"
+    }
+  },
+  "bookmarkList": {
+    "title": "My Bookmarks",
+    "summary": "{{count}} bookmarks",
+    "lastBookmark": "Last: {{surah}} verse {{verse}}",
+    "verse": "Verse {{number}}",
+    "removeBookmark": "Remove Bookmark",
+    "removeConfirmation": "Are you sure you want to remove this bookmark?",
+    "cancel": "Cancel",
+    "remove": "Remove",
+    "emptyState": {
+      "title": "No bookmarks yet",
+      "message": "Bookmarked verses will appear here"
+    },
+    "accessibility": {
+      "section": "Bookmarked verses section",
+      "icon": "Bookmark icon",
+      "summaryCard": "Bookmark summary with {{count}} total bookmarks",
+      "summaryText": "{{count}} bookmarks saved",
+      "lastBookmark": "Last bookmark: {{surah}} verse {{verse}}",
+      "list": "List of bookmarked verses",
+      "listHint": "Swipe to browse your bookmarks",
+      "item": "Bookmark: {{surah}} verse {{verse}} - last read {{lastRead}}",
+      "surahNumber": "Surah number {{number}}",
+      "surahName": "{{name}}",
+      "surahArabic": "{{name}} in Arabic",
+      "verse": "Verse {{number}}",
+      "lastRead": "Last read {{time}}",
+      "removeButton": "Remove bookmark for {{surah}}",
+      "removeButtonHint": "Double tap to remove this bookmark",
+      "verseText": "Verse text container",
+      "arabicText": "Arabic text: {{text}}",
+      "emptyState": "No bookmarks saved yet"
+    }
+  },
+  "dailyReminder": {
+    "title": "Daily Reminder",
+    "accessibility": {
+      "section": "Daily Quran reminder section"
+    }
+  },
+  "thematicLearning": {
+    "stories": {
+      "title": "Stories",
+      "viewAll": "View All",
+      "viewAllButton": "View all stories"
+    },
+    "topics": {
+      "title": "Topics",
+      "viewAll": "View All",
+      "viewAllButton": "View all topics",
+      "storiesCount": "{{count}} stories"
+    },
+    "accessibility": {
+      "section": "Thematic learning section"
+    }
+  },
+  "accessibility": {
+    "welcomeAnnouncement": "Welcome to Quran section. Browse Surahs, Juz, and your bookmarks.",
+    "screenLabel": "Quran reading and navigation screen",
+    "mainContent": "Quran content area",
+    "scrollHint": "Swipe up and down to browse content"
+  }
+}

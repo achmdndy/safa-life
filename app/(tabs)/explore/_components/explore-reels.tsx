@@ -1,6 +1,7 @@
 import { FlashList } from "@shopify/flash-list";
 import { LinearGradient } from "expo-linear-gradient";
 import { ChevronRight, Clapperboard, Play } from "lucide-react-native";
+import { useTranslation } from "react-i18next";
 import { Image, Pressable, View } from "react-native";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Card, CardContent } from "@/components/ui/card";
@@ -9,6 +10,7 @@ import { Text } from "@/components/ui/text";
 import { useTheme } from "@/contexts/theme-context";
 
 export function ExploreReels() {
+	const { t } = useTranslation("explore");
 	const { currentTheme, themes } = useTheme();
 	const selectedTheme = themes[currentTheme];
 
@@ -56,7 +58,11 @@ export function ExploreReels() {
 	];
 
 	return (
-		<View className="gap-2">
+		<View
+			className="gap-2"
+			accessible={true}
+			accessibilityLabel={t("reels.accessibilityLabel")}
+		>
 			<View className="flex-row justify-between items-center mx-4">
 				<View className="flex-row items-center">
 					<Icon
@@ -65,10 +71,18 @@ export function ExploreReels() {
 						className="mr-2"
 						stroke={selectedTheme.primary}
 					/>
-					<Text className="font-bold text-xl">Islamic Reels</Text>
+					<Text className="font-bold text-xl">{t("reels.title")}</Text>
 				</View>
-				<Pressable className="flex-row items-center">
-					<Text className="text-primary text-sm mr-1">View all</Text>
+				<Pressable
+					className="flex-row items-center"
+					accessible={true}
+					accessibilityRole="button"
+					accessibilityLabel={t("reels.viewAllAccessibilityLabel")}
+					accessibilityHint={t("reels.viewAllAccessibilityHint")}
+				>
+					<Text className="text-primary text-sm mr-1">
+						{t("reels.viewAll")}
+					</Text>
 					<Icon as={ChevronRight} size={16} className="text-primary" />
 				</Pressable>
 			</View>
@@ -81,8 +95,21 @@ export function ExploreReels() {
 				scrollEventThrottle={16}
 				ItemSeparatorComponent={() => <View className="w-2" />}
 				ListFooterComponent={() => <View className="w-4" />}
+				accessible={true}
+				accessibilityLabel={t("reels.listAccessibilityLabel")}
+				accessibilityHint={t("reels.listAccessibilityHint")}
 				renderItem={({ item }) => (
-					<Pressable>
+					<Pressable
+						accessible={true}
+						accessibilityRole="button"
+						accessibilityLabel={t("reels.reelAccessibilityLabel", {
+							title: item.title,
+							duration: item.duration,
+						})}
+						accessibilityHint={t("reels.reelAccessibilityHint", {
+							title: item.title,
+						})}
+					>
 						<Card
 							className="border-transparent p-0 w-full"
 							style={{
@@ -97,12 +124,27 @@ export function ExploreReels() {
 										resizeMode="cover"
 									/>
 									<View className="absolute inset-0 items-center justify-center">
-										<View className="bg-primary/20 w-12 h-12 rounded-full items-center justify-center">
+										<View
+											className="bg-primary/20 w-12 h-12 rounded-full items-center justify-center"
+											accessible={true}
+											accessibilityRole="button"
+											accessibilityLabel={t(
+												"reels.playButtonAccessibilityLabel",
+											)}
+											accessibilityHint={t("reels.playButtonAccessibilityHint")}
+										>
 											<Icon as={Play} size={24} className="text-white ml-1" />
 										</View>
 									</View>
 									<View className="absolute top-2 right-2 bg-black/50 px-2 py-1 rounded">
-										<Text className="text-white text-xs font-medium">
+										<Text
+											className="text-white text-xs font-medium"
+											accessible={true}
+											accessibilityLabel={t("reels.duration", {
+												minutes: item.duration.split(":")[0],
+												seconds: item.duration.split(":")[1],
+											})}
+										>
 											{item.duration}
 										</Text>
 									</View>

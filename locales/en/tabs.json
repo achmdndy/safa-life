@@ -1,0 +1,31 @@
+{
+  "titles": {
+    "home": "Home",
+    "quran": "Quran",
+    "explore": "Explore",
+    "charity": "Charity",
+    "profile": "Profile"
+  },
+  "accessibility": {
+    "home": {
+      "label": "Home tab",
+      "hint": "Navigate to home screen with daily prayers and Islamic content"
+    },
+    "quran": {
+      "label": "Quran tab",
+      "hint": "Navigate to Quran reading and study features"
+    },
+    "explore": {
+      "label": "Explore tab", 
+      "hint": "Navigate to explore Islamic content and videos"
+    },
+    "charity": {
+      "label": "Charity tab",
+      "hint": "Navigate to charity and donation features"
+    },
+    "profile": {
+      "label": "Profile tab",
+      "hint": "Navigate to your profile and settings"
+    }
+  }
+}

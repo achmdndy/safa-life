@@ -1,0 +1,41 @@
+{
+  "accessibility": {
+    "welcomeAnnouncement": "Welcome to your profile",
+    "profileHeader": "Profile header section",
+    "editProfileButton": "Edit profile picture",
+    "menuSection": "Profile menu section",
+    "menuItem": "Menu item",
+    "navigateToSettings": "Navigate to settings"
+  },
+  "header": {
+    "editProfile": "Edit profile"
+  },
+  "menu": {
+    "sections": {
+      "accountSettings": "Account Settings",
+      "personalInformation": "Personal Information", 
+      "notificationPreferences": "Notification Preferences",
+      "appSettings": "App Settings"
+    },
+    "items": {
+      "changePassword": "Change Password",
+      "privacySecurity": "Privacy & Security",
+      "deleteAccount": "Delete Account",
+      "editProfile": "Edit Profile Details",
+      "manageNotifications": "Manage Notifications",
+      "language": "Language",
+      "theme": "Theme",
+      "helpSupport": "Help & Support"
+    },
+    "accessibility": {
+      "changePassword": "Change your account password",
+      "privacySecurity": "Manage privacy and security settings",
+      "deleteAccount": "Delete your account permanently",
+      "editProfile": "Edit your profile information",
+      "manageNotifications": "Configure notification preferences",
+      "language": "Change app language",
+      "theme": "Change app theme",
+      "helpSupport": "Get help and support"
+    }
+  }
+}

@@ -1,5 +1,6 @@
 import { ChevronRight } from "lucide-react-native";
 import type { ComponentProps } from "react";
+import { useTranslation } from "react-i18next";
 import { Pressable, View } from "react-native";
 import Animated, {
 	interpolate,
@@ -20,6 +21,7 @@ export function OnboardingNextButtonArrow({
 	onBtnPress,
 	animationProgress,
 }: OnboardingNextButtonArrowProps) {
+	const { t } = useTranslation("onboarding");
 	const { currentTheme } = useTheme();
 	const selectedTheme = themes[currentTheme];
 
@@ -82,18 +84,27 @@ export function OnboardingNextButtonArrow({
 			onPress={onBtnPress}
 			className="h-[58px] shadow-lg elevation-3 overflow-hidden justify-center items-center relative"
 			style={buttonAnimatedStyle}
+			accessible={true}
+			accessibilityRole="button"
+			accessibilityLabel={t("navigation.accessibility.getStarted")}
 		>
 			<Animated.View
 				className="flex-row justify-center items-center px-4 absolute inset-0"
 				style={signupAnimatedStyle}
+				accessible={true}
+				accessibilityLabel={t("navigation.accessibility.getStarted")}
 			>
 				<Text className="text-lg font-semibold text-white mr-2">
-					Get Started
+					{t("navigation.getStarted")}
 				</Text>
 				<View className="w-5 h-5" />
 			</Animated.View>
 
-			<Animated.View style={chevronAnimatedStyle}>
+			<Animated.View
+				style={chevronAnimatedStyle}
+				accessible={true}
+				accessibilityLabel={t("navigation.accessibility.next")}
+			>
 				<ChevronRight size={24} color="white" strokeWidth={2.5} />
 			</Animated.View>
 		</AnimatedPressable>

@@ -1,0 +1,31 @@
+{
+  "titles": {
+    "home": "Beranda",
+    "quran": "Al-Quran",
+    "explore": "Jelajahi",
+    "charity": "Sedekah",
+    "profile": "Profil"
+  },
+  "accessibility": {
+    "home": {
+      "label": "Tab beranda",
+      "hint": "Navigasi ke layar beranda dengan doa harian dan konten Islami"
+    },
+    "quran": {
+      "label": "Tab Al-Quran",
+      "hint": "Navigasi ke fitur membaca dan mempelajari Al-Quran"
+    },
+    "explore": {
+      "label": "Tab jelajahi", 
+      "hint": "Navigasi untuk menjelajahi konten dan video Islami"
+    },
+    "charity": {
+      "label": "Tab sedekah",
+      "hint": "Navigasi ke fitur sedekah dan donasi"
+    },
+    "profile": {
+      "label": "Tab profil",
+      "hint": "Navigasi ke profil dan pengaturan Anda"
+    }
+  }
+}

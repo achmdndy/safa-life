@@ -46,6 +46,8 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 
     if (language === "id") {
       await i18n.changeLanguage("id");
+    } else if (language === "en") {
+      await i18n.changeLanguage("en");
     } else {
       const ns = ["splash", "language"];
       let foundAll = true;

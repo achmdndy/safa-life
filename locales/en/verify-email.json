@@ -1,0 +1,17 @@
+{
+  "title": "Check Your Inbox",
+  "subtitle": "We've sent a verification link to your email address. Please click the link to complete your registration.",
+  "resendButton": "Resend Email",
+  "skipButton": "Skip for now",
+  "didNotReceive": "Didn't receive the email? ",
+  "accessibility": {
+    "screen": "Verify email screen",
+    "icon": "An icon of an email being sent",
+    "title": "Check Your Inbox",
+    "subtitle": "We've sent a verification link to your email address. Please click the link to complete your registration.",
+    "resendButton": "Resend verification email",
+    "resendButtonHint": "Press to send the verification email again",
+    "skipButton": "Skip email verification for now",
+    "skipButtonHint": "Press to continue to the home screen without verifying your email"
+  }
+}

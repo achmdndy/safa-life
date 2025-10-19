@@ -1,0 +1,97 @@
+{
+  "accessibility": {
+    "welcomeAnnouncement": "Welcome to Safa Life charity section"
+  },
+  "header": {
+    "title": "Charity",
+    "subtitle": "Make a difference today",
+    "searchPlaceholder": "Search charities, causes...",
+    "accessibilityLabel": "Charity page header",
+    "notificationButtonAccessibilityLabel": "View charity notifications",
+    "notificationButtonAccessibilityHint": "Tap to see updates about your donations and charity activities",
+    "searchButtonAccessibilityLabel": "Search for charities and causes",
+    "searchButtonAccessibilityHint": "Tap to open search page for finding charity organizations and causes"
+  },
+  "calculateZakat": {
+    "title": "Calculate Your Zakat",
+    "description": "Zakat is a mandatory pillar of Islam. Use our calculator to determine your obligation and fulfill it with ease.",
+    "buttonText": "Calculate & Pay Zakat",
+    "quickFacts": "Quick Facts",
+    "nisabThreshold": "Nisab Threshold",
+    "percentageText": "2.5% of eligible wealth",
+    "goldEquivalent": "85g gold equivalent",
+    "accessibilityLabel": "Zakat calculation section",
+    "buttonAccessibilityLabel": "Calculate and pay your Zakat obligation",
+    "buttonAccessibilityHint": "Tap to open Zakat calculator and payment options",
+    "quickFactsAccessibilityLabel": "Quick facts about Zakat: 2.5% of eligible wealth",
+    "nisabAccessibilityLabel": "Nisab threshold: 85 grams gold equivalent"
+  },
+  "givePurpose": {
+    "title": "Give with Purpose",
+    "viewAll": "View all",
+    "items": {
+      "sadaqah": "Sadaqah",
+      "zakat": "Zakat",
+      "infaq": "Infaq",
+      "wakaf": "Wakaf",
+      "fidyah": "Fidyah",
+      "kaffarah": "Kaffarah"
+    },
+    "accessibilityLabel": "Give with purpose section",
+    "viewAllAccessibilityLabel": "View all charity purposes",
+    "viewAllAccessibilityHint": "Tap to see all available charity and donation categories",
+    "itemAccessibilityLabel": "{{item}} donation category",
+    "itemAccessibilityHint": "Tap to learn more about {{item}} and make a donation"
+  },
+  "community": {
+    "title": "Community Causes",
+    "viewAll": "View all",
+    "donateNow": "Donate Now",
+    "urgent": "URGENT",
+    "raisedSoFar": "raised so far",
+    "of": "of",
+    "donors": "Donors",
+    "days": "Days",
+    "goal": "Goal",
+    "accessibilityLabel": "Community causes section",
+    "viewAllAccessibilityLabel": "View all community causes",
+    "viewAllAccessibilityHint": "Tap to see all available community charity causes",
+    "causeAccessibilityHint": "Tap to view details and donate to this cause",
+    "donateNowAccessibilityLabel": "Donate now to this cause",
+    "donateNowAccessibilityHint": "Tap to make a donation to this cause",
+    "categories": {
+      "education": "Education",
+      "healthcare": "Healthcare", 
+      "water": "Water",
+      "food": "Food",
+      "orphans": "Orphans",
+      "emergency": "Emergency"
+    },
+    "causes": {
+      "education": {
+        "title": "Build Islamic School in Rural Area",
+        "description": "Help us build a new Islamic school to provide quality education for 500+ children in underserved communities."
+      },
+      "healthcare": {
+        "title": "Medical Aid for Gaza Children", 
+        "description": "Provide essential medical supplies and treatment for children affected by the ongoing Crisis."
+      },
+      "water": {
+        "title": "Clean Water Wells Project",
+        "description": "Install water wells in drought-affected areas to provide clean drinking water for entire villages."
+      },
+      "food": {
+        "title": "Ramadan Food Packages",
+        "description": "Distribute nutritious food packages to families in need during the holy month of Ramadan."
+      },
+      "orphans": {
+        "title": "Support Orphan Children",
+        "description": "Provide monthly support, education, and care for orphaned children in need."
+      },
+      "emergency": {
+        "title": "Earthquake Relief Fund",
+        "description": "Emergency aid for families affected by recent earthquakes, providing shelter and basic necessities."
+      }
+    }
+  }
+}
