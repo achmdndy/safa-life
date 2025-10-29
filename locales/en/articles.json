@@ -1,0 +1,18 @@
+{
+  "list": {
+    "headerTitle": "Articles"
+  },
+  "detail": {
+    "by": "By"
+  },
+  "accessibility": {
+    "listHeader": "Articles page header",
+    "backButton": "Go back to previous screen",
+    "articleList": "List of articles",
+    "articleListItem": "Article: {{title}} by {{author}}",
+    "articleImage": "Image for article: {{title}}",
+    "detailHeader": "Article detail header",
+    "shareButton": "Share this article",
+    "bookmarkButton": "Bookmark this article"
+  }
+}

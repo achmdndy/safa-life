@@ -1,0 +1,18 @@
+{
+  "list": {
+    "headerTitle": "Artikel"
+  },
+  "detail": {
+    "by": "Oleh"
+  },
+  "accessibility": {
+    "listHeader": "Header halaman artikel",
+    "backButton": "Kembali ke layar sebelumnya",
+    "articleList": "Daftar artikel",
+    "articleListItem": "Artikel: {{title}} oleh {{author}}",
+    "articleImage": "Gambar untuk artikel: {{title}}",
+    "detailHeader": "Header detail artikel",
+    "shareButton": "Bagikan artikel ini",
+    "bookmarkButton": "Tandai artikel ini"
+  }
+}

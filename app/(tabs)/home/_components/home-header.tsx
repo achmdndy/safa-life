@@ -1,5 +1,5 @@
-import { useRouter } from "expo-router";
-import { HeartHandshakeIcon, Search } from "lucide-react-native";
+import { Link, useRouter } from "expo-router";
+import { Bell, Search } from "lucide-react-native";
 import type { ComponentProps } from "react";
 import { useTranslation } from "react-i18next";
 import { Animated, Platform, View } from "react-native";
@@ -103,21 +103,19 @@ export function HomeHeader({ value }: HomeHeaderProps) {
 						{t("header.userName")}
 					</Text>
 				</View>
-
-				<Button
-					size="icon"
-					variant="ghost"
-					accessible={true}
-					accessibilityRole="button"
-					accessibilityLabel={t("header.accessibility.donationButtonLabel")}
-					accessibilityHint={t("header.accessibility.donationButtonHint")}
-				>
-					<HeartHandshakeIcon
-						width={25}
-						height={25}
-						stroke={selectedTheme.primary}
-					/>
-				</Button>
+				
+				<Link href="/notifications" asChild>
+					<Button
+						size="icon"
+						variant="ghost"
+						accessible={true}
+						accessibilityRole="button"
+						accessibilityLabel={t("header.accessibility.notificationButtonLabel")}
+						accessibilityHint={t("header.accessibility.notificationButtonHint")}
+					>
+						<Icon as={Bell} size={25} stroke={selectedTheme.primary}/>
+					</Button>
+				</Link>
 			</Animated.View>
 
 			<Button

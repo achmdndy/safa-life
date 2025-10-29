@@ -5,6 +5,7 @@ import {
 	Animated,
 	type NativeScrollEvent,
 	type NativeSyntheticEvent,
+	Platform,
 } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useBottomSheet } from "@/components/bottom-sheet";
@@ -36,9 +37,11 @@ export function useSurahScreen() {
 	const headerTranslateY = useRef(new Animated.Value(0)).current;
 	const footerTranslateY = useRef(new Animated.Value(0)).current;
 	const listFooterHeight = useRef(new Animated.Value(FOOTER_HEIGHT)).current;
+	const androidJustHitBottom = useRef(false);
+	const androidHitBottomTimer = useRef(null);
 
 	const [verses, setVerses] = useState(
-		Array.from({ length: 150 }, (_, i) => ({
+		Array.from({ length: 10 }, (_, i) => ({
 			id: i + 1,
 			arabic: `بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ (${i + 1})`,
 			translation: `In the name of Allah, the Entirely Merciful, the Especially Merciful. (${i + 1})`,
@@ -73,12 +76,10 @@ export function useSurahScreen() {
 
 	const onNextVerse = () => {
 		Alert.alert("Next Verse", "Navigating to next verse!");
-		// Implement actual scroll to next verse logic here if needed
 	};
 
 	const onPrevVerse = () => {
 		Alert.alert("Previous Verse", "Navigating to previous verse!");
-		// Implement actual scroll to previous verse logic here if needed
 	};
 
 	const onPressInfo = () => {
@@ -150,7 +151,6 @@ export function useSurahScreen() {
 					event.nativeEvent;
 				const offsetY = contentOffset.y;
 
-				// --- Top/Prev Navigation Logic ---
 				const topOverscroll = -offsetY;
 				setIsTopIndicatorVisible(topOverscroll > 1);
 				if (topOverscroll > NAV_TRIGGER_THRESHOLD) {
@@ -159,17 +159,36 @@ export function useSurahScreen() {
 					if (canNavPrev) setCanNavPrev(false);
 				}
 
-				// --- Bottom/Next Navigation Logic ---
 				const bottomOverscroll =
 					offsetY - (contentSize.height - layoutMeasurement.height);
 				setIsBottomIndicatorVisible(bottomOverscroll > 1);
-				if (bottomOverscroll > NAV_TRIGGER_THRESHOLD) {
-					if (!canNavNext) setCanNavNext(true);
+
+				if (Platform.OS === "android") {
+					const isAtBottom =
+						offsetY >= contentSize.height - layoutMeasurement.height - 1;
+
+					if (isAtBottom && !androidJustHitBottom.current) {
+						androidJustHitBottom.current = true;
+						if (androidHitBottomTimer.current) {
+							clearTimeout(androidHitBottomTimer.current);
+						}
+						androidHitBottomTimer.current = setTimeout(() => {
+							androidJustHitBottom.current = false;
+						}, 200);
+					} else if (!isAtBottom) {
+						androidJustHitBottom.current = false;
+						if (androidHitBottomTimer.current) {
+							clearTimeout(androidHitBottomTimer.current);
+						}
+					}
 				} else {
-					if (canNavNext) setCanNavNext(false);
+					if (bottomOverscroll > NAV_TRIGGER_THRESHOLD) {
+						if (!canNavNext) setCanNavNext(true);
+					} else {
+						if (canNavNext) setCanNavNext(false);
+					}
 				}
 
-				// --- Header/Footer Animation Logic ---
 				const diff = offsetY - lastOffsetY.current;
 				if (offsetY < 0) {
 					showBars();
@@ -187,13 +206,40 @@ export function useSurahScreen() {
 		},
 	);
 
-	const handleScrollEnd = () => {
+	const handleScrollEnd = (
+		event: NativeSyntheticEvent<
+			NativeScrollEvent & { velocity?: { y: number } }
+		>,
+	) => {
 		if (canNavPrev) {
 			handleNavigateToPrevSurah();
 		}
 		if (canNavNext) {
 			handleNavigateToNextSurah();
+			return;
 		}
+
+		if (Platform.OS === "android") {
+			const { contentOffset, contentSize, layoutMeasurement, velocity } =
+				event.nativeEvent;
+			const isAtBottom =
+				contentOffset.y >= contentSize.height - layoutMeasurement.height - 5;
+
+			if (velocity) {
+				const isFling = velocity.y > 0.5;
+				const isSlowPull =
+					Math.abs(velocity.y) < 0.5 && androidJustHitBottom.current;
+
+				if (isAtBottom && (isFling || isSlowPull)) {
+					handleNavigateToNextSurah();
+				}
+			}
+		}
+
+		if (androidHitBottomTimer.current) {
+			clearTimeout(androidHitBottomTimer.current);
+		}
+		androidJustHitBottom.current = false;
 	};
 
 	return {

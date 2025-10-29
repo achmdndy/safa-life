@@ -28,6 +28,7 @@ export default function RootLayout() {
 										name="(tabs)"
 										options={{ headerShown: false }}
 									/>
+									<Stack.Screen name="notifications" options={{ headerShown: false }} />
 									<Stack.Screen name="quran" options={{ headerShown: false }} />
 									<Stack.Screen
 										name="almsgiving"

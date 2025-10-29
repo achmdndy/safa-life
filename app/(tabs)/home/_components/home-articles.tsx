@@ -1,3 +1,4 @@
+import { Link } from "expo-router";
 import { useTranslation } from "react-i18next";
 import { Image, View } from "react-native";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
@@ -66,15 +67,17 @@ export function HomeArticles() {
 				>
 					{t("articles.title")}
 				</Text>
-				<Button
-					variant="ghost"
-					size="sm"
-					accessible={true}
-					accessibilityRole="button"
-					accessibilityLabel={t("articles.accessibility.viewMore")}
-				>
-					<Text>{t("articles.viewMore")}</Text>
-				</Button>
+				<Link href="/articles" asChild>
+					<Button
+						variant="ghost"
+						size="sm"
+						accessible={true}
+						accessibilityRole="button"
+						accessibilityLabel={t("articles.accessibility.viewMore")}
+					>
+						<Text>{t("articles.viewMore")}</Text>
+					</Button>
+				</Link>
 			</View>
 
 			<View
@@ -83,82 +86,87 @@ export function HomeArticles() {
 				accessibilityLabel={t("articles.accessibility.list")}
 			>
 				{articlesData.map((article) => (
-					<Card
+					<Link
 						key={article.id.toString()}
-						className="border-transparent p-4 flex-row gap-3 items-center"
-						style={{
-							shadowColor: selectedTheme.primary,
-							shadowOffset: { width: 0, height: 2 },
-							shadowOpacity: 0.1,
-							shadowRadius: 4,
-						}}
-						accessible={true}
-						accessibilityRole="button"
-						accessibilityLabel={t("articles.accessibility.articleItem", {
-							title: article.title,
-							subtitle: article.subtitle,
-							date: article.date,
-						})}
+						href={`/articles/${article.id}`}
+						asChild
 					>
-						<AspectRatio
-							ratio={1 / 1}
-							className="w-24"
+						<Card
+							className="border-transparent p-4 flex-row gap-3 items-center"
+							style={{
+								shadowColor: selectedTheme.primary,
+								shadowOffset: { width: 0, height: 2 },
+								shadowOpacity: 0.1,
+								shadowRadius: 4,
+							}}
 							accessible={true}
-							accessibilityRole="image"
-							accessibilityLabel={t("articles.accessibility.articleImage", {
+							accessibilityRole="button"
+							accessibilityLabel={t("articles.accessibility.articleItem", {
 								title: article.title,
+								subtitle: article.subtitle,
+								date: article.date,
 							})}
 						>
-							<Image
-								source={{ uri: article.image }}
-								className="w-full h-full rounded-lg"
-								resizeMode="cover"
-								accessible={false}
-							/>
-						</AspectRatio>
-						<View
-							className="flex-1 gap-2"
-							accessible={true}
-							accessibilityRole="text"
-							accessibilityLabel={t("articles.accessibility.articleContent")}
-						>
-							<View className="gap-1">
-								<Text
-									className="font-semibold text-base leading-5"
-									numberOfLines={2}
-									accessible={true}
-									accessibilityRole="text"
-									accessibilityLabel={t("articles.accessibility.articleTitle", {
-										title: article.title,
-									})}
-								>
-									{article.title}
-								</Text>
-								<Text
-									className="text-muted-foreground text-sm leading-4"
-									numberOfLines={2}
-									accessible={true}
-									accessibilityRole="text"
-									accessibilityLabel={t(
-										"articles.accessibility.articleSubtitle",
-										{ subtitle: article.subtitle },
-									)}
-								>
-									{article.subtitle}
-								</Text>
-							</View>
-							<Text
-								className="text-xs text-muted-foreground"
+							<AspectRatio
+								ratio={1 / 1}
+								className="w-24"
 								accessible={true}
-								accessibilityRole="text"
-								accessibilityLabel={t("articles.accessibility.articleDate", {
-									date: article.date,
+								accessibilityRole="image"
+								accessibilityLabel={t("articles.accessibility.articleImage", {
+									title: article.title,
 								})}
 							>
-								{article.date}
-							</Text>
-						</View>
-					</Card>
+								<Image
+									source={{ uri: article.image }}
+									className="w-full h-full rounded-lg"
+									resizeMode="cover"
+									accessible={false}
+								/>
+							</AspectRatio>
+							<View
+								className="flex-1 gap-2"
+								accessible={true}
+								accessibilityRole="text"
+								accessibilityLabel={t("articles.accessibility.articleContent")}
+							>
+								<View className="gap-1">
+									<Text
+										className="font-semibold text-base leading-5"
+										numberOfLines={2}
+										accessible={true}
+										accessibilityRole="text"
+										accessibilityLabel={t("articles.accessibility.articleTitle", {
+											title: article.title,
+										})}
+									>
+										{article.title}
+									</Text>
+									<Text
+										className="text-muted-foreground text-sm leading-4"
+										numberOfLines={2}
+										accessible={true}
+										accessibilityRole="text"
+										accessibilityLabel={t(
+											"articles.accessibility.articleSubtitle",
+											{ subtitle: article.subtitle },
+										)}
+									>
+										{article.subtitle}
+									</Text>
+								</View>
+								<Text
+									className="text-xs text-muted-foreground"
+									accessible={true}
+									accessibilityRole="text"
+									accessibilityLabel={t("articles.accessibility.articleDate", {
+										date: article.date,
+									})}
+								>
+									{article.date}
+								</Text>
+							</View>
+						</Card>
+					</Link>
 				))}
 			</View>
 		</View>

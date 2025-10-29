@@ -14,6 +14,8 @@ import idTwoFa from "@/locales/id/2fa.json";
 import idVerifyEmail from "@/locales/id/verify-email.json";
 import idCharity from "@/locales/id/charity.json";
 import idProfile from "@/locales/id/profile.json";
+import idNotifications from "@/locales/id/notifications.json";
+import idArticles from "@/locales/id/articles.json";
 import enTabs from "@/locales/en/tabs.json";
 import enSplash from "@/locales/en/splash.json";
 import enOnboarding from "@/locales/en/onboarding.json";
@@ -28,6 +30,8 @@ import enTwoFa from "@/locales/en/2fa.json";
 import enVerifyEmail from "@/locales/en/verify-email.json";
 import enCharity from "@/locales/en/charity.json";
 import enProfile from "@/locales/en/profile.json";
+import enNotifications from "@/locales/en/notifications.json";
+import enArticles from "@/locales/en/articles.json";
 
 i18n
   .use(initReactI18next)
@@ -48,6 +52,8 @@ i18n
         explore: idExplore,
         charity: idCharity,
         profile: idProfile,
+        notifications: idNotifications,
+        articles: idArticles,
       },
       en: {
         tabs: enTabs,
@@ -64,11 +70,13 @@ i18n
         explore: enExplore,
         charity: enCharity,
         profile: enProfile,
+        notifications: enNotifications,
+        articles: enArticles,
       },
     },
     lng: "id",
     fallbackLng: "id",
-    ns: ["tabs", "splash", "onboarding", "language", "login", "register", "forgotPassword", "twoFa", "verifyEmail", "home", "quran", "explore", "charity", "profile"],
+    ns: ["tabs", "splash", "onboarding", "language", "login", "register", "forgotPassword", "twoFa", "verifyEmail", "home", "quran", "explore", "charity", "profile", "notifications", "articles"],
     defaultNS: "splash",
     interpolation: { escapeValue: false },
   });

@@ -1,0 +1,18 @@
+{
+  "header": {
+    "title": "Notifications",
+    "markAllAsRead": "Mark all as read"
+  },
+  "emptyState": {
+    "title": "No Notifications Yet",
+    "message": "You have no new notifications. We'll let you know when something comes up."
+  },
+  "accessibility": {
+    "header": "Notifications screen header",
+    "backButton": "Go back to previous screen",
+    "notificationList": "List of notifications",
+    "notificationItem": "Notification: {{title}}",
+    "emptyStateTitle": "No notifications yet",
+    "emptyStateMessage": "You have no new notifications at the moment"
+  }
+}

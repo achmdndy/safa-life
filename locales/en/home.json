@@ -6,8 +6,8 @@
     "accessibility": {
       "headerLabel": "Home page header with greeting and search",
       "greetingLabel": "Islamic greeting message",
-      "donationButtonLabel": "Charity and donation button",
-      "donationButtonHint": "Navigate to charity and donation features",
+      "notificationButtonLabel": "Notifications button",
+      "notificationButtonHint": "Navigate to notifications screen",
       "searchButtonLabel": "Search button for Quran and duas",
       "searchButtonHint": "Search for surahs, duas, and Islamic content"
     }

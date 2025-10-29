@@ -6,8 +6,8 @@
     "accessibility": {
       "headerLabel": "Header halaman utama dengan salam dan pencarian",
       "greetingLabel": "Pesan salam Islami",
-      "donationButtonLabel": "Tombol amal dan donasi",
-      "donationButtonHint": "Navigasi ke fitur amal dan donasi",
+      "notificationButtonLabel": "Tombol notifikasi",
+      "notificationButtonHint": "Navigasi ke layar notifikasi",
       "searchButtonLabel": "Tombol pencarian untuk Al-Qur'an dan doa",
       "searchButtonHint": "Cari surah, doa, dan konten Islami"
     }

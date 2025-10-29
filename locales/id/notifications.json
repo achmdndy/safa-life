@@ -1,0 +1,18 @@
+{
+  "header": {
+    "title": "Notifikasi",
+    "markAllAsRead": "Tandai semua dibaca"
+  },
+  "emptyState": {
+    "title": "Belum Ada Notifikasi",
+    "message": "Anda tidak memiliki notifikasi baru. Kami akan memberitahu Anda jika ada sesuatu yang baru."
+  },
+  "accessibility": {
+    "header": "Header layar notifikasi",
+    "backButton": "Kembali ke layar sebelumnya",
+    "notificationList": "Daftar notifikasi",
+    "notificationItem": "Notifikasi: {{title}}",
+    "emptyStateTitle": "Belum ada notifikasi",
+    "emptyStateMessage": "Anda tidak memiliki notifikasi baru saat ini"
+  }
+}
