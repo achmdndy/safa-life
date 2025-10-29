@@ -6,13 +6,8 @@ import { NotificationsHeader } from "./_components/notifications-header";
 import { useNotificationsScreen } from "./_hooks/use-notifications-screen";
 
 export default function NotificationsScreen() {
-	const {
-		t,
-		theme,
-		notifications,
-		handleMarkAllAsRead,
-		handleItemPress,
-	} = useNotificationsScreen();
+	const { t, theme, notifications, handleMarkAllAsRead, handleItemPress } =
+		useNotificationsScreen();
 
 	return (
 		<View className="flex-1 bg-background">

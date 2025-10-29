@@ -22,13 +22,18 @@ export function ArticleListItem({ item }: ArticleListItemProps) {
 						className="w-24 h-24 rounded-lg bg-muted"
 					/>
 					<View className="flex-1">
-						<Text className="text-lg font-bold text-foreground" numberOfLines={2}>
+						<Text
+							className="text-lg font-bold text-foreground"
+							numberOfLines={2}
+						>
 							{item.title}
 						</Text>
 						<Text className="text-sm text-muted-foreground mt-1">
 							{item.author}
 						</Text>
-						<Text className="text-xs text-muted-foreground mt-1">{item.date}</Text>
+						<Text className="text-xs text-muted-foreground mt-1">
+							{item.date}
+						</Text>
 					</View>
 				</View>
 			</Pressable>

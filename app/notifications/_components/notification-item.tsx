@@ -47,7 +47,9 @@ export function NotificationItem({ item, onPress }: NotificationItemProps) {
 					<Text className="text-sm text-muted-foreground mt-1">
 						{item.description}
 					</Text>
-					<Text className="text-xs text-muted-foreground mt-2">{item.time}</Text>
+					<Text className="text-xs text-muted-foreground mt-2">
+						{item.time}
+					</Text>
 				</View>
 			</View>
 		</Pressable>

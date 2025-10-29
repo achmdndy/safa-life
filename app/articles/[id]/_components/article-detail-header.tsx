@@ -13,7 +13,10 @@ interface ArticleDetailHeaderProps {
 	scrollA: Animated.Value;
 }
 
-export function ArticleDetailHeader({ title, scrollA }: ArticleDetailHeaderProps) {
+export function ArticleDetailHeader({
+	title,
+	scrollA,
+}: ArticleDetailHeaderProps) {
 	const insets = useSafeAreaInsets();
 	const { currentTheme, theme } = useTheme();
 	const selectedTheme = themes[currentTheme];

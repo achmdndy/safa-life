@@ -12,7 +12,9 @@ interface NotificationsHeaderProps {
 	onMarkAllAsRead: () => void;
 }
 
-export function NotificationsHeader({ onMarkAllAsRead }: NotificationsHeaderProps) {
+export function NotificationsHeader({
+	onMarkAllAsRead,
+}: NotificationsHeaderProps) {
 	const { t } = useTranslation("notifications");
 	const insets = useSafeAreaInsets();
 	const { currentTheme } = useTheme();

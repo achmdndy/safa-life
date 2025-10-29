@@ -135,9 +135,12 @@ export function HomeArticles() {
 										numberOfLines={2}
 										accessible={true}
 										accessibilityRole="text"
-										accessibilityLabel={t("articles.accessibility.articleTitle", {
-											title: article.title,
-										})}
+										accessibilityLabel={t(
+											"articles.accessibility.articleTitle",
+											{
+												title: article.title,
+											},
+										)}
 									>
 										{article.title}
 									</Text>

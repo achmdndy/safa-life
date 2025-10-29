@@ -103,17 +103,19 @@ export function HomeHeader({ value }: HomeHeaderProps) {
 						{t("header.userName")}
 					</Text>
 				</View>
-				
+
 				<Link href="/notifications" asChild>
 					<Button
 						size="icon"
 						variant="ghost"
 						accessible={true}
 						accessibilityRole="button"
-						accessibilityLabel={t("header.accessibility.notificationButtonLabel")}
+						accessibilityLabel={t(
+							"header.accessibility.notificationButtonLabel",
+						)}
 						accessibilityHint={t("header.accessibility.notificationButtonHint")}
 					>
-						<Icon as={Bell} size={25} stroke={selectedTheme.primary}/>
+						<Icon as={Bell} size={25} stroke={selectedTheme.primary} />
 					</Button>
 				</Link>
 			</Animated.View>
