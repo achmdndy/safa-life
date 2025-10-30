@@ -14,11 +14,15 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/icon.png",
+        "foregroundImage": "./assets/images/logo.png",
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true,
-      "package": "dev.achmdndy.safalife"
+      "package": "dev.achmdndy.safalife",
+      "permissions": [
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.ACCESS_FINE_LOCATION"
+      ]
     },
     "web": {
       "bundler": "metro",
@@ -43,10 +47,18 @@
           "locationAlwaysAndWhenInUsePermission": "Allow $(PRODUCT_NAME) to always access your location."
         }
       ],
-      "expo-localization"
+      "expo-localization",
+      "expo-web-browser"
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "2f4d6512-106c-4690-89f4-a1b41f295752"
+      }
+    },
+    "owner": "safalife"
   }
 }
