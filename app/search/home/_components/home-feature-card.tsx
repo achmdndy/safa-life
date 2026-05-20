@@ -12,7 +12,11 @@ export type HomeFeatureCardProps = ComponentProps<typeof Card> & {
 	icon: LucideIcon;
 };
 
-export function HomeFeatureCard({ href, title, icon }: HomeFeatureCardProps) {
+export default function HomeFeatureCard({
+	href,
+	title,
+	icon,
+}: HomeFeatureCardProps) {
 	const { currentTheme } = useTheme();
 	const selectedTheme = themes[currentTheme];
 

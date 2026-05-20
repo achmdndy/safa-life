@@ -18,7 +18,8 @@
     "dev:android": "expo run:android",
     "dev:web": "expo start -c --web",
     "build": "npx expo export -p web",
-    "build:android": "eas build -p android --profile preview",
+    "build:android": "EAS_NO_GIT_CASING_CHECK=1 eas build -p android --profile preview",
+    "build:ios": "EAS_NO_GIT_CASING_CHECK=1 eas build -p ios --local --profile development",
     "build:android:local": "cd android && ./gradlew clean && ./gradlew assembleRelease --stacktrace && cd ..",
     "serve": "npx serve dist --single",
     "clean": "rm -rf .expo node_modules && npm install",
@@ -36,6 +37,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@better-auth/expo": "^1.3.34",
     "@expo/react-native-action-sheet": "^4.1.1",
     "@expo/vector-icons": "^15.0.3",
     "@gorhom/bottom-sheet": "^5.2.6",
@@ -71,9 +73,13 @@
     "@rn-primitives/toggle-group": "^1.2.0",
     "@rn-primitives/tooltip": "^1.2.0",
     "@shopify/flash-list": "2.0.2",
+    "@tanstack/react-query": "^5.90.6",
+    "axios": "^1.13.1",
+    "better-auth": "^1.3.34",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "expo": "~54.0.21",
+    "expo-audio": "~1.0.14",
     "expo-blur": "~15.0.7",
     "expo-constants": "~18.0.10",
     "expo-font": "~14.0.9",
@@ -85,6 +91,7 @@
     "expo-location": "~19.0.7",
     "expo-mesh-gradient": "~0.4.7",
     "expo-router": "~6.0.14",
+    "expo-secure-store": "^15.0.7",
     "expo-splash-screen": "~31.0.10",
     "expo-status-bar": "~3.0.8",
     "expo-symbols": "~1.0.7",
@@ -117,6 +124,11 @@
   "devDependencies": {
     "@babel/core": "^7.25.2",
     "@biomejs/biome": "2.2.2",
+    "@kubb/cli": "^4.5.1",
+    "@kubb/core": "^4.4.1",
+    "@kubb/plugin-oas": "^4.4.1",
+    "@kubb/plugin-react-query": "^4.4.1",
+    "@kubb/plugin-ts": "^4.4.1",
     "@types/react": "~19.1.10",
     "esbuild": "^0.25.10",
     "expo-dev-client": "~6.0.16",
@@ -127,6 +139,14 @@
     "react-native-dotenv": "^3.4.11",
     "tailwindcss": "^3.4.17",
     "typescript": "~5.9.2"
+  },
+  "resolutions": {
+    "react": "19.1.0",
+    "react-dom": "19.1.0"
+  },
+  "overrides": {
+    "react": "19.1.0",
+    "react-dom": "19.1.0"
   },
   "private": true
 }

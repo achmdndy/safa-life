@@ -1,9 +1,9 @@
 import { Platform, ScrollView, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { ExploreArticles } from "./_components/explore-articles";
-import { ExploreHeader } from "./_components/explore-header";
-import { ExploreReels } from "./_components/explore-reels";
-import { ExploreSuggested } from "./_components/explore-suggested";
+import ExploreArticles from "./_components/explore-articles";
+import ExploreHeader from "./_components/explore-header";
+import ExploreReels from "./_components/explore-reels";
+import ExploreSuggested from "./_components/explore-suggested";
 
 export default function ExploreSearchScreen() {
 	const insets = useSafeAreaInsets();

@@ -40,7 +40,7 @@ const discoverItems = [
 	},
 ];
 
-export function ExploreDiscoverMore() {
+export default function ExploreDiscoverMore() {
 	const { t } = useTranslation("explore");
 	const { currentTheme, themes } = useTheme();
 	const selectedTheme = themes[currentTheme];

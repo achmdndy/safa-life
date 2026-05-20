@@ -9,7 +9,7 @@ import { Icon } from "@/components/ui/icon";
 import { Text } from "@/components/ui/text";
 import { useTheme } from "@/contexts/theme-context";
 
-export function DailyRemainderTab() {
+export default function DailyRemainderTab() {
 	const { t } = useTranslation("quran");
 	const insets = useSafeAreaInsets();
 	const { height } = Dimensions.get("window");
@@ -225,7 +225,6 @@ export function DailyRemainderTab() {
 											className="text-xs mt-2 font-arabic text-right"
 											style={{
 												color: selectedTheme.secondary,
-												fontFamily: "serif",
 											}}
 										>
 											{item.verse}

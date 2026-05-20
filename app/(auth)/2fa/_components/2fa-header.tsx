@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import { View } from "react-native";
 import { Text } from "@/components/ui/text";
 
-export function TwoFAHeader() {
+export default function TwoFAHeader() {
 	const { t } = useTranslation("twoFa");
 
 	return (

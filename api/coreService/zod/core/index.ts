@@ -1,0 +1,1 @@
+export { coreErrorDetailSchema } from "./errorDetailSchema.ts";

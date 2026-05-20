@@ -16,7 +16,7 @@ type OnboardingConnectedProps = ComponentProps<typeof Animated.View> & {
 	animationProgress: SharedValue<number>;
 };
 
-export function OnboardingConnected({
+export default function OnboardingConnected({
 	animationProgress,
 }: OnboardingConnectedProps) {
 	const { t } = useTranslation("onboarding");

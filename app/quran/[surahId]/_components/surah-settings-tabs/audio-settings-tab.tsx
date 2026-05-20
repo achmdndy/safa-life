@@ -1,55 +1,21 @@
-import { useActionSheet } from "@expo/react-native-action-sheet";
 import { useState } from "react";
 import { Image, Pressable, ScrollView, View } from "react-native";
+import { useAudioList } from "@/app/quran/[surahId]/_hooks/use-audio-list";
+import { useAudioPreferences } from "@/app/quran/[surahId]/_hooks/use-audio-preferences";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import { Skeleton } from "@/components/ui/skeleton";
 import { Switch } from "@/components/ui/switch";
 import { Text } from "@/components/ui/text";
 import { themes, useTheme } from "@/contexts/theme-context";
 import { createTheme } from "@/lib/theme";
 
-const reciters = [
-	{
-		id: "1",
-		name: "Mishary Rashid Alafasy",
-		country: "Kuwait",
-		photo: require("@/assets/images/logo.png"),
-	},
-	{
-		id: "2",
-		name: "Abdul Rahman Al-Sudais",
-		country: "Saudi Arabia",
-		photo: require("@/assets/images/logo.png"),
-	},
-	{
-		id: "3",
-		name: "Maher Al-Muaiqly",
-		country: "Saudi Arabia",
-		photo: require("@/assets/images/logo.png"),
-	},
-	{
-		id: "4",
-		name: "Saad Al-Ghamdi",
-		country: "Saudi Arabia",
-		photo: require("@/assets/images/logo.png"),
-	},
-];
+// Fallback image for reciter card
+const fallbackPhoto = require("@/assets/images/logo.png");
 
-const repeatVerseOptions = [
-	{ label: "Never", value: "never" },
-	{ label: "1 time", value: "1" },
-	{ label: "2 times", value: "2" },
-	{ label: "3 times", value: "3" },
-	{ label: "Indefinitely", value: "indefinitely" },
-];
+// Options and labels handled by useAudioPreferences
 
-const endOfSurahOptions = [
-	{ label: "Stop playing", value: "stop" },
-	{ label: "Repeat the surah", value: "repeat" },
-	{ label: "Play the next surah", value: "next" },
-];
-
-export function AudioSettingsTab() {
+export default function AudioSettingsTab() {
 	const { currentTheme, theme } = useTheme();
 	const isDarkMode = theme === "dark";
 	const selectedTheme = themes[currentTheme];
@@ -58,51 +24,26 @@ export function AudioSettingsTab() {
 		selectedTheme.secondary,
 	);
 
-	const { showActionSheetWithOptions } = useActionSheet();
+	// Action sheets handled via useAudioPreferences
 
 	const [quranReciterEnabled, setQuranReciterEnabled] = useState(true);
-	const [selectedReciter, setSelectedReciter] = useState(reciters[0].id);
+	const {
+		reciters,
+		isLoading: isLoadingReciters,
+		selectedReciterId,
+		selectReciter,
+	} = useAudioList();
 	const [translationReciterEnabled, setTranslationReciterEnabled] =
 		useState(false);
 	const [audioAutoScrollEnabled, setAudioAutoScrollEnabled] = useState(false);
-	const [repeatEachVerse, setRepeatEachVerse] = useState("never");
-	const [atEndOfSurah, setAtEndOfSurah] = useState("stop");
+	const {
+		repeatEachVerseLabel,
+		atEndOfSurahLabel,
+		handleRepeatEachVerse,
+		handleAtEndOfSurah,
+	} = useAudioPreferences();
 
-	const handleRepeatEachVerse = () => {
-		const options = [...repeatVerseOptions.map((o) => o.label), "Cancel"];
-		const cancelButtonIndex = options.length - 1;
-
-		showActionSheetWithOptions(
-			{
-				options,
-				cancelButtonIndex,
-				title: "Repeat Each Verse",
-			},
-			(buttonIndex) => {
-				if (buttonIndex !== cancelButtonIndex) {
-					setRepeatEachVerse(repeatVerseOptions[buttonIndex].value);
-				}
-			},
-		);
-	};
-
-	const handleAtEndOfSurah = () => {
-		const options = [...endOfSurahOptions.map((o) => o.label), "Cancel"];
-		const cancelButtonIndex = options.length - 1;
-
-		showActionSheetWithOptions(
-			{
-				options,
-				cancelButtonIndex,
-				title: "At the End of a Surah",
-			},
-			(buttonIndex) => {
-				if (buttonIndex !== cancelButtonIndex) {
-					setAtEndOfSurah(endOfSurahOptions[buttonIndex].value);
-				}
-			},
-		);
-	};
+	// handlers provided by useAudioPreferences
 
 	return (
 		<View className="py-4">
@@ -131,51 +72,76 @@ export function AudioSettingsTab() {
 						showsHorizontalScrollIndicator={false}
 						contentContainerStyle={{ gap: 12, paddingTop: 16 }}
 					>
-						{reciters.map((reciter) => (
-							<Pressable
-								key={reciter.id}
-								onPress={() => setSelectedReciter(reciter.id)}
-								className="items-center justify-center p-3 rounded-xl"
-								style={{
-									width: 120,
-									height: 160,
-									borderWidth: selectedReciter === reciter.id ? 2 : 1,
-									borderColor:
-										selectedReciter === reciter.id
-											? selectedTheme.primary
-											: isDarkMode
+						{isLoadingReciters
+							? Array.from({ length: 4 }).map((_, i) => (
+									<View
+										key={`reciter-skel-${i.toString()}`}
+										className="items-center justify-center p-3 rounded-xl"
+										style={{
+											width: 120,
+											height: 160,
+											borderWidth: 1,
+											borderColor: isDarkMode
 												? themeColors.dark.border
 												: themeColors.light.border,
-									backgroundColor:
-										selectedReciter === reciter.id
-											? `${selectedTheme.primary}15`
-											: isDarkMode
+											backgroundColor: isDarkMode
 												? themeColors.dark.card
 												: themeColors.light.card,
-								}}
-							>
-								<Image
-									source={reciter.photo}
-									className="w-16 h-16 rounded-full mb-3"
-									resizeMode="cover"
-								/>
-								<View className="items-center">
-									<Text
-										className="text-sm font-medium text-center"
-										numberOfLines={1}
-										ellipsizeMode="tail"
+										}}
 									>
-										{reciter.name}
-									</Text>
-									<Text
-										className="text-xs text-muted-foreground text-center"
-										numberOfLines={1}
-									>
-										{reciter.country}
-									</Text>
-								</View>
-							</Pressable>
-						))}
+										<Skeleton className="w-16 h-16 rounded-full mb-3" />
+										<Skeleton className="w-20 h-4 rounded mb-2" />
+										<Skeleton className="w-14 h-3 rounded" />
+									</View>
+								))
+							: reciters.map((reciter) => {
+									const selected = selectedReciterId === reciter.id;
+									return (
+										<Pressable
+											key={reciter.id}
+											onPress={() => selectReciter(reciter.id)}
+											className="items-center justify-center p-3 rounded-xl"
+											style={{
+												width: 120,
+												height: 160,
+												borderWidth: selected ? 2 : 1,
+												borderColor: selected
+													? selectedTheme.primary
+													: isDarkMode
+														? themeColors.dark.border
+														: themeColors.light.border,
+												backgroundColor: selected
+													? `${selectedTheme.primary}15`
+													: isDarkMode
+														? themeColors.dark.card
+														: themeColors.light.card,
+											}}
+										>
+											<Image
+												source={fallbackPhoto}
+												className="w-16 h-16 rounded-full mb-3"
+												resizeMode="cover"
+											/>
+											<View className="items-center">
+												<Text
+													className="text-sm font-medium text-center"
+													numberOfLines={1}
+													ellipsizeMode="tail"
+												>
+													{reciter.name}
+												</Text>
+												{!!reciter.style && (
+													<Text
+														className="text-xs text-muted-foreground text-center"
+														numberOfLines={1}
+													>
+														{reciter.style}
+													</Text>
+												)}
+											</View>
+										</Pressable>
+									);
+								})}
 					</ScrollView>
 				)}
 			</View>
@@ -241,10 +207,7 @@ export function AudioSettingsTab() {
 						onPress={handleRepeatEachVerse}
 						className="flex-row items-center justify-between rounded-md border border-border p-2"
 					>
-						<Text className="text-foreground mr-2">
-							{repeatVerseOptions.find((o) => o.value === repeatEachVerse)
-								?.label ?? "Select Option"}
-						</Text>
+						<Text className="text-foreground mr-2">{repeatEachVerseLabel}</Text>
 					</Pressable>
 				</View>
 			</View>
@@ -260,10 +223,7 @@ export function AudioSettingsTab() {
 						onPress={handleAtEndOfSurah}
 						className="flex-row items-center justify-between rounded-md border border-border p-2"
 					>
-						<Text className="text-foreground mr-2">
-							{endOfSurahOptions.find((o) => o.value === atEndOfSurah)?.label ??
-								"Select Option"}
-						</Text>
+						<Text className="text-foreground mr-2">{atEndOfSurahLabel}</Text>
 					</Pressable>
 				</View>
 			</View>

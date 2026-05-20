@@ -1,0 +1,12 @@
+export type { DeleteQuranSurahsIdMutationKey } from "./useDeleteQuranSurahsIdHook.ts";
+export type { GetQuranSurahsQueryKey } from "./useGetQuranSurahsHook.ts";
+export type { GetQuranSurahsIdQueryKey } from "./useGetQuranSurahsIdHook.ts";
+export type { GetQuranSurahsNumberNumberQueryKey } from "./useGetQuranSurahsNumberNumberHook.ts";
+export type { PostQuranSurahsMutationKey } from "./usePostQuranSurahsHook.ts";
+export type { PutQuranSurahsIdMutationKey } from "./usePutQuranSurahsIdHook.ts";
+export { deleteQuranSurahsIdMutationKey, deleteQuranSurahsIdHook, deleteQuranSurahsIdMutationOptionsHook, useDeleteQuranSurahsIdHook } from "./useDeleteQuranSurahsIdHook.ts";
+export { getQuranSurahsQueryKey, getQuranSurahsHook, getQuranSurahsQueryOptionsHook, useGetQuranSurahsHook } from "./useGetQuranSurahsHook.ts";
+export { getQuranSurahsIdQueryKey, getQuranSurahsIdHook, getQuranSurahsIdQueryOptionsHook, useGetQuranSurahsIdHook } from "./useGetQuranSurahsIdHook.ts";
+export { getQuranSurahsNumberNumberQueryKey, getQuranSurahsNumberNumberHook, getQuranSurahsNumberNumberQueryOptionsHook, useGetQuranSurahsNumberNumberHook } from "./useGetQuranSurahsNumberNumberHook.ts";
+export { postQuranSurahsMutationKey, postQuranSurahsHook, postQuranSurahsMutationOptionsHook, usePostQuranSurahsHook } from "./usePostQuranSurahsHook.ts";
+export { putQuranSurahsIdMutationKey, putQuranSurahsIdHook, putQuranSurahsIdMutationOptionsHook, usePutQuranSurahsIdHook } from "./usePutQuranSurahsIdHook.ts";

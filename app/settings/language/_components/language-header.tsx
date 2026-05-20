@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Icon } from "@/components/ui/icon";
 import { Text } from "@/components/ui/text";
 
-export function LanguageHeader() {
+export default function LanguageHeader() {
 	const insets = useSafeAreaInsets();
 	const { t } = useTranslation("language");
 	const router = useRouter();

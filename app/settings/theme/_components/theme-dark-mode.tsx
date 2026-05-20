@@ -4,7 +4,7 @@ import { Icon } from "@/components/ui/icon";
 import { Switch } from "@/components/ui/switch";
 import { useTheme } from "@/contexts/theme-context";
 
-export function ThemeDarkMode() {
+export default function ThemeDarkMode() {
 	const { currentTheme, themes, theme, toggleTheme } = useTheme();
 	const isDarkMode = theme === "dark";
 	const selectedTheme = themes[currentTheme];

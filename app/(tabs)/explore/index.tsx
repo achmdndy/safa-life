@@ -8,11 +8,11 @@ import {
 	View,
 } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { ExploreDiscoverMore } from "./_components/explore-discover-more";
-import { ExploreEvent } from "./_components/explore-event";
-import { ExploreHeader } from "./_components/explore-header";
-import { ExploreHijrahProgram } from "./_components/explore-hijrah-program";
-import { ExploreReels } from "./_components/explore-reels";
+import ExploreDiscoverMore from "./_components/explore-discover-more";
+import ExploreEvent from "./_components/explore-event";
+import ExploreHeader from "./_components/explore-header";
+import ExploreHijrahProgram from "./_components/explore-hijrah-program";
+import ExploreReels from "./_components/explore-reels";
 
 export const EXPLORE_HEADER_MAX_HEIGHT = 130;
 export const EXPLORE_HEADER_MIN_HEIGHT = 120;

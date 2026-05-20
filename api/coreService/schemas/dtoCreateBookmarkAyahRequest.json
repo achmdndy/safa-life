@@ -1,0 +1,1 @@
+{"type":"object","required":["ayahId"],"properties":{"ayahId":{"type":"string"}},"x-readme-ref-name":"dto.CreateBookmarkAyahRequest"}

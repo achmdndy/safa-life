@@ -2,29 +2,31 @@ import { useTranslation } from "react-i18next";
 import { Image, View } from "react-native";
 import { AppImages } from "@/assets/images";
 import { Button } from "@/components/ui/button";
-import { useTheme } from "@/contexts/theme-context";
+import { useLoginSocial } from "../_hooks/use-login-social";
+// import { useTheme } from "@/contexts/theme-context";
 
-export function LoginSocials() {
+export default function LoginSocials() {
 	const { t } = useTranslation("login");
-	const { theme } = useTheme();
-	const isDarkMode = theme === "dark";
+	const { loginWithGoogle } = useLoginSocial();
+	// const { theme } = useTheme();
+	// const isDarkMode = theme === "dark";
 
 	const SOCIAL_CONNECTION_STRATEGIES = [
-		{
-			type: "oauth_apple",
-			source: isDarkMode ? AppImages.appleWhiteIcon : AppImages.appleIcon,
-			accessibilityLabel: "accessibility.appleLogin",
-		},
+		// {
+		// 	type: "oauth_apple",
+		// 	source: isDarkMode ? AppImages.appleWhiteIcon : AppImages.appleIcon,
+		// 	accessibilityLabel: "accessibility.appleLogin",
+		// },
 		{
 			type: "oauth_google",
 			source: AppImages.googleIcon,
 			accessibilityLabel: "accessibility.googleLogin",
 		},
-		{
-			type: "oauth_facebook",
-			source: AppImages.facebookIcon,
-			accessibilityLabel: "accessibility.facebookLogin",
-		},
+		// {
+		// 	type: "oauth_facebook",
+		// 	source: AppImages.facebookIcon,
+		// 	accessibilityLabel: "accessibility.facebookLogin",
+		// },
 	];
 
 	return (
@@ -42,6 +44,11 @@ export function LoginSocials() {
 						accessible
 						accessibilityRole="button"
 						accessibilityLabel={t(strategy.accessibilityLabel)}
+						onPress={() => {
+							if (strategy.type === "oauth_google") {
+								loginWithGoogle();
+							}
+						}}
 					>
 						<Image className="size-5" source={strategy.source} />
 					</Button>

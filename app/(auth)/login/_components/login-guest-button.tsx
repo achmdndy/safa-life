@@ -1,16 +1,17 @@
-import { router } from "expo-router";
 import { ChevronRight } from "lucide-react-native";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Text } from "@/components/ui/text";
+import { useLoginGuest } from "../_hooks/use-login-guest";
 
 export const LoginGuestButton = () => {
 	const { t } = useTranslation("login");
+	const { loginAsGuest } = useLoginGuest();
 	return (
 		<Button
 			size={"sm"}
 			variant={"link"}
-			onPress={() => router.replace("/home")}
+			onPress={loginAsGuest}
 			className="flex flex-row items-center justify-center gap-1"
 			accessible
 			accessibilityRole="button"

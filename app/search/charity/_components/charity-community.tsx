@@ -46,7 +46,7 @@ const topCauses = [
 	},
 ];
 
-export function CharityCommunity() {
+export default function CharityCommunity() {
 	const { currentTheme, themes } = useTheme();
 	const selectedTheme = themes[currentTheme];
 

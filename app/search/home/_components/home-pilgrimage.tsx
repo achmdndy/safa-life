@@ -10,7 +10,7 @@ import {
 import { Text, View } from "react-native";
 import { Icon } from "@/components/ui/icon";
 import { themes, useTheme } from "@/contexts/theme-context";
-import { HomeFeatureCard } from "./home-feature-card";
+import HomeFeatureCard from "./home-feature-card";
 
 export const pilgrimage = [
 	{
@@ -51,7 +51,7 @@ export const pilgrimage = [
 	},
 ];
 
-export function HomePilgrimage() {
+export default function HomePilgrimage() {
 	const { currentTheme } = useTheme();
 	const selectedTheme = themes[currentTheme];
 

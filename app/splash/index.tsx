@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import { ActivityIndicator, Animated, Platform, View } from "react-native";
 import { AppImages } from "@/assets/images";
 import { Text } from "@/components/ui/text";
-import { SplashBackground } from "./_components/splash-background";
+import SplashBackground from "./_components/splash-background";
 import { useSplash } from "./_hooks/use-splash";
 
 export default function SplashScreen() {

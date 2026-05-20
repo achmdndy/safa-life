@@ -14,7 +14,7 @@ import { Icon } from "@/components/ui/icon";
 import { Text } from "@/components/ui/text";
 import { useTheme } from "@/contexts/theme-context";
 
-export function ThematicLearningTab() {
+export default function ThematicLearningTab() {
 	const { t } = useTranslation("quran");
 	const insets = useSafeAreaInsets();
 	const { currentTheme, themes } = useTheme();

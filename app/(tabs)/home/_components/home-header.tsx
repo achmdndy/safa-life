@@ -1,6 +1,8 @@
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Link, useRouter } from "expo-router";
 import { Bell, Search } from "lucide-react-native";
 import type { ComponentProps } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Animated, Platform, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
@@ -8,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Icon } from "@/components/ui/icon";
 import { Text } from "@/components/ui/text";
 import { themes, useTheme } from "@/contexts/theme-context";
+import { authClient } from "@/lib/auth-client";
 import { createTheme } from "@/lib/theme";
 import { HEADER_MAX_HEIGHT, HEADER_MIN_HEIGHT, SCROLL_DISTANCE } from "..";
 
@@ -15,9 +18,22 @@ export type HomeHeaderProps = ComponentProps<typeof View> & {
 	value: Animated.Value;
 };
 
-export function HomeHeader({ value }: HomeHeaderProps) {
+export default function HomeHeader({ value }: HomeHeaderProps) {
 	const router = useRouter();
 	const { t } = useTranslation("home");
+
+	const { data } = authClient.useSession();
+	const [guestName, setGuestName] = useState<string | null>(null);
+
+	useEffect(() => {
+		const loadGuestName = async () => {
+			try {
+				const stored = await AsyncStorage.getItem("guest_username");
+				if (stored) setGuestName(stored);
+			} catch {}
+		};
+		loadGuestName();
+	}, []);
 
 	const insets = useSafeAreaInsets();
 	const { currentTheme, theme } = useTheme();
@@ -84,7 +100,7 @@ export function HomeHeader({ value }: HomeHeaderProps) {
 				<View
 					accessible={true}
 					accessibilityRole="text"
-					accessibilityLabel={`${t("header.greeting")} ${t("header.userName")}`}
+					accessibilityLabel={`${t("header.greeting")} ${data?.user?.name ?? data?.user?.email ?? guestName ?? t("header.userName")}`}
 				>
 					<Text
 						className="text-white"
@@ -100,7 +116,10 @@ export function HomeHeader({ value }: HomeHeaderProps) {
 							color: selectedTheme.primary,
 						}}
 					>
-						{t("header.userName")}
+						{data?.user?.name ??
+							data?.user?.email ??
+							guestName ??
+							t("header.userName")}
 					</Text>
 				</View>
 

@@ -1,0 +1,1 @@
+{"type":"object","required":["byteSize","duration","filePath","id","updatedBy"],"properties":{"byteSize":{"type":"number","minimum":0},"duration":{"type":"number","minimum":0},"filePath":{"type":"string","minLength":1},"id":{"type":"string"},"updatedBy":{"type":"string","maxLength":255,"minLength":1}},"x-readme-ref-name":"dto.UpdateAyahAudioFileRequest"}

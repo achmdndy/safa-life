@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { AccessibilityInfo, View } from "react-native";
-import { QuranHeader } from "./_components/quran-header";
-import { QuranTabs } from "./_components/quran-tabs";
+import QuranHeader from "./_components/quran-header";
+import QuranTabs from "./_components/quran-tabs";
 
 export default function QuranScreen() {
 	const { t } = useTranslation("quran");

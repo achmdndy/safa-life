@@ -15,7 +15,7 @@ import Animated, {
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Text } from "@/components/ui/text";
 import { useTheme } from "../../../contexts/theme-context";
-import { OnboardingNextButtonArrow } from "./onboarding-next-button-arrow";
+import OnboardingNextButtonArrow from "./onboarding-next-button-arrow";
 
 interface DotIndicatorProps {
 	index: number;
@@ -64,7 +64,7 @@ type OnboardingNextButtonProps = ComponentProps<typeof Animated.View> & {
 	animationProgress: SharedValue<number>;
 };
 
-export function OnboardingNextButton({
+export default function OnboardingNextButton({
 	onNextClick,
 	animationProgress,
 }: OnboardingNextButtonProps) {

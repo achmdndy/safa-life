@@ -1,0 +1,1 @@
+{"type":"object","properties":{"ayahCount":{"type":"integer"},"createdAt":{"type":"string"},"createdBy":{"type":"string"},"id":{"type":"string"},"nameArabic":{"type":"string"},"nameEnglish":{"type":"string"},"revelationOrder":{"type":"integer"},"revelationPlace":{"type":"string"},"updatedAt":{"type":"string"},"updatedBy":{"type":"string"}},"x-readme-ref-name":"dto.SurahResponse"}

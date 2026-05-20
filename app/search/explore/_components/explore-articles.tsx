@@ -39,7 +39,7 @@ const topArticles = [
 	},
 ];
 
-export function ExploreArticles() {
+export default function ExploreArticles() {
 	const { currentTheme } = useTheme();
 	const selectedTheme = themes[currentTheme];
 

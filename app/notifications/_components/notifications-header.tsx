@@ -12,7 +12,7 @@ interface NotificationsHeaderProps {
 	onMarkAllAsRead: () => void;
 }
 
-export function NotificationsHeader({
+export default function NotificationsHeader({
 	onMarkAllAsRead,
 }: NotificationsHeaderProps) {
 	const { t } = useTranslation("notifications");

@@ -3,6 +3,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { I18nManager } from "react-native";
 import i18n from "@/lib/i18n";
 import Realm from "realm";
+import { useRealm } from "@realm/react";
 import { Translation } from "@/schemas/realms/translation";
 
 export type Language = "id" | "en" | "ar" | "ms";
@@ -18,10 +19,11 @@ const LanguageContext = createContext<LanguageContextType | undefined>(
   undefined,
 );
 
-export function LanguageProvider({ children }: { children: React.ReactNode }) {
+export default function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [currentLanguage, setCurrentLanguage] = useState<Language>("id");
   const [isRTL, setIsRTL] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const realm = useRealm();
 
   useEffect(() => {
     const initializeLanguage = async () => {
@@ -42,7 +44,6 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const loadLanguage = async (language: Language) => {
-    const realm = await Realm.open({ schema: [Translation] });
 
     if (language === "id") {
       await i18n.changeLanguage("id");
@@ -98,7 +99,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     I18nManager.forceRTL(newIsRTL);
 
     await AsyncStorage.setItem("@app_language", language);
-    realm.close();
+    // Do not close realm; we use the shared RealmProvider instance
   };
 
   const setLanguage = async (language: Language) => {

@@ -3,7 +3,7 @@ import { Pressable, Text, View } from "react-native";
 import { Icon } from "@/components/ui/icon";
 import { type ThemeVariant, useTheme } from "@/contexts/theme-context";
 
-export function ThemeList() {
+export default function ThemeList() {
 	const { currentTheme, setTheme, themes: themeOptions } = useTheme();
 
 	return (

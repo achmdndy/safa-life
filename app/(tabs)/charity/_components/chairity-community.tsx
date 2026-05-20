@@ -109,7 +109,7 @@ const communityData = [
 	},
 ];
 
-export function ChairityCommunity() {
+export default function ChairityCommunity() {
 	const { t } = useTranslation("charity");
 	const { currentTheme, themes, theme } = useTheme();
 	const selectedTheme = themes[currentTheme];

@@ -1,9 +1,9 @@
 import { Platform, ScrollView, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { QuranFeatures } from "./_components/quran-features";
-import { QuranFeels } from "./_components/quran-feels";
-import { QuranHeader } from "./_components/quran-header";
-import { QuranStories } from "./_components/quran-stories";
+import QuranFeatures from "./_components/quran-features";
+import QuranFeels from "./_components/quran-feels";
+import QuranHeader from "./_components/quran-header";
+import QuranStories from "./_components/quran-stories";
 
 export default function QuranSearchScreen() {
 	const insets = useSafeAreaInsets();

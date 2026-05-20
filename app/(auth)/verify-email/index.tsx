@@ -1,4 +1,3 @@
-import { router } from "expo-router";
 import { MailCheck } from "lucide-react-native";
 import { useTranslation } from "react-i18next";
 import { View } from "react-native";
@@ -6,12 +5,14 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Button } from "@/components/ui/button";
 import { Text } from "@/components/ui/text";
 import { themes, useTheme } from "@/contexts/theme-context";
+import { useVerifyEmail } from "./_hooks/use-verify-email";
 
 export default function VerifyEmailScreen() {
 	const insets = useSafeAreaInsets();
 	const { t } = useTranslation("verifyEmail");
 	const { currentTheme } = useTheme();
 	const selectedTheme = themes[currentTheme];
+	const { resend, skip } = useVerifyEmail();
 
 	return (
 		<View
@@ -57,6 +58,7 @@ export default function VerifyEmailScreen() {
 						accessibilityRole="button"
 						accessibilityLabel={t("accessibility.resendButton")}
 						accessibilityHint={t("accessibility.resendButtonHint")}
+						onPress={resend}
 					>
 						<Text style={{ color: selectedTheme.primary }}>
 							{t("resendButton")}
@@ -65,7 +67,7 @@ export default function VerifyEmailScreen() {
 				</View>
 
 				<Button
-					onPress={() => router.replace("/home")}
+					onPress={skip}
 					accessible
 					accessibilityRole="button"
 					accessibilityLabel={t("accessibility.skipButton")}

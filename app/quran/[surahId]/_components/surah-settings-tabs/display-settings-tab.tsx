@@ -8,7 +8,7 @@ import { Text } from "@/components/ui/text";
 import { type ThemeVariant, themes, useTheme } from "@/contexts/theme-context";
 import { createTheme } from "@/lib/theme";
 
-export function DisplaySettingsTab() {
+export default function DisplaySettingsTab() {
 	const { currentTheme, setTheme, theme, toggleTheme } = useTheme();
 	const isDarkMode = theme === "dark";
 	const selectedTheme = themes[currentTheme];

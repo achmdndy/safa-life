@@ -18,6 +18,7 @@
 		"isolatedModules": true,
 		"moduleDetection": "force",
 		"incremental": true,
+		"allowImportingTsExtensions": true,
 		"noUncheckedIndexedAccess": true
 	},
 	"include": [

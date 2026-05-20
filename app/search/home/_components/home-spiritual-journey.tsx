@@ -10,7 +10,7 @@ import {
 import { Text, View } from "react-native";
 import { Icon } from "@/components/ui/icon";
 import { themes, useTheme } from "@/contexts/theme-context";
-import { HomeFeatureCard } from "./home-feature-card";
+import HomeFeatureCard from "./home-feature-card";
 
 export const spiritualJourney = [
 	{
@@ -51,7 +51,7 @@ export const spiritualJourney = [
 	},
 ];
 
-export function HomeSpiritualJourney() {
+export default function HomeSpiritualJourney() {
 	const { currentTheme } = useTheme();
 	const selectedTheme = themes[currentTheme];
 

@@ -6,7 +6,7 @@ import { Icon } from "@/components/ui/icon";
 import { Text } from "@/components/ui/text";
 import { useTheme } from "@/contexts/theme-context";
 
-export function ExploreHijrahProgram() {
+export default function ExploreHijrahProgram() {
 	const { t } = useTranslation("explore");
 	const { currentTheme, themes } = useTheme();
 	const selectedTheme = themes[currentTheme];

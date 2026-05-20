@@ -7,8 +7,21 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Text } from "@/components/ui/text";
 import { themes, useTheme } from "@/contexts/theme-context";
 import { createTheme } from "@/lib/theme";
+import { useJuzList } from "../../../_hooks/use-juz-list";
+import { useQuranList } from "../../../_hooks/use-quran-list";
+import { useProgressHatam } from "../../..//_hooks/use-progress-hatam";
+import type { DtoJuzWithProgressBasicResponse } from "@/api/coreService/types/dto/JuzWithProgressBasicResponse.ts";
+import type { DtoProgressHatamResponse } from "@/api/coreService/types/dto/ProgressHatamResponse.ts";
 
-export function JuzList() {
+type JuzListItem = {
+	id: string;
+	number: number;
+	startSurahName: string;
+	endSurahName: string;
+	progressPct: number;
+};
+
+export default function JuzList() {
 	const insets = useSafeAreaInsets();
 	const { height } = Dimensions.get("window");
 	const { currentTheme, theme } = useTheme();
@@ -19,64 +32,55 @@ export function JuzList() {
 		selectedTheme.secondary,
 	);
 	const { t } = useTranslation("quran");
+	const { dataJuzList, isLoadingJuzList } = useJuzList();
+	const { surahs } = useQuranList();
+	const { dataProgress } = useProgressHatam();
 
-	const pieData = [
-		{ value: 10, color: selectedTheme.primary, text: "10%" },
-		{ value: 90, color: selectedTheme.secondary, text: "90%" },
-	];
+	const surahNameById = new Map<string, string>(
+		(surahs ?? []).map((s) => [s.id, s.nameTranslit]),
+	);
 
-	const juzData = Array.from({ length: 30 }, (_, index) => {
-		const juzInfo = {
-			1: {
-				startSurah: "Al-Fatihah",
-				endSurah: "Al-Baqarah",
-				startAyat: 1,
-				endAyat: 141,
-			},
-			2: {
-				startSurah: "Al-Baqarah",
-				endSurah: "Al-Baqarah",
-				startAyat: 142,
-				endAyat: 252,
-			},
-			3: {
-				startSurah: "Al-Baqarah",
-				endSurah: "Ali 'Imran",
-				startAyat: 253,
-				endAyat: 92,
-			},
-			4: {
-				startSurah: "Ali 'Imran",
-				endSurah: "An-Nisa",
-				startAyat: 93,
-				endAyat: 23,
-			},
-			5: {
-				startSurah: "An-Nisa",
-				endSurah: "An-Nisa",
-				startAyat: 24,
-				endAyat: 147,
-			},
-		};
+	const rawJuz: DtoJuzWithProgressBasicResponse[] =
+		dataJuzList?.data?.data ?? [];
 
-		const juzNumber = index + 1;
-		const info = juzInfo[juzNumber] || {
-			startSurah: "Surah X",
-			endSurah: "Surah Y",
-			startAyat: 1,
-			endAyat: 20,
-		};
-
+	const juzData: JuzListItem[] = rawJuz.map((item, idx) => {
+		const startSurahName = item.juz?.startSurahId
+			? (surahNameById.get(item.juz.startSurahId) ?? "")
+			: "";
+		const endSurahName = item.juz?.endSurahId
+			? (surahNameById.get(item.juz.endSurahId) ?? "")
+			: "";
 		return {
-			id: juzNumber,
-			name: `${t("juzList.juz")} ${juzNumber}`,
-			startSurah: info.startSurah,
-			endSurah: info.endSurah,
-			startAyat: info.startAyat,
-			endAyat: info.endAyat,
-			progress: Math.floor(Math.random() * 100),
+			id: item.juz?.id ?? `${idx + 1}`,
+			number: idx + 1,
+			startSurahName,
+			endSurahName,
+			progressPct: Math.floor(item.progressHatam?.progressPct ?? 0),
 		};
 	});
+
+	const progressList: DtoProgressHatamResponse[] =
+		dataProgress?.data?.data ?? [];
+	const totalJuz = 30;
+	const sumProgress = progressList.reduce(
+		(acc, j) => acc + (j.progressPct ?? 0),
+		0,
+	);
+	const overallPct = Math.max(
+		0,
+		Math.min(100, Math.floor(sumProgress / totalJuz)),
+	);
+	const completedCount = progressList.filter(
+		(p) => p.isCompleted === true,
+	).length;
+	const pieData = [
+		{ value: overallPct, color: selectedTheme.primary, text: `${overallPct}%` },
+		{
+			value: 100 - overallPct,
+			color: selectedTheme.secondary,
+			text: `${100 - overallPct}%`,
+		},
+	];
 
 	return (
 		<View
@@ -125,10 +129,24 @@ export function JuzList() {
 								{t("juzList.progressKhatam")}
 							</Text>
 							<Text className="text-muted-foreground mt-1">
-								3 {t("juzList.of")} 30 {t("juzList.juz")}
+								{completedCount} {t("juzList.of")} {totalJuz} {t("juzList.juz")}
 							</Text>
 							<Text className="text-muted-foreground">
-								{t("juzList.last")}: {t("juzList.juz")} 3 (Ali 'Imran)
+								{t("juzList.last")}: {(() => {
+									// Find the most recently updated progress entry
+									const sorted = [...progressList].sort((a, b) => {
+										const aTime = a.updatedAt ?? a.startedAt ?? "";
+										const bTime = b.updatedAt ?? b.startedAt ?? "";
+										return aTime < bTime ? 1 : aTime > bTime ? -1 : 0;
+									});
+									const last = sorted[0];
+									if (!last) return `${t("juzList.juz")} -`;
+									const idx = rawJuz.findIndex((j) => j.juz?.id === last.juzId);
+									const num = idx >= 0 ? idx + 1 : 0;
+									const endName =
+										idx >= 0 ? (juzData[idx]?.endSurahName ?? "") : "";
+									return `${t("juzList.juz")} ${num}${endName ? ` (${endName})` : ""}`;
+								})()}
 							</Text>
 						</View>
 					</View>
@@ -165,10 +183,10 @@ export function JuzList() {
 							accessible={true}
 							accessibilityRole="button"
 							accessibilityLabel={t("juzList.accessibility.juzItem", {
-								name: item.name,
-								startSurah: item.startSurah,
-								endSurah: item.endSurah,
-								progress: item.progress,
+								name: `${t("juzList.juz")} ${item.number}`,
+								startSurah: item.startSurahName,
+								endSurah: item.endSurahName,
+								progress: item.progressPct,
 							})}
 						>
 							<CardContent className="p-0">
@@ -179,29 +197,31 @@ export function JuzList() {
 											className="w-10 h-10 rounded-full items-center justify-center mr-3"
 											accessible={true}
 											accessibilityLabel={t("juzList.accessibility.juzNumber", {
-												number: item.id,
+												number: item.number,
 											})}
 										>
 											<Text className="text-primary-foreground dark:text-foreground font-bold">
-												{item.id}
+												{item.number}
 											</Text>
 										</View>
 										<View>
-											<Text className="font-semibold">{item.name}</Text>
+											<Text className="font-semibold">
+												{t("juzList.juz")} {item.number}
+											</Text>
 											<Text
 												className="text-muted-foreground text-sm"
 												accessible={true}
 												accessibilityLabel={t(
 													"juzList.accessibility.juzRange",
 													{
-														startSurah: item.startSurah,
-														endSurah: item.endSurah,
+														startSurah: item.startSurahName,
+														endSurah: item.endSurahName,
 													},
 												)}
 											>
-												{item.startSurah}
-												{item.startSurah !== item.endSurah
-													? ` - ${item.endSurah}`
+												{item.startSurahName}
+												{item.startSurahName !== item.endSurahName
+													? ` - ${item.endSurahName}`
 													: ""}
 											</Text>
 										</View>
@@ -212,16 +232,16 @@ export function JuzList() {
 											accessible={true}
 											accessibilityLabel={t(
 												"juzList.accessibility.juzProgress",
-												{ progress: item.progress },
+												{ progress: item.progressPct },
 											)}
 										>
-											{item.progress}%
+											{item.progressPct}%
 										</Text>
 										<View className="bg-gray-200 w-16 h-1 mt-1 rounded-full overflow-hidden">
 											<View
 												className="h-full rounded-full"
 												style={{
-													width: `${item.progress}%`,
+													width: `${item.progressPct}%`,
 													backgroundColor: selectedTheme.primary,
 												}}
 											/>

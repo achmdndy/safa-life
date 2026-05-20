@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Icon } from "@/components/ui/icon";
 import { Input } from "@/components/ui/input";
 
-export function ExploreHeader() {
+export default function ExploreHeader() {
 	const insets = useSafeAreaInsets();
 	const router = useRouter();
 

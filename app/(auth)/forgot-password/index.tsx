@@ -6,8 +6,8 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Button } from "@/components/ui/button";
 import { Icon } from "@/components/ui/icon";
 import { Text } from "@/components/ui/text";
-import { ForgotPasswordForm } from "./_components/forgot-password-form";
-import { ForgotPasswordHeader } from "./_components/forgot-password-header";
+import ForgotPasswordForm from "./_components/forgot-password-form";
+import ForgotPasswordHeader from "./_components/forgot-password-header";
 
 export default function ForgotPasswordScreen() {
 	const insets = useSafeAreaInsets();

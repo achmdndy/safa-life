@@ -16,7 +16,9 @@ type OnboardingFinalProps = ComponentProps<typeof Animated.View> & {
 	animationProgress: SharedValue<number>;
 };
 
-export function OnboardingFinal({ animationProgress }: OnboardingFinalProps) {
+export default function OnboardingFinal({
+	animationProgress,
+}: OnboardingFinalProps) {
 	const { t } = useTranslation("onboarding");
 	const { currentTheme } = useTheme();
 	const selectedTheme = themes[currentTheme];

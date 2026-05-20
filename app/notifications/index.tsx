@@ -1,8 +1,8 @@
 import { FlashList } from "@shopify/flash-list";
 import { StatusBar, View } from "react-native";
-import { NotificationEmptyState } from "./_components/notification-empty-state";
-import { NotificationItem } from "./_components/notification-item";
-import { NotificationsHeader } from "./_components/notifications-header";
+import NotificationEmptyState from "./_components/notification-empty-state";
+import NotificationItem from "./_components/notification-item";
+import NotificationsHeader from "./_components/notifications-header";
 import { useNotificationsScreen } from "./_hooks/use-notifications-screen";
 
 export default function NotificationsScreen() {

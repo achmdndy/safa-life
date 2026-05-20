@@ -18,7 +18,7 @@ export type ExploreHeaderProps = ComponentProps<typeof View> & {
 	value: Animated.Value;
 };
 
-export function ExploreHeader({ value }: ExploreHeaderProps) {
+export default function ExploreHeader({ value }: ExploreHeaderProps) {
 	const router = useRouter();
 	const { t } = useTranslation("explore");
 

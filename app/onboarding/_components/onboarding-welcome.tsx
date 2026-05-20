@@ -19,7 +19,7 @@ type OnboardingWelcome = ComponentProps<typeof Animated.View> & {
 	animationProgress: SharedValue<number>;
 };
 
-export function OnboardingWelcome({
+export default function OnboardingWelcome({
 	onNextClick,
 	animationProgress,
 }: OnboardingWelcome) {

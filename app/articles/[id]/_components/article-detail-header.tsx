@@ -13,7 +13,7 @@ interface ArticleDetailHeaderProps {
 	scrollA: Animated.Value;
 }
 
-export function ArticleDetailHeader({
+export default function ArticleDetailHeader({
 	title,
 	scrollA,
 }: ArticleDetailHeaderProps) {

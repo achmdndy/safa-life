@@ -4,6 +4,7 @@ const { withNativeWind } = require("nativewind/metro");
 const configDefault = (() => {
 	const config = getDefaultConfig(__dirname);
 	const { transformer, resolver } = config;
+	config.resolver.unstable_enablePackageExports = true; 
 	config.transformer.minifierPath = require.resolve("metro-minify-esbuild");
 	config.transformer.minifierConfig = {
 		compress: {

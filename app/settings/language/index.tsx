@@ -1,7 +1,7 @@
 import { ScrollView, View } from "react-native";
 import { useLanguage } from "@/contexts/language-context";
-import { LanguageHeader } from "./_components/language-header";
-import { LanguageSelector } from "./_components/language-selector";
+import LanguageHeader from "./_components/language-header";
+import LanguageSelector from "./_components/language-selector";
 
 export default function LanguageScreen() {
 	const { isRTL } = useLanguage();

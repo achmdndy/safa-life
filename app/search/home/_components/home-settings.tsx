@@ -2,7 +2,7 @@ import { Bell, Globe, Moon, Settings, Shield, User } from "lucide-react-native";
 import { Text, View } from "react-native";
 import { Icon } from "@/components/ui/icon";
 import { themes, useTheme } from "@/contexts/theme-context";
-import { HomeFeatureCard } from "./home-feature-card";
+import HomeFeatureCard from "./home-feature-card";
 
 export const settings = [
 	{
@@ -43,7 +43,7 @@ export const settings = [
 	},
 ];
 
-export function HomeSettings() {
+export default function HomeSettings() {
 	const { currentTheme } = useTheme();
 	const selectedTheme = themes[currentTheme];
 

@@ -7,7 +7,7 @@ import { Text } from "@/components/ui/text";
 import { themes, useTheme } from "@/contexts/theme-context";
 import { useForgotPasswordForm } from "../_hooks/use-forgot-password-form";
 
-export function ForgotPasswordForm() {
+export default function ForgotPasswordForm() {
 	const { currentTheme } = useTheme();
 	const selectedTheme = themes[currentTheme];
 	const { t } = useTranslation("forgotPassword");

@@ -1,0 +1,1 @@
+{"type":"object","properties":{"asr":{"type":"string"},"date":{"type":"string"},"dhuhr":{"type":"string"},"fajr":{"type":"string"},"isha":{"type":"string"},"maghrib":{"type":"string"},"source":{"type":"string"},"sunrise":{"type":"string"},"timezone":{"type":"string"}},"x-readme-ref-name":"dto.PrayerTimesResponse"}

@@ -2,8 +2,8 @@ import { useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { AccessibilityInfo, Animated, Platform, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { ProfileHeader } from "./_components/profile-header";
-import { ProfileMenu } from "./_components/profile-menu";
+import ProfileHeader from "./_components/profile-header";
+import ProfileMenu from "./_components/profile-menu";
 
 export const PROFILE_HEADER_MAX_HEIGHT = 270;
 export const PROFILE_HEADER_MIN_HEIGHT = 130;

@@ -41,7 +41,7 @@ const suggestedItems = [
 	},
 ];
 
-export function CharitySuggested() {
+export default function CharitySuggested() {
 	const { currentTheme, themes } = useTheme();
 	const selectedTheme = themes[currentTheme];
 

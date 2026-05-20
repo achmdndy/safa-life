@@ -1,6 +1,7 @@
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useRouter } from "expo-router";
 import { useCallback, useState } from "react";
-import { useWindowDimensions } from "react-native";
+import { Alert, useWindowDimensions } from "react-native";
 import {
 	Easing,
 	interpolate,
@@ -10,7 +11,10 @@ import {
 	useSharedValue,
 	withTiming,
 } from "react-native-reanimated";
+import { authClient } from "@/lib/auth-client";
+import { getErrorMessage } from "@/lib/utils";
 
+const ONBOARDING_STORAGE_KEY = "onboarding_completed";
 const ANIMATION_DURATION = 1600;
 const SKIP_ANIMATION_DURATION = 1200;
 
@@ -50,7 +54,7 @@ export function useOnboarding() {
 		[animationProgress],
 	);
 
-	const onNextClick = useCallback(() => {
+	const onNextClick = useCallback(async () => {
 		let toValue: number;
 		const currentValue = animationProgress.value;
 		if (currentValue === 0) {
@@ -62,7 +66,24 @@ export function useOnboarding() {
 		} else if (currentValue > 0.4 && currentValue <= 0.6) {
 			toValue = 0.8;
 		} else if (currentValue > 0.6 && currentValue <= 0.8) {
-			router.navigate("/home");
+			try {
+				await AsyncStorage.setItem(ONBOARDING_STORAGE_KEY, "true");
+				const { error } = await authClient.signIn.anonymous();
+				if (error) {
+					Alert.alert(
+						"Login gagal",
+						error.message ?? "Tidak dapat login secara anonim.",
+					);
+					return;
+				}
+			} catch (e: unknown) {
+				Alert.alert(
+					"Login gagal",
+					getErrorMessage(e) ?? "Tidak dapat login secara anonim.",
+				);
+				return;
+			}
+			router.replace("/home");
 			return;
 		}
 

@@ -2,10 +2,10 @@ import { useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { AccessibilityInfo, Animated, Platform, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { ChairityCalculateZakat } from "./_components/chairity-calculate-zakat";
-import { ChairityCommunity } from "./_components/chairity-community";
-import { ChairityGivePurpose } from "./_components/chairity-give-purpose";
-import { ChairityHeader } from "./_components/charity-header";
+import ChairityCalculateZakat from "./_components/chairity-calculate-zakat";
+import ChairityCommunity from "./_components/chairity-community";
+import ChairityGivePurpose from "./_components/chairity-give-purpose";
+import ChairityHeader from "./_components/charity-header";
 
 export const CHARITY_HEADER_MAX_HEIGHT = 180;
 export const CHARITY_HEADER_MIN_HEIGHT = 120;

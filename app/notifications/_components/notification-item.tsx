@@ -23,7 +23,10 @@ const iconMap = {
 	article: Newspaper,
 };
 
-export function NotificationItem({ item, onPress }: NotificationItemProps) {
+export default function NotificationItem({
+	item,
+	onPress,
+}: NotificationItemProps) {
 	const { currentTheme } = useTheme();
 	const selectedTheme = themes[currentTheme];
 	const IconComponent = iconMap[item.type];

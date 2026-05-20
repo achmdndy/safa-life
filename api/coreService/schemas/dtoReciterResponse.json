@@ -1,0 +1,1 @@
+{"type":"object","properties":{"createdAt":{"type":"string"},"createdBy":{"type":"string"},"id":{"type":"string"},"name":{"type":"string"},"picture":{"type":"string"},"place":{"type":"string"},"style":{"type":"string"},"updatedAt":{"type":"string"},"updatedBy":{"type":"string"}},"x-readme-ref-name":"dto.ReciterResponse"}

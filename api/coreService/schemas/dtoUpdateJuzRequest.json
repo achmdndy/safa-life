@@ -1,0 +1,1 @@
+{"type":"object","required":["endAyahId","endSurahId","id","startAyahId","startSurahId","updatedBy"],"properties":{"endAyahId":{"type":"string"},"endSurahId":{"type":"string"},"id":{"type":"string"},"startAyahId":{"type":"string"},"startSurahId":{"type":"string"},"updatedBy":{"type":"string","maxLength":255,"minLength":1}},"x-readme-ref-name":"dto.UpdateJuzRequest"}

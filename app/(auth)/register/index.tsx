@@ -7,10 +7,10 @@ import { Button } from "@/components/ui/button";
 import { Icon } from "@/components/ui/icon";
 import { Separator } from "@/components/ui/separator";
 import { Text } from "@/components/ui/text";
-import { RegisterForm } from "./_components/register-form";
-import { RegisterGuestButton } from "./_components/register-guest-button";
-import { RegisterHeader } from "./_components/register-header";
-import { RegisterSocials } from "./_components/register-socials";
+import RegisterForm from "./_components/register-form";
+import RegisterGuestButton from "./_components/register-guest-button";
+import RegisterHeader from "./_components/register-header";
+import RegisterSocials from "./_components/register-socials";
 
 export default function RegisterScreen() {
 	const insets = useSafeAreaInsets();

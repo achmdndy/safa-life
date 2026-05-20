@@ -1,19 +1,31 @@
+import { useGlobalSearchParams, useRouter } from "expo-router";
 import { useState } from "react";
 import { Pressable, View } from "react-native";
+import { useTranslationList } from "@/app/quran/[surahId]/_hooks/use-translation-list";
 import { Slider } from "@/components/slider";
 import { Separator } from "@/components/ui/separator";
+import { Skeleton } from "@/components/ui/skeleton";
 import { Switch } from "@/components/ui/switch";
 import { Text } from "@/components/ui/text";
 import { themes, useTheme } from "@/contexts/theme-context";
 
-export function TextSettingsTab() {
+type TextSettingsTabProps = {
+	onRequestCloseSheet?: () => void;
+};
+
+export default function TextSettingsTab({
+	onRequestCloseSheet,
+}: TextSettingsTabProps) {
 	const { currentTheme } = useTheme();
 	const selectedTheme = themes[currentTheme];
 	const [fontSize, setFontSize] = useState(16);
 	const [tajweedEnabled, setTajweedEnabled] = useState(false);
 	const [translationEnabled, setTranslationEnabled] = useState(true);
 	const [transliterationEnabled, setTransliterationEnabled] = useState(false);
-	const [selectedTranslationLanguage] = useState("English");
+	const router = useRouter();
+	const { surahId } = useGlobalSearchParams<{ surahId: string }>();
+	const { isLoading: isLoadingEditions, selectedEdition } =
+		useTranslationList();
 	const [selectedTransliterationLanguage] = useState("English");
 
 	return (
@@ -48,11 +60,21 @@ export function TextSettingsTab() {
 					<Text className="text-muted-foreground mb-1">
 						Display the translation of the Quran.
 					</Text>
-					<Text className="text-sm text-foreground mb-2">
-						Selected: {selectedTranslationLanguage}
-					</Text>
+					{isLoadingEditions ? (
+						<Skeleton className="w-40 h-4 rounded mb-2" />
+					) : (
+						<Text className="text-sm text-foreground mb-2">
+							Selected: {selectedEdition?.name ?? "-"}
+						</Text>
+					)}
 					<Pressable
-						onPress={() => console.log("View More Translations")}
+						onPress={() => {
+							onRequestCloseSheet?.();
+							router.push({
+								pathname: "/quran/[surahId]/settings/translations",
+								params: { surahId },
+							});
+						}}
 						className="self-start rounded-md py-1"
 					>
 						<Text className="text-sm text-primary">View More Translations</Text>

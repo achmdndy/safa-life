@@ -2,11 +2,11 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Text } from "@/components/ui/text";
-import { BookmarkList } from "./bookmark-list";
-import { JuzList } from "./juz-list";
-import { SurahList } from "./surah-list";
+import BookmarkList from "./bookmark-list";
+import JuzList from "./juz-list";
+import SurahList from "./surah-list";
 
-export function SurahTab() {
+export default function SurahTab() {
 	const [value, setValue] = useState("surah");
 	const { t } = useTranslation("quran");
 

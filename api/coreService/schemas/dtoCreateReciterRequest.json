@@ -1,0 +1,1 @@
+{"type":"object","required":["createdBy","name","style"],"properties":{"createdBy":{"type":"string","maxLength":255,"minLength":1},"name":{"type":"string","maxLength":255,"minLength":1},"picture":{"type":"string","maxLength":255},"place":{"type":"string","maxLength":20},"style":{"type":"string","maxLength":255,"minLength":1}},"x-readme-ref-name":"dto.CreateReciterRequest"}

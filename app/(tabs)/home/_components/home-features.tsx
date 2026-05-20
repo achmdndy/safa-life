@@ -7,7 +7,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Text } from "@/components/ui/text";
 import { useTheme } from "@/contexts/theme-context";
 
-export function HomeFeatures() {
+export default function HomeFeatures() {
 	const router = useRouter();
 	const { currentTheme, themes } = useTheme();
 	const selectedTheme = themes[currentTheme];

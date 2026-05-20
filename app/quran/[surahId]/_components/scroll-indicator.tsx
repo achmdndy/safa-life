@@ -4,7 +4,7 @@ interface ScrollIndicatorProps {
 	text: string;
 }
 
-export function ScrollIndicator({ text }: ScrollIndicatorProps) {
+export default function ScrollIndicator({ text }: ScrollIndicatorProps) {
 	return (
 		<View className="h-20 items-center justify-center">
 			<Text className="text-base text-gray-500">{text}</Text>

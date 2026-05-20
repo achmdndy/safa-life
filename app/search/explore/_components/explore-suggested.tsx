@@ -51,7 +51,7 @@ const suggestions = [
 	},
 ];
 
-export function ExploreSuggested() {
+export default function ExploreSuggested() {
 	const { currentTheme } = useTheme();
 	const selectedTheme = themes[currentTheme];
 

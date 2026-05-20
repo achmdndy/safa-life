@@ -51,7 +51,7 @@ const purposeItems = [
 	},
 ];
 
-export function ChairityGivePurpose() {
+export default function ChairityGivePurpose() {
 	const { t } = useTranslation("charity");
 	const { currentTheme, themes } = useTheme();
 	const selectedTheme = themes[currentTheme];

@@ -1,0 +1,1 @@
+{"type":"object","properties":{"limit":{"type":"integer"},"offset":{"type":"integer"},"total":{"type":"integer"}},"x-readme-ref-name":"dto.PaginationResponse"}

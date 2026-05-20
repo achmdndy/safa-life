@@ -17,7 +17,7 @@ type OnboardingNextButtonArrowProps = ComponentProps<typeof Animated.View> & {
 
 const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
 
-export function OnboardingNextButtonArrow({
+export default function OnboardingNextButtonArrow({
 	onBtnPress,
 	animationProgress,
 }: OnboardingNextButtonArrowProps) {

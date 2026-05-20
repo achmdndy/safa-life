@@ -7,7 +7,7 @@ import { Icon } from "@/components/ui/icon";
 import { Text } from "@/components/ui/text";
 import { themes, useTheme } from "@/contexts/theme-context";
 
-export function ArticlesHeader() {
+export default function ArticlesHeader() {
 	const { t } = useTranslation("articles");
 	const insets = useSafeAreaInsets();
 	const { currentTheme } = useTheme();

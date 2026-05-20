@@ -31,7 +31,7 @@ interface MenuSection {
 	items: MenuItem[];
 }
 
-export function ProfileMenu() {
+export default function ProfileMenu() {
 	const { t } = useTranslation("profile");
 	const { currentTheme, themes } = useTheme();
 	const selectedTheme = themes[currentTheme];

@@ -1,5 +1,6 @@
 import type { BottomSheetModal } from "@gorhom/bottom-sheet";
 import { type RefObject, useState } from "react";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 import {
 	BottomSheet,
 	BottomSheetContent,
@@ -7,16 +8,17 @@ import {
 } from "@/components/bottom-sheet";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Text } from "@/components/ui/text";
-import { AudioSettingsTab } from "./surah-settings-tabs/audio-settings-tab";
-import { DisplaySettingsTab } from "./surah-settings-tabs/display-settings-tab";
-import { TextSettingsTab } from "./surah-settings-tabs/text-settings-tab";
+import AudioSettingsTab from "./surah-settings-tabs/audio-settings-tab";
+import DisplaySettingsTab from "./surah-settings-tabs/display-settings-tab";
+import TextSettingsTab from "./surah-settings-tabs/text-settings-tab";
 
 interface SurahSettingsProps {
 	sheetRef: RefObject<BottomSheetModal>;
 }
 
-export function SurahSettings({ sheetRef }: SurahSettingsProps) {
+export default function SurahSettings({ sheetRef }: SurahSettingsProps) {
 	const [value, setValue] = useState("audio");
+	const { bottom } = useSafeAreaInsets();
 
 	return (
 		<BottomSheet>
@@ -34,12 +36,16 @@ export function SurahSettings({ sheetRef }: SurahSettingsProps) {
 						</TabsTrigger>
 					</TabsList>
 
-					<BottomSheetScrollView>
+					<BottomSheetScrollView
+						contentContainerStyle={{ paddingBottom: bottom + 24 }}
+					>
 						<TabsContent value="audio">
 							<AudioSettingsTab />
 						</TabsContent>
 						<TabsContent value="text">
-							<TextSettingsTab />
+							<TextSettingsTab
+								onRequestCloseSheet={() => sheetRef.current?.dismiss()}
+							/>
 						</TabsContent>
 						<TabsContent value="display">
 							<DisplaySettingsTab />

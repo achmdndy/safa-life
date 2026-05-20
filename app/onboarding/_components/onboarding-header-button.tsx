@@ -19,7 +19,7 @@ type OnboardingHeaderButtonProps = ComponentProps<typeof Animated.View> & {
 	animationProgress: SharedValue<number>;
 };
 
-export function OnboardingHeaderButton({
+export default function OnboardingHeaderButton({
 	onBackClick,
 	onSkipClick,
 	animationProgress,

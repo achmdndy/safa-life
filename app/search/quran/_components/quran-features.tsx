@@ -3,7 +3,7 @@ import { View } from "react-native";
 import { Icon } from "@/components/ui/icon";
 import { Text } from "@/components/ui/text";
 import { themes, useTheme } from "@/contexts/theme-context";
-import { QuranContentCard } from "./quran-content-card";
+import QuranContentCard from "./quran-content-card";
 
 export const features = [
 	{
@@ -40,7 +40,7 @@ export const features = [
 	},
 ];
 
-export function QuranFeatures() {
+export default function QuranFeatures() {
 	const { currentTheme } = useTheme();
 	const selectedTheme = themes[currentTheme];
 

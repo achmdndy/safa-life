@@ -17,7 +17,7 @@ export type ProfileHeaderProps = ComponentProps<typeof View> & {
 	value: Animated.Value;
 };
 
-export function ProfileHeader({ value }: ProfileHeaderProps) {
+export default function ProfileHeader({ value }: ProfileHeaderProps) {
 	const { t } = useTranslation("profile");
 	const { currentTheme, themes } = useTheme();
 	const selectedTheme = themes[currentTheme];

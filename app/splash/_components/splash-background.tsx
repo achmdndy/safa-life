@@ -1,7 +1,7 @@
 import { MeshGradientView } from "expo-mesh-gradient";
 import { themes, useTheme } from "@/contexts/theme-context";
 
-export function SplashBackground() {
+export default function SplashBackground() {
 	const { currentTheme, theme } = useTheme();
 	const isDarkMode = theme === "dark";
 	const selectedTheme = themes[currentTheme];

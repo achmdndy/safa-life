@@ -7,7 +7,7 @@ import { Text } from "@/components/ui/text";
 import { themes, useTheme } from "@/contexts/theme-context";
 import { useLoginForm } from "../_hooks/use-login-form";
 
-export function LoginForm() {
+export default function LoginForm() {
 	const { currentTheme } = useTheme();
 	const selectedTheme = themes[currentTheme];
 	const { t } = useTranslation("login");

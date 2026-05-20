@@ -1,8 +1,8 @@
 import { FlashList } from "@shopify/flash-list";
 import { StatusBar, View } from "react-native";
 import { useTheme } from "@/contexts/theme-context";
-import { ArticleListItem } from "./_components/article-list-item";
-import { ArticlesHeader } from "./_components/articles-header";
+import ArticleListItem from "./_components/article-list-item";
+import ArticlesHeader from "./_components/articles-header";
 import { MOCK_ARTICLES } from "./_data/articles";
 
 export default function ArticlesScreen() {

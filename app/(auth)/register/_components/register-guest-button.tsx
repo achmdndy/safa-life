@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Icon } from "@/components/ui/icon";
 import { Text } from "@/components/ui/text";
 
-export const RegisterGuestButton = () => {
+export default function RegisterGuestButton() {
 	const { t } = useTranslation("register");
 	return (
 		<Button
@@ -22,4 +22,4 @@ export const RegisterGuestButton = () => {
 			<Icon as={ChevronRight} className="text-foreground" size={20} />
 		</Button>
 	);
-};
+}

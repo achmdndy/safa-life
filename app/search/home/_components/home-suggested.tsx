@@ -24,7 +24,7 @@ const suggests = [
 	"Hijab Tutorials",
 ];
 
-export function HomeSuggested() {
+export default function HomeSuggested() {
 	const { currentTheme } = useTheme();
 	const selectedTheme = themes[currentTheme];
 

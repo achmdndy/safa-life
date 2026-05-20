@@ -3,7 +3,10 @@ import {
 	ChevronLeft,
 	ChevronRight,
 	MoreHorizontal,
+	Pause,
 	Play,
+	SkipBack,
+	SkipForward,
 } from "lucide-react-native";
 import { Animated, Pressable, View } from "react-native";
 import { Icon } from "@/components/ui/icon";
@@ -17,16 +20,22 @@ interface SurahFooterProps {
 	onPlayAudio: () => void;
 	onNextVerse: () => void;
 	onPrevVerse: () => void;
+	onNextSurah: () => void;
+	onPrevSurah: () => void;
 	onPressSettings: () => void;
 	settingsSheetRef: React.RefObject<BottomSheetModal>;
+	isPlaying?: boolean;
 }
 
-export function SurahFooter({
+export default function SurahFooter({
 	footerTranslateY,
 	onPlayAudio,
 	onNextVerse,
 	onPrevVerse,
+	onNextSurah,
+	onPrevSurah,
 	onPressSettings,
+	isPlaying,
 }: SurahFooterProps) {
 	const { currentTheme, theme } = useTheme();
 	const isDarkMode = theme === "dark";
@@ -56,27 +65,50 @@ export function SurahFooter({
 			}}
 		>
 			<View className="flex-1 flex-row items-center justify-around px-4">
+				{/* Left: Previous (surah or verse depending on state) */}
+				<Pressable
+					onPress={isPlaying ? onPrevVerse : onPrevSurah}
+					className="p-2 rounded-full active:bg-accent"
+					accessibilityLabel={isPlaying ? "Previous verse" : "Previous surah"}
+				>
+					<Icon
+						as={isPlaying ? SkipBack : ChevronLeft}
+						size={26}
+						color={selectedTheme.primary}
+					/>
+				</Pressable>
+
+				{/* Center: Play/Pause (same position) */}
 				<Pressable
 					onPress={onPlayAudio}
-					className="p-2 rounded-full active:bg-accent"
+					className="p-3 rounded-full active:bg-accent"
+					accessibilityLabel={isPlaying ? "Pause" : "Play"}
 				>
-					<Icon as={Play} size={24} color={selectedTheme.primary} />
+					<Icon
+						as={isPlaying ? Pause : Play}
+						size={28}
+						color={selectedTheme.primary}
+					/>
 				</Pressable>
+
+				{/* Right: Next (surah or verse depending on state) */}
 				<Pressable
-					onPress={onPrevVerse}
+					onPress={isPlaying ? onNextVerse : onNextSurah}
 					className="p-2 rounded-full active:bg-accent"
+					accessibilityLabel={isPlaying ? "Next verse" : "Next surah"}
 				>
-					<Icon as={ChevronLeft} size={24} color={selectedTheme.primary} />
+					<Icon
+						as={isPlaying ? SkipForward : ChevronRight}
+						size={26}
+						color={selectedTheme.primary}
+					/>
 				</Pressable>
-				<Pressable
-					onPress={onNextVerse}
-					className="p-2 rounded-full active:bg-accent"
-				>
-					<Icon as={ChevronRight} size={24} color={selectedTheme.primary} />
-				</Pressable>
+
+				{/* Settings */}
 				<Pressable
 					onPress={onPressSettings}
 					className="p-2 rounded-full active:bg-accent"
+					accessibilityLabel="Settings"
 				>
 					<Icon as={MoreHorizontal} size={24} color={selectedTheme.primary} />
 				</Pressable>

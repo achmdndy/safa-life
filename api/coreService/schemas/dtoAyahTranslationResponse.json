@@ -1,0 +1,1 @@
+{"type":"object","properties":{"ayahId":{"type":"string"},"createdAt":{"type":"string"},"createdBy":{"type":"string"},"id":{"type":"string"},"surahId":{"type":"string"},"text":{"type":"string"},"translationEditionId":{"type":"string"},"updatedAt":{"type":"string"},"updatedBy":{"type":"string"}},"x-readme-ref-name":"dto.AyahTranslationResponse"}

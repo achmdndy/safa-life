@@ -61,7 +61,7 @@ const hotReels = [
 	},
 ];
 
-export function ExploreReels() {
+export default function ExploreReels() {
 	const { currentTheme } = useTheme();
 	const selectedTheme = themes[currentTheme];
 

@@ -1,7 +1,10 @@
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useRouter } from "expo-router";
 import { useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { Animated } from "react-native";
+
+const ONBOARDING_STORAGE_KEY = "onboarding_completed";
 
 export function useSplash() {
 	const router = useRouter();
@@ -50,11 +53,28 @@ export function useSplash() {
 			}),
 		]).start();
 
-		const timer = setTimeout(() => {
-			router.replace("/onboarding");
-		}, 3000);
+		const scheduleRedirect = (path: string) => {
+			const timer = setTimeout(() => {
+				router.replace(path);
+			}, 3000);
+			return timer;
+		};
 
-		return () => clearTimeout(timer);
+		let timer: ReturnType<typeof setTimeout> | null = null;
+
+		(async () => {
+			try {
+				const val = await AsyncStorage.getItem(ONBOARDING_STORAGE_KEY);
+				const hasCompleted = val === "true";
+				timer = scheduleRedirect(hasCompleted ? "/home" : "/onboarding");
+			} catch {
+				timer = scheduleRedirect("/onboarding");
+			}
+		})();
+
+		return () => {
+			if (timer) clearTimeout(timer);
+		};
 	}, [router]);
 
 	return {

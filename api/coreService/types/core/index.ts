@@ -1,0 +1,1 @@
+export type { CoreErrorDetail } from "./ErrorDetail.ts";

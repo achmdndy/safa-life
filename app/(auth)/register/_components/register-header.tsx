@@ -3,7 +3,7 @@ import { Image, View } from "react-native";
 import { AppImages } from "@/assets/images";
 import { Text } from "@/components/ui/text";
 
-export function RegisterHeader() {
+export default function RegisterHeader() {
 	const { t } = useTranslation("register");
 
 	return (

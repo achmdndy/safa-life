@@ -12,7 +12,7 @@ interface ArticleListItemProps {
 	};
 }
 
-export function ArticleListItem({ item }: ArticleListItemProps) {
+export default function ArticleListItem({ item }: ArticleListItemProps) {
 	return (
 		<Link href={`/articles/${item.id}`} asChild>
 			<Pressable className="active:opacity-75 overflow-hidden">

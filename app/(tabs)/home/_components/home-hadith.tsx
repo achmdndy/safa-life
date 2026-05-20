@@ -5,7 +5,7 @@ import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Text } from "@/components/ui/text";
 import { useTheme } from "@/contexts/theme-context";
 
-export function HomeHadith() {
+export default function HomeHadith() {
 	const { currentTheme, themes } = useTheme();
 	const selectedTheme = themes[currentTheme];
 	const { t } = useTranslation("home");

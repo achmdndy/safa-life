@@ -4,7 +4,7 @@ import { View } from "react-native";
 import { Icon } from "@/components/ui/icon";
 import { Text } from "@/components/ui/text";
 
-export function NotificationEmptyState() {
+export default function NotificationEmptyState() {
 	const { t } = useTranslation("notifications");
 
 	return (

@@ -4,7 +4,7 @@ import { AppImages } from "@/assets/images";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "@/contexts/theme-context";
 
-export function RegisterSocials() {
+export default function RegisterSocials() {
 	const { t } = useTranslation("register");
 	const { theme } = useTheme();
 	const isDarkMode = theme === "dark";

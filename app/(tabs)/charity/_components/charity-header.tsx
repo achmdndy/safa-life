@@ -19,7 +19,7 @@ export type ChairityHeaderProps = ComponentProps<typeof View> & {
 	value: Animated.Value;
 };
 
-export function ChairityHeader({ value }: ChairityHeaderProps) {
+export default function ChairityHeader({ value }: ChairityHeaderProps) {
 	const router = useRouter();
 	const { t } = useTranslation("charity");
 

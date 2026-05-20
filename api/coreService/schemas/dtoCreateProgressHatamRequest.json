@@ -1,0 +1,1 @@
+{"type":"object","required":["juzId","progressPct","startAyahId"],"properties":{"juzId":{"type":"string"},"progressPct":{"type":"number","maximum":100,"minimum":0},"startAyahId":{"type":"string"}},"x-readme-ref-name":"dto.CreateProgressHatamRequest"}

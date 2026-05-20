@@ -1,0 +1,1 @@
+{"type":"object","required":["createdBy","endAyahId","endSurahId","startAyahId","startSurahId"],"properties":{"createdBy":{"type":"string","maxLength":255,"minLength":1},"endAyahId":{"type":"string"},"endSurahId":{"type":"string"},"startAyahId":{"type":"string"},"startSurahId":{"type":"string"}},"x-readme-ref-name":"dto.CreateJuzRequest"}

@@ -1,0 +1,1 @@
+{"type":"object","required":["ayahId","ayahNumber","id","progressPct","updatedBy"],"properties":{"ayahId":{"type":"string"},"ayahNumber":{"type":"integer","minimum":1},"id":{"type":"string"},"progressPct":{"type":"number","maximum":100,"minimum":0},"updatedBy":{"type":"string","maxLength":255,"minLength":1}},"x-readme-ref-name":"dto.UpdateLastReadRequest"}

@@ -7,7 +7,7 @@ import { Text } from "@/components/ui/text";
 import { themes, useTheme } from "@/contexts/theme-context";
 import { useRegisterForm } from "../_hooks/use-register-form";
 
-export function RegisterForm() {
+export default function RegisterForm() {
 	const { currentTheme } = useTheme();
 	const selectedTheme = themes[currentTheme];
 	const { t } = useTranslation("register");

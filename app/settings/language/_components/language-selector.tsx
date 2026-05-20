@@ -6,7 +6,7 @@ import { Text } from "@/components/ui/text";
 import { useLanguage } from "@/contexts/language-context";
 import { useLanguageSelection } from "../_hooks/use-language-selection";
 
-export function LanguageSelector() {
+export default function LanguageSelector() {
 	const { isRTL } = useLanguage();
 	const { t } = useTranslation("language");
 	const { currentLanguage, languageOptions, isChanging, handleLanguageChange } =

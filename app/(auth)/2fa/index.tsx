@@ -5,8 +5,8 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Button } from "@/components/ui/button";
 import { Icon } from "@/components/ui/icon";
 import { Text } from "@/components/ui/text";
-import { TwoFAForm } from "./_components/2fa-form";
-import { TwoFAHeader } from "./_components/2fa-header";
+import TwoFAForm from "./_components/2fa-form";
+import TwoFAHeader from "./_components/2fa-header";
 
 export default function TwoFAScreen() {
 	const insets = useSafeAreaInsets();

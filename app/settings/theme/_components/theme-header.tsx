@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Icon } from "@/components/ui/icon";
 import { Text } from "@/components/ui/text";
 
-export function ThemeHeader() {
+export default function ThemeHeader() {
 	const insets = useSafeAreaInsets();
 
 	const handleGoBack = () => {

@@ -1,0 +1,1 @@
+{"type":"object","required":["ayahId","ayahNumber","progressPct","surahId"],"properties":{"ayahId":{"type":"string"},"ayahNumber":{"type":"integer","minimum":1},"progressPct":{"type":"number","maximum":100,"minimum":0},"surahId":{"type":"string"}},"x-readme-ref-name":"dto.CreateLastReadRequest"}

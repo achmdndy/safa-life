@@ -7,7 +7,7 @@ import { themes, useTheme } from "@/contexts/theme-context";
 import { HEADER_MAX_HEIGHT, HEADER_MIN_HEIGHT, SCROLL_DISTANCE } from "..";
 import { LoginGuestButton } from "./login-guest-button";
 
-export function LoginHeader({ value }: { value: Animated.Value }) {
+export default function LoginHeader({ value }: { value: Animated.Value }) {
 	const { t } = useTranslation("login");
 	const { currentTheme } = useTheme();
 	const selectedTheme = themes[currentTheme];

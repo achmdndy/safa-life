@@ -4,11 +4,11 @@ import { Platform, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Text } from "@/components/ui/text";
-import { DailyRemainderTab } from "./daily-remainder-tab";
-import { SurahTab } from "./surah-tab";
-import { ThematicLearningTab } from "./thematic-learning-tab";
+import DailyRemainderTab from "./daily-remainder-tab";
+import SurahTab from "./surah-tab";
+import ThematicLearningTab from "./thematic-learning-tab";
 
-export function QuranTabs() {
+export default function QuranTabs() {
 	const [value, setValue] = useState("surah");
 	const insets = useSafeAreaInsets();
 	const { t } = useTranslation("quran");

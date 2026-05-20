@@ -8,11 +8,11 @@ import {
 	View,
 } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { HomeArticles } from "./_components/home-articles";
-import { HomeFeatures } from "./_components/home-features";
-import { HomeHadith } from "./_components/home-hadith";
-import { HomeHeader } from "./_components/home-header";
-import { HomePrayerTimes } from "./_components/home-prayer-times";
+import HomeArticles from "./_components/home-articles";
+import HomeFeatures from "./_components/home-features";
+import HomeHadith from "./_components/home-hadith";
+import HomeHeader from "./_components/home-header";
+import HomePrayerTimes from "./_components/home-prayer-times";
 
 export const HEADER_MAX_HEIGHT = Platform.OS === "ios" ? 205 : 160;
 export const HEADER_MIN_HEIGHT = Platform.OS === "ios" ? 125 : 100;

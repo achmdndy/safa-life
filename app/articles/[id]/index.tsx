@@ -6,7 +6,7 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Text } from "@/components/ui/text";
 import { useTheme } from "@/contexts/theme-context";
 import { MOCK_ARTICLES } from "../_data/articles";
-import { ArticleDetailHeader } from "./_components/article-detail-header";
+import ArticleDetailHeader from "./_components/article-detail-header";
 
 const HEADER_IMAGE_HEIGHT = 300;
 

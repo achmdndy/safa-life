@@ -14,7 +14,7 @@ type OnboardingSpiritualityProps = ComponentProps<typeof Animated.View> & {
 	animationProgress: SharedValue<number>;
 };
 
-export function OnboardingSpirituality({
+export default function OnboardingSpirituality({
 	animationProgress,
 }: OnboardingSpiritualityProps) {
 	const { t } = useTranslation("onboarding");

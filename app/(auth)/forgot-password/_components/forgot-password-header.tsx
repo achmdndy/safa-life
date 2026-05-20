@@ -3,7 +3,7 @@ import { Image, View } from "react-native";
 import { AppImages } from "@/assets/images";
 import { Text } from "@/components/ui/text";
 
-export function ForgotPasswordHeader() {
+export default function ForgotPasswordHeader() {
 	const { t } = useTranslation("forgotPassword");
 
 	return (

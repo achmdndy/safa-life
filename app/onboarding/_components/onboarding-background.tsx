@@ -2,7 +2,7 @@ import { MeshGradientView } from "expo-mesh-gradient";
 import { StyleSheet } from "react-native";
 import { themes, useTheme } from "@/contexts/theme-context";
 
-export function OnboardingBackground() {
+export default function OnboardingBackground() {
 	const { currentTheme, theme } = useTheme();
 	const isDarkMode = theme === "dark";
 	const selectedTheme = themes[currentTheme];

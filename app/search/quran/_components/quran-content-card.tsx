@@ -2,7 +2,7 @@ import { Pressable } from "react-native";
 import { Badge } from "@/components/ui/badge";
 import { Text } from "@/components/ui/text";
 
-export function QuranContentCard({ title }: { title: string }) {
+export default function QuranContentCard({ title }: { title: string }) {
 	return (
 		<Pressable>
 			<Badge className="h-10 px-4 rounded-full" variant="outline">

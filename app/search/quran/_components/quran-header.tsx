@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Icon } from "@/components/ui/icon";
 import { Input } from "@/components/ui/input";
 
-export function QuranHeader() {
+export default function QuranHeader() {
 	const insets = useSafeAreaInsets();
 	const router = useRouter();
 

@@ -4,7 +4,7 @@ import { View } from "react-native";
 import { Icon } from "@/components/ui/icon";
 import { Text } from "@/components/ui/text";
 import { themes, useTheme } from "@/contexts/theme-context";
-import { QuranContentCard } from "./quran-content-card";
+import QuranContentCard from "./quran-content-card";
 
 export const feels = [
 	{ title: "Happy", slug: "happy" },
@@ -33,7 +33,7 @@ export const feels = [
 	{ title: "Enthusiastic", slug: "enthusiastic" },
 ];
 
-export function QuranFeels() {
+export default function QuranFeels() {
 	const { currentTheme } = useTheme();
 	const selectedTheme = themes[currentTheme];
 

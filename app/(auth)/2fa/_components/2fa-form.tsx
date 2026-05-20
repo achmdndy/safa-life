@@ -8,7 +8,7 @@ import { Text } from "@/components/ui/text";
 import { themes, useTheme } from "@/contexts/theme-context";
 import { useTwoFAForm } from "../_hooks/use-2fa-form";
 
-export function TwoFAForm() {
+export default function TwoFAForm() {
 	const { currentTheme } = useTheme();
 	const selectedTheme = themes[currentTheme];
 	const { t } = useTranslation("twoFa");

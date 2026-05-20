@@ -7,9 +7,9 @@ import { Button } from "@/components/ui/button";
 import { Icon } from "@/components/ui/icon";
 import { Separator } from "@/components/ui/separator";
 import { Text } from "@/components/ui/text";
-import { LoginForm } from "./_components/login-form";
-import { LoginHeader } from "./_components/login-header";
-import { LoginSocials } from "./_components/login-socials";
+import LoginForm from "./_components/login-form";
+import LoginHeader from "./_components/login-header";
+import LoginSocials from "./_components/login-socials";
 
 export const HEADER_MAX_HEIGHT = 320;
 export const HEADER_MIN_HEIGHT = 160;

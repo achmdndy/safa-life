@@ -9,7 +9,7 @@ import {
 import { Text, View } from "react-native";
 import { Icon } from "@/components/ui/icon";
 import { themes, useTheme } from "@/contexts/theme-context";
-import { HomeFeatureCard } from "./home-feature-card";
+import HomeFeatureCard from "./home-feature-card";
 
 export const dailyDeen = [
 	{
@@ -50,7 +50,7 @@ export const dailyDeen = [
 	},
 ];
 
-export function HomeDailyDeen() {
+export default function HomeDailyDeen() {
 	const { currentTheme } = useTheme();
 	const selectedTheme = themes[currentTheme];
 
